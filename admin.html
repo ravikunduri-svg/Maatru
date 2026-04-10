@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navya — Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="navya-config.js"></script>
+  <style>
+    body { margin: 0; background: #f4f4ef; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+    /* ── Shell ── */
+    .adm-shell { min-height: 100dvh; display: flex; flex-direction: column; }
+
+    /* ── Top bar ── */
+    .adm-topbar {
+      background: #fff; border-bottom: 1px solid #e8e9e3;
+      padding: .875rem 1.5rem; display: flex; align-items: center;
+      justify-content: space-between; position: sticky; top: 0; z-index: 50;
+    }
+    .adm-topbar-logo { display: flex; align-items: center; gap: .625rem; }
+    .adm-topbar-icon {
+      width: 36px; height: 36px; background: #c6edbf;
+      border-radius: 10px; display: flex; align-items: center;
+      justify-content: center; color: #466743;
+    }
+    .adm-topbar-icon .material-symbols-outlined { font-size: 20px; }
+    .adm-topbar-title { font-family: 'Noto Serif', serif; font-size: 1.0625rem; font-weight: 700; color: #30332f; }
+    .adm-topbar-sub { font-size: .625rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #5d605b; }
+    .adm-topbar-right { display: flex; align-items: center; gap: 1rem; font-size: .8125rem; color: #5d605b; }
+    .adm-logout-btn { background: none; border: 1px solid #e8e9e3; border-radius: .5rem; padding: .375rem .75rem; cursor: pointer; font-size: .8125rem; font-weight: 600; color: #5d605b; font-family: inherit; }
+    .adm-logout-btn:hover { background: #f4f4ef; }
+
+    /* ── Main layout ── */
+    .adm-main { flex: 1; max-width: 1280px; margin: 0 auto; width: 100%; padding: 1.5rem; box-sizing: border-box; }
+
+    /* ── Auth / Error screens ── */
+    .adm-center { display: flex; align-items: center; justify-content: center; min-height: 80dvh; }
+    .adm-auth-card {
+      background: #fff; border-radius: 1rem; padding: 2rem 2rem;
+      width: 100%; max-width: 380px; box-shadow: 0 4px 24px rgba(48,51,47,.08);
+      text-align: center;
+    }
+    .adm-auth-logo { width: 52px; height: 52px; background: #c6edbf; border-radius: .875rem; display: flex; align-items: center; justify-content: center; margin: 0 auto .875rem; color: #466743; }
+    .adm-auth-logo .material-symbols-outlined { font-size: 26px; }
+    .adm-auth-title { font-family: 'Noto Serif', serif; font-size: 1.5rem; color: #30332f; margin: 0 0 .25rem; }
+    .adm-auth-sub { font-size: .875rem; color: #5d605b; margin: 0 0 1.5rem; }
+    .adm-input { width: 100%; padding: .875rem 1rem; box-sizing: border-box; border: 1.5px solid #e8e9e3; border-radius: .75rem; font-size: .9375rem; font-family: inherit; color: #30332f; background: #fff; outline: none; margin-bottom: .75rem; }
+    .adm-input:focus { border-color: #466743; }
+    .adm-btn-primary { width: 100%; padding: .875rem 1.5rem; background: #466743; color: #fff; border: none; border-radius: .75rem; font-size: .9375rem; font-weight: 700; cursor: pointer; font-family: inherit; }
+    .adm-btn-primary:hover { background: #3a5b38; }
+    .adm-btn-primary:disabled { opacity: .6; cursor: not-allowed; }
+    .adm-error-msg { font-size: .8125rem; color: #a73b21; background: rgba(167,59,33,.07); border-radius: .5rem; padding: .5rem .75rem; margin-bottom: .75rem; text-align: left; }
+    .adm-access-denied { background: rgba(167,59,33,.06); border-radius: .875rem; padding: 1.25rem; margin-top: 1rem; text-align: left; }
+    .adm-access-denied pre { font-size: .75rem; background: #f4f4ef; border-radius: .5rem; padding: .625rem; margin: .5rem 0 0; overflow-x: auto; }
+
+    /* ── Summary cards ── */
+    .adm-summary { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+    @media (max-width: 768px) { .adm-summary { grid-template-columns: repeat(2, 1fr); } }
+    .adm-stat-card { background: #fff; border-radius: .875rem; padding: 1.125rem 1rem; box-shadow: 0 2px 8px rgba(48,51,47,.05); }
+    .adm-stat-val { font-size: 2rem; font-weight: 800; color: #30332f; line-height: 1; margin-bottom: .2rem; }
+    .adm-stat-label { font-size: .6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #797c76; margin-bottom: .15rem; }
+    .adm-stat-sub { font-size: .6875rem; color: #797c76; }
+
+    /* ── Tabs ── */
+    .adm-tabs { display: flex; gap: .375rem; margin-bottom: 1.25rem; background: #fff; border-radius: .875rem; padding: .375rem; box-shadow: 0 2px 8px rgba(48,51,47,.05); width: fit-content; }
+    .adm-tab { padding: .5rem 1.125rem; border: none; border-radius: .625rem; font-size: .875rem; font-weight: 600; cursor: pointer; background: transparent; color: #797c76; font-family: inherit; transition: all .2s; }
+    .adm-tab.active { background: #466743; color: #fff; }
+
+    /* ── Search ── */
+    .adm-search-wrap { margin-bottom: 1rem; position: relative; }
+    .adm-search { width: 100%; max-width: 320px; padding: .625rem .875rem .625rem 2.25rem; border: 1.5px solid #e8e9e3; border-radius: .75rem; font-size: .875rem; font-family: inherit; color: #30332f; outline: none; box-sizing: border-box; background: #fff; }
+    .adm-search:focus { border-color: #466743; }
+    .adm-search-icon { position: absolute; left: .625rem; top: 50%; transform: translateY(-50%); color: #797c76; font-size: 1.125rem; }
+
+    /* ── Table ── */
+    .adm-table-wrap { background: #fff; border-radius: .875rem; overflow: hidden; box-shadow: 0 2px 8px rgba(48,51,47,.05); }
+    .adm-table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+    .adm-table th { background: #f4f4ef; padding: .75rem 1rem; text-align: left; font-size: .6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #797c76; white-space: nowrap; }
+    .adm-table td { padding: .75rem 1rem; border-top: 1px solid #f4f4ef; color: #30332f; vertical-align: middle; }
+    .adm-table tr.clickable { cursor: pointer; transition: background .15s; }
+    .adm-table tr.clickable:hover td { background: #f9f9f7; }
+    .adm-avatar { width: 32px; height: 32px; border-radius: 50%; background: #c6edbf; color: #466743; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: .875rem; flex-shrink: 0; }
+    .adm-avatar-rose { background: #ffdad4; color: #7d554f; }
+    .adm-name-cell { display: flex; align-items: center; gap: .625rem; }
+    .adm-pill { display: inline-flex; align-items: center; padding: .175rem .5rem; border-radius: 999px; font-size: .6875rem; font-weight: 700; }
+    .adm-pill-green  { background: #c6edbf; color: #274626; }
+    .adm-pill-yellow { background: #fef3c7; color: #78450a; }
+    .adm-pill-red    { background: #fde8e3; color: #7a1e0a; }
+    .adm-pill-grey   { background: #e8e9e3; color: #5d605b; }
+    .adm-mini-mood { font-size: 1.125rem; }
+    .adm-empty { padding: 3rem; text-align: center; color: #797c76; }
+
+    /* ── Bar chart (symptoms tab) ── */
+    .adm-bar-list { display: flex; flex-direction: column; gap: .625rem; }
+    .adm-bar-row { display: flex; align-items: center; gap: .75rem; }
+    .adm-bar-label { font-size: .8125rem; color: #30332f; width: 200px; flex-shrink: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .adm-bar-track { flex: 1; height: 10px; background: #e8e9e3; border-radius: 999px; overflow: hidden; }
+    .adm-bar-fill { height: 100%; border-radius: 999px; background: #466743; transition: width .4s; }
+    .adm-bar-fill.red    { background: #a73b21; }
+    .adm-bar-fill.yellow { background: #d97706; }
+    .adm-bar-count { font-size: .8125rem; font-weight: 700; color: #5d605b; width: 40px; text-align: right; }
+    .adm-bar-res { font-size: .6875rem; color: #797c76; width: 80px; text-align: right; }
+
+    /* ── User detail panel ── */
+    .adm-detail { background: #fff; border-radius: .875rem; padding: 1.5rem; box-shadow: 0 2px 8px rgba(48,51,47,.05); }
+    .adm-back-btn { display: flex; align-items: center; gap: .375rem; background: none; border: none; cursor: pointer; color: #466743; font-weight: 700; font-size: .9375rem; padding: 0; margin-bottom: 1.25rem; font-family: inherit; }
+    .adm-user-hero { display: flex; align-items: flex-start; gap: 1rem; padding: 1.125rem; background: #f4f4ef; border-radius: .875rem; margin-bottom: 1.25rem; flex-wrap: wrap; }
+    .adm-user-hero-avatar { width: 52px; height: 52px; border-radius: 50%; background: #c6edbf; color: #466743; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.25rem; flex-shrink: 0; }
+    .adm-user-hero-name { font-family: 'Noto Serif', serif; font-size: 1.25rem; color: #30332f; font-weight: 700; }
+    .adm-user-hero-meta { font-size: .8125rem; color: #5d605b; margin-top: .2rem; }
+    .adm-detail-chips { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .5rem; }
+    .adm-section-title { font-size: .6875rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #797c76; margin: 1.25rem 0 .625rem; }
+    .adm-ci-row { display: flex; gap: .625rem; padding: .625rem 0; border-top: 1px solid #f4f4ef; align-items: flex-start; font-size: .8125rem; flex-wrap: wrap; }
+    .adm-ci-date { width: 90px; flex-shrink: 0; color: #797c76; }
+    .adm-ci-mood { font-size: 1.125rem; flex-shrink: 0; }
+    .adm-ci-sym  { display: flex; gap: .3rem; flex-wrap: wrap; flex: 1; }
+    .adm-ci-note { flex: 1; color: #5d605b; font-style: italic; min-width: 120px; }
+    .adm-graph-wrap { overflow-x: auto; }
+
+    /* ── Toast ── */
+    .adm-toast {
+      position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%) translateY(20px);
+      background: #30332f; color: #fff; border-radius: .875rem;
+      padding: .75rem 1.25rem; font-size: .875rem; font-weight: 600;
+      z-index: 999; opacity: 0; pointer-events: none;
+      transition: opacity .25s, transform .25s;
+    }
+    .adm-toast.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* ── Loading spinner ── */
+    .adm-loading { display: flex; align-items: center; justify-content: center; padding: 3rem; gap: .75rem; color: #797c76; }
+    @keyframes adm-spin { to { transform: rotate(360deg); } }
+    .adm-spin { animation: adm-spin 1s linear infinite; }
+  </style>
+</head>
+<body>
+
+<div class="adm-shell">
+  <header class="adm-topbar" id="adm-topbar" style="display:none;">
+    <div class="adm-topbar-logo">
+      <div class="adm-topbar-icon"><span class="material-symbols-outlined">spa</span></div>
+      <div>
+        <div class="adm-topbar-title">Navya Admin</div>
+        <div class="adm-topbar-sub">Management dashboard</div>
+      </div>
+    </div>
+    <div class="adm-topbar-right">
+      <span id="adm-admin-email" style="font-size:.8125rem;color:#797c76;"></span>
+      <button class="adm-logout-btn" onclick="admLogout()">Sign out</button>
+    </div>
+  </header>
+
+  <main id="adm-root">
+    <!-- admin.js renders everything here -->
+    <div class="adm-center">
+      <div class="adm-loading">
+        <span class="material-symbols-outlined adm-spin" style="font-size:2rem;color:#c6edbf;">refresh</span>
+        Loading…
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="adm-toast" id="adm-toast"></div>
+
+<script src="admin.js"></script>
+</body>
+</html>
