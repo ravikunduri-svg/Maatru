@@ -112,6 +112,23 @@ const DB = {
       last_feed_ack:   null,
     });
   },
+  getSymptomTrack(slug) {
+    return DB.get('navya_symptom_track_' + slug, null);
+  },
+  saveSymptomTrack(slug, data) {
+    return DB.set('navya_symptom_track_' + slug, data);
+  },
+  getAllSymptomTracks() {
+    var result = [];
+    for (var i = 0; i < localStorage.length; i++) {
+      var key = localStorage.key(i);
+      if (key && key.startsWith('navya_symptom_track_')) {
+        try { result.push(JSON.parse(localStorage.getItem(key))); }
+        catch (e) { /* skip */ }
+      }
+    }
+    return result.sort(function(a, b) { return (a.first_seen_date > b.first_seen_date) ? -1 : 1; });
+  },
 };
 
 /* ─────────────────────────────────────────────────────────────
@@ -717,6 +734,17 @@ function showSymptomDetail(slug) {
   var card = allCards.find(function(c) { return c.slug === slug; });
   if (!card) { showSymptomList(); return; }
 
+  // Auto-record first encounter if not already tracked
+  var track = DB.getSymptomTrack(slug);
+  if (!track) {
+    var day = getCurrentDay();
+    track = { slug: slug, title: card.title_user || card.title || slug,
+               first_seen_date: getTodayISO(), first_seen_day: day,
+               status: 'ongoing', resolved_date: null, resolved_day: null,
+               days_to_resolve: null, note: '' };
+    DB.saveSymptomTrack(slug, track);
+  }
+
   var pillCls = card.severity === 'red'
     ? 'pill" style="background:var(--error-container);color:var(--error);"'
     : card.severity === 'green' ? 'pill pill-green"' : 'pill pill-yellow"';
@@ -755,8 +783,93 @@ function showSymptomDetail(slug) {
     (flagsHtml ? '<div class="red-flags"><div class="rf-header"><span class="material-symbols-outlined">warning</span> Red flags — see a doctor if...</div><ul class="rf-list">' + flagsHtml + '</ul></div>' : '') +
 
     (card.when_to_expect ? '<div style="background:rgba(198,237,191,.15);border-radius:.75rem;padding:.875rem;margin-bottom:1.25rem;display:flex;gap:.5rem;"><span class="material-symbols-outlined" style="color:var(--primary);font-size:1.125rem;flex-shrink:0;margin-top:.1rem;">hourglass_empty</span><div><p style="font-size:.8125rem;font-weight:700;color:var(--on-surface);margin-bottom:.2rem;">When to expect improvement</p><p style="font-size:.8125rem;color:var(--on-surface-var);line-height:1.55;">' + esc(card.when_to_expect) + '</p></div></div>' : '') +
+
+    renderSymptomTracker(slug) +
     '</div>'
   );
+}
+
+function renderSymptomTracker(slug) {
+  var track = DB.getSymptomTrack(slug);
+  if (!track) return '';
+
+  var sinceLabel = 'First logged: Day ' + track.first_seen_day + ' (' + track.first_seen_date + ')';
+
+  if (track.status === 'resolved') {
+    var daysLabel = track.days_to_resolve === 0
+      ? 'Resolved same day'
+      : 'Resolved in ' + track.days_to_resolve + ' day' + (track.days_to_resolve !== 1 ? 's' : '');
+    return (
+      '<div class="sym-tracker resolved">' +
+        '<div class="sym-tracker-header">' +
+          '<span class="material-symbols-outlined">check_circle</span>' +
+          '<span>' + daysLabel + '</span>' +
+        '</div>' +
+        '<div class="sym-tracker-meta">' + esc(sinceLabel) + ' · Resolved ' + esc(track.resolved_date) + '</div>' +
+        (track.note ? '<div class="sym-tracker-note">' + esc(track.note) + '</div>' : '') +
+        '<button class="sym-tracker-reopen" onclick="symptomMarkOngoing(\'' + esc(slug) + '\')">Mark as ongoing again</button>' +
+      '</div>'
+    );
+  }
+
+  var daysOngoing = getCurrentDay() - track.first_seen_day;
+  var ongoingLabel = daysOngoing <= 0 ? 'Noticed today' : 'Ongoing for ' + daysOngoing + ' day' + (daysOngoing !== 1 ? 's' : '');
+
+  return (
+    '<div class="sym-tracker ongoing">' +
+      '<div class="sym-tracker-header">' +
+        '<span class="material-symbols-outlined">pending</span>' +
+        '<span>Track this issue</span>' +
+      '</div>' +
+      '<div class="sym-tracker-meta">' + esc(sinceLabel) + ' · ' + ongoingLabel + '</div>' +
+      '<textarea class="sym-tracker-input" id="sym-note-' + esc(slug) + '" placeholder="Optional note (e.g. what helped…)" rows="2">' + esc(track.note || '') + '</textarea>' +
+      '<div class="sym-tracker-actions">' +
+        '<button class="sym-btn-resolved" onclick="symptomMarkResolved(\'' + esc(slug) + '\')">' +
+          '<span class="material-symbols-outlined">check_circle</span> Resolved' +
+        '</button>' +
+        '<button class="sym-btn-ongoing" onclick="symptomSaveNote(\'' + esc(slug) + '\')">' +
+          '<span class="material-symbols-outlined">save</span> Save note' +
+        '</button>' +
+      '</div>' +
+    '</div>'
+  );
+}
+
+function symptomMarkResolved(slug) {
+  var track = DB.getSymptomTrack(slug);
+  if (!track) return;
+  var noteEl = document.getElementById('sym-note-' + slug);
+  var today  = getTodayISO();
+  var day    = getCurrentDay();
+  track.status         = 'resolved';
+  track.resolved_date  = today;
+  track.resolved_day   = day;
+  track.days_to_resolve = Math.max(0, day - track.first_seen_day);
+  track.note           = noteEl ? noteEl.value.trim() : track.note;
+  DB.saveSymptomTrack(slug, track);
+  showSymptomDetail(slug);
+  showToast('Marked as resolved in ' + track.days_to_resolve + ' day' + (track.days_to_resolve !== 1 ? 's' : '') + '.');
+}
+
+function symptomMarkOngoing(slug) {
+  var track = DB.getSymptomTrack(slug);
+  if (!track) return;
+  track.status        = 'ongoing';
+  track.resolved_date = null;
+  track.resolved_day  = null;
+  track.days_to_resolve = null;
+  DB.saveSymptomTrack(slug, track);
+  showSymptomDetail(slug);
+}
+
+function symptomSaveNote(slug) {
+  var track  = DB.getSymptomTrack(slug);
+  if (!track) return;
+  var noteEl = document.getElementById('sym-note-' + slug);
+  if (!noteEl) return;
+  track.note = noteEl.value.trim();
+  DB.saveSymptomTrack(slug, track);
+  showToast('Note saved.');
 }
 
 function loadCards(afterSlug) {
@@ -977,10 +1090,45 @@ function showNotes() {
     '</div>';
   }).join('');
 
+  // --- symptom resolution stats ---
+  var tracks = DB.getAllSymptomTracks();
+  var statsHtml = '';
+  if (tracks.length) {
+    var resolved  = tracks.filter(function(t) { return t.status === 'resolved'; });
+    var ongoing   = tracks.filter(function(t) { return t.status === 'ongoing'; });
+    var avgDays   = resolved.length
+      ? Math.round(resolved.reduce(function(s, t) { return s + (t.days_to_resolve || 0); }, 0) / resolved.length)
+      : null;
+
+    var trackRows = tracks.map(function(t) {
+      var isResolved = t.status === 'resolved';
+      return '<div class="sym-stat-row">' +
+        '<div class="sym-stat-name">' + esc(t.title) + '</div>' +
+        '<div class="sym-stat-badge ' + (isResolved ? 'resolved' : 'ongoing') + '">' +
+          (isResolved
+            ? '<span class="material-symbols-outlined">check_circle</span> ' + t.days_to_resolve + 'd'
+            : '<span class="material-symbols-outlined">pending</span> ongoing') +
+        '</div>' +
+      '</div>';
+    }).join('');
+
+    statsHtml =
+      '<div class="sym-stats-card">' +
+        '<div class="sym-stats-header"><span class="material-symbols-outlined">bar_chart</span> Symptom outcomes</div>' +
+        '<div class="sym-stats-summary">' +
+          '<div class="sym-stat-chip"><span>' + resolved.length + '</span>resolved</div>' +
+          '<div class="sym-stat-chip ongoing"><span>' + ongoing.length + '</span>ongoing</div>' +
+          (avgDays !== null ? '<div class="sym-stat-chip avg"><span>' + avgDays + 'd</span>avg to resolve</div>' : '') +
+        '</div>' +
+        '<div class="sym-stat-list">' + trackRows + '</div>' +
+      '</div>';
+  }
+
   setContent(
     '<div>' +
     '<h1 style="font-family:var(--font-head);font-size:1.75rem;color:var(--on-surface);margin-bottom:.375rem;">My journal</h1>' +
     '<p style="font-size:.875rem;color:var(--on-surface-var);margin-bottom:1.25rem;">' + checkins.length + ' check-in' + (checkins.length!==1?'s':'') + ' logged</p>' +
+    statsHtml +
     '<div class="note-timeline">' + items + '</div>' +
     '</div>'
   );

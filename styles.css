@@ -2227,3 +2227,106 @@ a, button {
   padding: .375rem 0; margin-bottom: 1rem;
 }
 .back-btn .material-symbols-outlined { font-size: 1.125rem; }
+
+/* ─── SYMPTOM RESOLUTION TRACKER ────────────────────────────── */
+.sym-tracker {
+  border-radius: .875rem;
+  padding: 1rem 1.125rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.sym-tracker.ongoing {
+  background: rgba(255,218,212,.18);
+  border: 1.5px solid rgba(125,85,79,.15);
+}
+.sym-tracker.resolved {
+  background: rgba(198,237,191,.18);
+  border: 1.5px solid rgba(70,103,67,.18);
+}
+.sym-tracker-header {
+  display: flex; align-items: center; gap: .45rem;
+  font-weight: 700; font-size: .9375rem;
+  color: var(--on-surface);
+  margin-bottom: .4rem;
+}
+.sym-tracker.ongoing .sym-tracker-header .material-symbols-outlined { color: var(--secondary); }
+.sym-tracker.resolved .sym-tracker-header .material-symbols-outlined { color: var(--primary); }
+.sym-tracker-meta {
+  font-size: .75rem; color: var(--on-surface-var);
+  margin-bottom: .75rem; line-height: 1.4;
+}
+.sym-tracker-input {
+  width: 100%; box-sizing: border-box;
+  border: 1.5px solid rgba(70,103,67,.22);
+  border-radius: .625rem; padding: .625rem .75rem;
+  font-size: .875rem; font-family: inherit;
+  background: rgba(255,255,255,.6);
+  color: var(--on-surface);
+  resize: vertical; min-height: 3rem;
+  margin-bottom: .75rem;
+}
+.sym-tracker-input:focus { outline: none; border-color: var(--primary); }
+.sym-tracker-actions { display: flex; gap: .625rem; flex-wrap: wrap; }
+.sym-btn-resolved, .sym-btn-ongoing {
+  display: flex; align-items: center; gap: .35rem;
+  padding: .5rem 1rem; border-radius: 2rem;
+  font-size: .8125rem; font-weight: 700; cursor: pointer; border: none;
+}
+.sym-btn-resolved {
+  background: var(--primary); color: #fff;
+}
+.sym-btn-resolved:active { opacity: .85; }
+.sym-btn-ongoing {
+  background: rgba(70,103,67,.1); color: var(--primary);
+}
+.sym-btn-ongoing:active { opacity: .75; }
+.sym-tracker-note {
+  font-size: .8125rem; color: var(--on-surface-var);
+  font-style: italic; margin-bottom: .5rem; line-height: 1.45;
+}
+.sym-tracker-reopen {
+  background: none; border: none; cursor: pointer;
+  font-size: .75rem; color: var(--on-surface-var);
+  text-decoration: underline; padding: 0; margin-top: .25rem;
+}
+
+/* ─── SYMPTOM OUTCOMES STATS (Journal screen) ───────────────── */
+.sym-stats-card {
+  background: var(--surface);
+  border: 1.5px solid rgba(70,103,67,.15);
+  border-radius: .875rem;
+  padding: 1rem 1.125rem;
+  margin-bottom: 1.5rem;
+}
+.sym-stats-header {
+  display: flex; align-items: center; gap: .4rem;
+  font-weight: 700; font-size: .9375rem;
+  color: var(--on-surface); margin-bottom: .875rem;
+}
+.sym-stats-header .material-symbols-outlined { color: var(--primary); font-size: 1.125rem; }
+.sym-stats-summary { display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: .875rem; }
+.sym-stat-chip {
+  display: flex; align-items: center; gap: .3rem;
+  background: rgba(198,237,191,.22);
+  border-radius: 2rem; padding: .3rem .75rem;
+  font-size: .75rem; font-weight: 600; color: var(--primary);
+}
+.sym-stat-chip span { font-size: .9375rem; font-weight: 700; }
+.sym-stat-chip.ongoing { background: rgba(255,218,212,.22); color: var(--secondary); }
+.sym-stat-chip.avg { background: rgba(70,103,67,.08); color: var(--on-surface); }
+.sym-stat-list { display: flex; flex-direction: column; gap: .5rem; }
+.sym-stat-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: .5rem;
+}
+.sym-stat-name {
+  font-size: .8125rem; color: var(--on-surface); flex: 1; line-height: 1.3;
+}
+.sym-stat-badge {
+  display: flex; align-items: center; gap: .25rem;
+  font-size: .75rem; font-weight: 700; white-space: nowrap;
+  padding: .2rem .6rem; border-radius: 2rem;
+}
+.sym-stat-badge.resolved { background: rgba(198,237,191,.35); color: var(--primary); }
+.sym-stat-badge.ongoing  { background: rgba(255,218,212,.35); color: var(--secondary); }
+.sym-stat-badge .material-symbols-outlined { font-size: .875rem; }
