@@ -723,7 +723,7 @@ function showSymptomList() {
   setContent(
     '<div>' +
     '<div class="page-header"><h1>Breastfeeding<br>symptoms</h1><p>Tap the symptom that feels closest to what you\'re experiencing.</p></div>' +
-    html +
+    '<div class="symptom-list-grid">' + html + '</div>' +
     '<div class="encouragement-card"><h4>You\'re doing great, Mama.</h4><p>It\'s normal to have questions. We\'re here for every feed.</p><span class="material-symbols-outlined deco">favorite</span></div>' +
     '</div>'
   );
