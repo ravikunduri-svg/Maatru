@@ -29,6 +29,10 @@
       if (!ok) return noop();
       return _cli.auth.signInWithPassword({ email: email, password: pw });
     },
+    signInAnonymously: function () {
+      if (!ok) return noop();
+      return _cli.auth.signInAnonymously();
+    },
     signOut: function () {
       if (!ok) return noop();
       return _cli.auth.signOut();

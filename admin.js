@@ -143,7 +143,9 @@ function loadAllData() {
 /* ── Dashboard ──────────────────────────────────────────────── */
 function renderDashboard() {
   // Aggregate stats
-  var totalUsers   = _profiles.filter(function (p) { return !p.is_admin; }).length;
+  var nonAdminProfiles = _profiles.filter(function (p) { return !p.is_admin; });
+  var totalUsers   = nonAdminProfiles.length;
+  var guestUsers   = nonAdminProfiles.filter(function (p) { return p.is_guest; }).length;
   var totalCIs     = _checkins.length;
   var moodedCIs    = _checkins.filter(function (c) { return c.mood; });
   var avgMood      = moodedCIs.length
@@ -155,7 +157,7 @@ function renderDashboard() {
 
   var html =
     '<div class="adm-main">' +
-    summaryHtml(totalUsers, totalCIs, avgMood, resRate) +
+    summaryHtml(totalUsers, guestUsers, totalCIs, avgMood, resRate) +
     '<div class="adm-tabs">' +
       tabBtn('users',    'group',       'Users')    +
       tabBtn('symptoms', 'favorite',    'Symptoms') +
@@ -168,9 +170,10 @@ function renderDashboard() {
   showTab(_activeTab);
 }
 
-function summaryHtml(users, cis, avgMood, resRate) {
+function summaryHtml(users, guests, cis, avgMood, resRate) {
+  var registered = users - guests;
   return '<div class="adm-summary">' +
-    statCard(users,       'Total users',    'active moms') +
+    statCard(users,       'Total users',    registered + ' registered · ' + guests + ' guest') +
     statCard(cis,         'Check-ins',      'total logged') +
     statCard(avgMood + ' / 5', 'Avg mood', 'across all check-ins') +
     statCard(resRate + '%',    'Resolution rate', resolved + ' of ' + _tracks.length + ' issues cleared') +
@@ -247,10 +250,14 @@ function renderUserRows(profiles, q) {
     var initial = (p.mom_name||'M')[0].toUpperCase();
     var isRose  = (p.delivery_type === 'csection');
 
+    var subLabel = p.is_guest
+      ? '<span class="adm-pill adm-pill-grey" style="font-size:.625rem;">Guest</span>'
+      : '<span style="color:#797c76;">' + esc(p.email||'') + '</span>';
+
     return '<tr class="clickable" onclick="showUserDetail(\'' + p.id + '\')">' +
       '<td><div class="adm-name-cell"><div class="adm-avatar ' + (isRose?'adm-avatar-rose':'') + '">' + esc(initial) + '</div>' +
         '<div><div style="font-weight:700;font-size:.875rem;">' + esc(p.mom_name||'Unknown') + '</div>' +
-        '<div style="font-size:.6875rem;color:#797c76;">' + esc(p.email||'') + '</div></div></div></td>' +
+        '<div style="font-size:.6875rem;margin-top:.1rem;">' + subLabel + '</div></div></div></td>' +
       '<td>' + (day ? '<span class="adm-pill adm-pill-grey">Day ' + day + '</span>' : '—') + '</td>' +
       '<td>' + (lastCI ? formatDate(lastCI.date) : '<span style="color:#797c76;">Never</span>') + '</td>' +
       '<td><strong>' + cis.length + '</strong></td>' +
@@ -387,7 +394,10 @@ function showUserDetail(uid) {
       '<div class="adm-user-hero-avatar">' + esc(initial) + '</div>' +
       '<div style="flex:1;">' +
         '<div class="adm-user-hero-name">' + esc(profile.mom_name||'Unknown') + '</div>' +
-        '<div class="adm-user-hero-meta">' + esc(profile.email||'') + ' · ' + esc(profile.delivery_type==='csection'?'C-section':'Normal delivery') + ' · ' + (day?'Day '+day:'Day ?') + '</div>' +
+        '<div class="adm-user-hero-meta">' +
+          (profile.is_guest ? '<span class="adm-pill adm-pill-grey" style="margin-right:.375rem;">Guest</span>' : esc(profile.email||'') + ' · ') +
+          esc(profile.delivery_type==='csection'?'C-section':'Normal delivery') + ' · ' + (day?'Day '+day:'Day ?') +
+        '</div>' +
         '<div class="adm-detail-chips">' +
           '<span class="adm-pill adm-pill-grey">' + userCIs.length + ' check-ins</span>' +
           (avgM ? '<span class="adm-pill adm-pill-green">' + moodEmoji(avgM) + ' ' + avgM.toFixed(1) + ' avg mood</span>' : '') +

@@ -1567,7 +1567,7 @@ function showLogin() {
         '<div id="auth-error" class="auth-error" style="display:none;"></div>' +
         '<button class="ob-cta" id="auth-submit-btn" onclick="authSubmit()">' + (_authMode==='login'?'Sign in':'Create account') + '</button>' +
       '</div>' +
-      // no skip button when Supabase is configured
+      '<button class="auth-skip" onclick="skipLogin()">Continue as guest</button>' +
     '</div></div>'
   );
 }
@@ -1614,11 +1614,29 @@ function authSubmit() {
 }
 
 function skipLogin() {
-  localStorage.setItem('navya_skip_login', '1');
-  initApp();
+  if (window.SB && SB.isReady()) {
+    var btn = document.querySelector('.auth-skip');
+    if (btn) { btn.disabled = true; btn.textContent = 'Connecting…'; }
+    SB.signInAnonymously().then(function (result) {
+      var user = result && result.data && result.data.user;
+      if (user) {
+        onLoggedIn(user, true);
+      } else {
+        // anon auth not enabled — fallback offline
+        localStorage.setItem('navya_skip_login', '1');
+        initApp();
+      }
+    }).catch(function () {
+      localStorage.setItem('navya_skip_login', '1');
+      initApp();
+    });
+  } else {
+    localStorage.setItem('navya_skip_login', '1');
+    initApp();
+  }
 }
 
-function onLoggedIn(user) {
+function onLoggedIn(user, isGuest) {
   _currentUserId = user.id;
   localStorage.setItem('navya_user_id', user.id);
   setContent(
@@ -1631,6 +1649,9 @@ function onLoggedIn(user) {
     SB.loadProfile(user.id).then(function (profile) {
       if (!profile || !profile.birth_date) {
         localStorage.removeItem('navya_onboarded');
+      }
+      if (isGuest) {
+        SB.saveProfile(user.id, { is_guest: true });
       }
       initApp();
     }).catch(function () { initApp(); });
