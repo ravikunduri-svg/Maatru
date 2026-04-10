@@ -55,11 +55,13 @@ const PHASES = [
    2. STATE
    ──────────────────────────────────────────────────────────── */
 
-let allCards   = [];
-let mealPlan   = [];
-let currentDay = 1;
-let voiceRec   = null;
-let notifMgr   = null;
+let allCards        = [];
+let mealPlan        = [];
+let currentDay      = 1;
+let voiceRec        = null;
+let notifMgr        = null;
+let _currentUserId  = null;   // set on Supabase login
+let _authMode       = 'login'; // 'login' | 'signup'
 
 /* ─────────────────────────────────────────────────────────────
    3. localStorage helpers (DB)
@@ -84,6 +86,7 @@ const DB = {
       birthDate:    DB.get('navya_birth_date', null),
       partnerPIN:   DB.get('navya_partner_pin', null),
       partnerName:  DB.get('navya_partner_name', 'Partner'),
+      partnerToken: DB.get('navya_partner_token', null),
     };
   },
   getCheckin(isoDate) {
@@ -157,6 +160,7 @@ function route(hash) {
 
   switch (base) {
     case 'onboarding': showOnboarding();                               break;
+    case 'login':      showLogin();                                     break;
     case 'home':       showHome();                                      break;
     case 'checkin':    showCheckin();                                   break;
     case 'symptoms':   showSymptomList();                               break;
@@ -164,6 +168,7 @@ function route(hash) {
     case 'meal-plan':  loadMealPlan(null);                              break;
     case 'meal-day':   showMealDay(parseInt(param, 10) || currentDay); break;
     case 'notes':      showNotes();                                     break;
+    case 'journey':    showJourney();                                   break;
     case 'settings':   showSettings();                                  break;
     default:           showHome();
   }
@@ -173,7 +178,9 @@ window.addEventListener('hashchange', function() { route(location.hash); });
 
 function setNavActive(base) {
   document.querySelectorAll('.nb-btn').forEach(function(b) { b.classList.remove('active'); });
-  var map = { home: 'nb-home', checkin: 'nb-checkin', symptoms: 'nb-symptoms', 'meal-plan': 'nb-meal', notes: 'nb-meal', settings: 'nb-settings' };
+  var map = { home: 'nb-home', checkin: 'nb-checkin', symptoms: 'nb-symptoms', symptom: 'nb-symptoms',
+              'meal-plan': 'nb-meal', 'meal-day': 'nb-meal', notes: 'nb-home',
+              journey: 'nb-journey', settings: 'nb-settings' };
   var id = map[base];
   if (id) { var el = document.getElementById(id); if (el) el.classList.add('active'); }
 }
@@ -500,7 +507,7 @@ function showHome() {
    8. SCREEN — CHECK-IN
    ──────────────────────────────────────────────────────────── */
 
-var _ciState = { symptoms: [], mood: null, note: '', voiceText: '' };
+var _ciState = { symptoms: [], symptomTimes: {}, mood: null, note: '', voiceText: '' };
 var _voiceBlob = null;
 
 function showCheckin() {
@@ -510,12 +517,13 @@ function showCheckin() {
   var vrOk  = VoiceRecorder.isSupported();
 
   if (prev) {
-    _ciState.symptoms  = prev.symptoms  || [];
-    _ciState.mood      = prev.mood      || null;
-    _ciState.note      = prev.note_text || '';
-    _ciState.voiceText = prev.voice_transcript || '';
+    _ciState.symptoms     = prev.symptoms      || [];
+    _ciState.symptomTimes = prev.symptom_times || {};
+    _ciState.mood         = prev.mood          || null;
+    _ciState.note         = prev.note_text     || '';
+    _ciState.voiceText    = prev.voice_transcript || '';
   } else {
-    _ciState = { symptoms: [], mood: null, note: '', voiceText: '' };
+    _ciState = { symptoms: [], symptomTimes: {}, mood: null, note: '', voiceText: '' };
   }
 
   var sympHtml = CHECK_IN_SYMPTOMS.map(function(s) {
@@ -588,10 +596,11 @@ function buildReassurance(day, hasRed) {
       '<p class="rc-body">You\'ve noted a symptom that needs prompt attention. Please contact your midwife, lactation consultant, or doctor today.</p>' +
     '</div>';
   }
+  var dateLabel = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short' });
   return '<div class="reassurance-card" id="ci-reassurance">' +
     '<div class="rc-icon"><span class="material-symbols-outlined">favorite</span></div>' +
     '<h3 class="rc-title">You\'re doing great, Mama.</h3>' +
-    '<p class="rc-body">Day ' + day + ' — you\'re showing up. That\'s everything. Every check-in is a step forward.</p>' +
+    '<p class="rc-body">Day ' + day + ' \u00b7 ' + dateLabel + ' — you\'re showing up. That\'s everything.</p>' +
   '</div>';
 }
 
@@ -599,10 +608,12 @@ function ciToggle(el, slug) {
   var idx = _ciState.symptoms.indexOf(slug);
   if (idx > -1) {
     _ciState.symptoms.splice(idx, 1);
+    delete _ciState.symptomTimes[slug];
     el.classList.remove('checked');
     el.setAttribute('aria-checked','false');
   } else {
     _ciState.symptoms.push(slug);
+    _ciState.symptomTimes[slug] = new Date().toISOString();
     el.classList.add('checked');
     el.setAttribute('aria-checked','true');
   }
@@ -673,21 +684,29 @@ function ciSave() {
     date:             today,
     day:              day,
     symptoms:         _ciState.symptoms.slice(),
+    symptom_times:    Object.assign({}, _ciState.symptomTimes),
     mood:             _ciState.mood,
     note_text:        _ciState.note,
     voice_transcript: _ciState.voiceText,
     saved_at:         new Date().toISOString(),
   };
 
+  function afterSave(rec) {
+    DB.saveCheckin(today, rec);
+    if (window.SB && SB.isReady() && _currentUserId) {
+      SB.saveCheckin(_currentUserId, rec).catch(function(){});
+    }
+  }
+
   if (_voiceBlob) {
     var reader = new FileReader();
     reader.onloadend = function() {
       record.voice_b64 = reader.result;
-      DB.saveCheckin(today, record);
+      afterSave(record);
     };
     reader.readAsDataURL(_voiceBlob);
   } else {
-    DB.saveCheckin(today, record);
+    afterSave(record);
   }
 
   _voiceBlob = null;
@@ -734,6 +753,11 @@ function showSymptomDetail(slug) {
   var card = allCards.find(function(c) { return c.slug === slug; });
   if (!card) { showSymptomList(); return; }
 
+  // Log guide view for analytics
+  if (window.SB && SB.isReady() && _currentUserId) {
+    SB.logGuideView(_currentUserId, slug).catch(function(){});
+  }
+
   // Auto-record first encounter if not already tracked
   var track = DB.getSymptomTrack(slug);
   if (!track) {
@@ -743,6 +767,9 @@ function showSymptomDetail(slug) {
                status: 'ongoing', resolved_date: null, resolved_day: null,
                days_to_resolve: null, note: '' };
     DB.saveSymptomTrack(slug, track);
+    if (window.SB && SB.isReady() && _currentUserId) {
+      SB.saveSymptomTrack(_currentUserId, track).catch(function(){});
+    }
   }
 
   var pillCls = card.severity === 'red'
@@ -847,6 +874,7 @@ function symptomMarkResolved(slug) {
   track.days_to_resolve = Math.max(0, day - track.first_seen_day);
   track.note           = noteEl ? noteEl.value.trim() : track.note;
   DB.saveSymptomTrack(slug, track);
+  if (window.SB && SB.isReady() && _currentUserId) { SB.saveSymptomTrack(_currentUserId, track).catch(function(){}); }
   showSymptomDetail(slug);
   showToast('Marked as resolved in ' + track.days_to_resolve + ' day' + (track.days_to_resolve !== 1 ? 's' : '') + '.');
 }
@@ -859,6 +887,7 @@ function symptomMarkOngoing(slug) {
   track.resolved_day  = null;
   track.days_to_resolve = null;
   DB.saveSymptomTrack(slug, track);
+  if (window.SB && SB.isReady() && _currentUserId) { SB.saveSymptomTrack(_currentUserId, track).catch(function(){}); }
   showSymptomDetail(slug);
 }
 
@@ -869,6 +898,7 @@ function symptomSaveNote(slug) {
   if (!noteEl) return;
   track.note = noteEl.value.trim();
   DB.saveSymptomTrack(slug, track);
+  if (window.SB && SB.isReady() && _currentUserId) { SB.saveSymptomTrack(_currentUserId, track).catch(function(){}); }
   showToast('Note saved.');
 }
 
@@ -1170,15 +1200,46 @@ function showSettings() {
         '<div class="settings-row"><div class="sr-icon sr-icon-rose"><span class="material-symbols-outlined">group</span></div><div class="sr-body"><div class="sr-title">' + esc(profile.partnerName) + '</div><div class="sr-sub">' + (profile.partnerPIN ? 'PIN set — partner can view daily log' : 'No PIN set — partner cannot access yet') + '</div></div></div>' +
         (!profile.partnerPIN ? '<div class="settings-row"><div class="sr-icon sr-icon-grey"><span class="material-symbols-outlined">lock</span></div><div class="sr-body"><div class="sr-title">Set partner PIN</div></div><div class="sr-action"><button style="font-size:.875rem;color:var(--primary);background:none;border:none;font-weight:700;cursor:pointer;" onclick="settingsSetPIN()">Set</button></div></div>' : '') +
       '</div>' +
-      '<div style="margin-top:.875rem;">' +
-        '<a class="settings-partner-link" href="partner.html" target="_blank" rel="noopener">' +
-          '<span class="material-symbols-outlined">open_in_new</span> Open partner view' +
-        '</a>' +
+      settingsPartnerLinkRow() +
+      '<p style="font-size:.75rem;color:var(--on-surface-var);text-align:center;margin-top:.5rem;line-height:1.55;">PIN is a convenience gate on a shared device. If Supabase is configured, share the link above for secure read-only access from any device.</p>' +
+    '</div>' +
+
+    '<div class="settings-section">' +
+      '<div class="settings-section-label">Account</div>' +
+      '<div class="settings-card">' +
+        (_currentUserId
+          ? '<div class="settings-row"><div class="sr-icon sr-icon-green"><span class="material-symbols-outlined">cloud_done</span></div><div class="sr-body"><div class="sr-title">Synced with Supabase</div><div class="sr-sub">Your data is backed up.</div></div></div>' +
+            '<div class="settings-row"><div class="sr-icon sr-icon-grey"><span class="material-symbols-outlined">logout</span></div><div class="sr-body"><div class="sr-title">Sign out</div></div><div class="sr-action"><button style="font-size:.875rem;color:var(--error);background:none;border:none;font-weight:700;cursor:pointer;" onclick="authLogout()">Sign out</button></div></div>'
+          : '<div class="settings-row"><div class="sr-icon sr-icon-grey"><span class="material-symbols-outlined">cloud_off</span></div><div class="sr-body"><div class="sr-title">Offline / local only</div><div class="sr-sub">Data stored on this device only.</div></div><div class="sr-action"><button style="font-size:.875rem;color:var(--primary);background:none;border:none;font-weight:700;cursor:pointer;" onclick="navigate(\'#login\')">Sign in</button></div></div>'
+        ) +
       '</div>' +
-      '<p style="font-size:.75rem;color:var(--on-surface-var);text-align:center;margin-top:.5rem;line-height:1.55;">The PIN is a convenience gate for a shared device, not encryption. Data is stored in browser localStorage and readable by anyone with device access.</p>' +
     '</div>' +
     '</div>'
   );
+}
+
+function settingsPartnerLinkRow() {
+  var token  = DB.get('navya_partner_token', null);
+  var origin = (typeof location !== 'undefined') ? location.origin + location.pathname.replace(/[^/]*$/, '') : '';
+  var link   = token ? origin + 'partner.html?token=' + token : null;
+  return '<div style="margin-top:.875rem;display:flex;flex-direction:column;gap:.5rem;">' +
+    '<a class="settings-partner-link" href="partner.html" target="_blank" rel="noopener">' +
+      '<span class="material-symbols-outlined">open_in_new</span> Open partner view (same device)' +
+    '</a>' +
+    (link
+      ? '<button class="settings-partner-link" style="cursor:pointer;" onclick="copyPartnerLink(\'' + esc(link) + '\')">' +
+          '<span class="material-symbols-outlined">share</span> Copy shareable link' +
+        '</button>'
+      : '') +
+  '</div>';
+}
+
+function copyPartnerLink(link) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(link).then(function () { showToast('Partner link copied!'); });
+  } else {
+    showToast('Link: ' + link);
+  }
 }
 
 function settingsToggleFeed(enabled) {
@@ -1464,28 +1525,355 @@ NotifManager.prototype.savePrefs = function(overrides) {
    15. INIT
    ──────────────────────────────────────────────────────────── */
 
-document.addEventListener('DOMContentLoaded', function() {
+/* ─────────────────────────────────────────────────────────────
+   16. AUTH SCREENS (Login / Signup)
+   ──────────────────────────────────────────────────────────── */
+
+function showLogin() {
+  var nav = document.querySelector('.nav-bottom');
+  if (nav) nav.style.display = 'none';
+  var configured = window.SB && SB.isReady();
+
+  if (!configured) {
+    setContent(
+      '<div class="auth-wrap">' +
+      '<div class="auth-card">' +
+        '<div class="auth-logo"><span class="material-symbols-outlined">spa</span></div>' +
+        '<h1 class="auth-title">Navya</h1>' +
+        '<p class="auth-sub">Postpartum care companion</p>' +
+        '<div class="auth-offline-notice">' +
+          '<p style="font-weight:700;margin-bottom:.25rem;">Offline mode</p>' +
+          '<p style="font-size:.8125rem;color:var(--on-surface-var);">Supabase is not configured. Your data is saved locally on this device only.</p>' +
+        '</div>' +
+        '<button class="ob-cta" onclick="skipLogin()">Continue without account</button>' +
+      '</div></div>'
+    );
+    return;
+  }
+
+  setContent(
+    '<div class="auth-wrap">' +
+    '<div class="auth-card">' +
+      '<div class="auth-logo"><span class="material-symbols-outlined">spa</span></div>' +
+      '<h1 class="auth-title">Navya</h1>' +
+      '<p class="auth-sub">Postpartum care companion</p>' +
+      '<div class="auth-tabs">' +
+        '<button class="auth-tab ' + (_authMode==='login'?'active':'') + '" onclick="setAuthMode(\'login\')">Sign in</button>' +
+        '<button class="auth-tab ' + (_authMode==='signup'?'active':'') + '" onclick="setAuthMode(\'signup\')">Create account</button>' +
+      '</div>' +
+      '<div class="auth-form">' +
+        '<input class="auth-input" id="auth-email" type="email" placeholder="Email address" autocomplete="email" />' +
+        '<input class="auth-input" id="auth-pw" type="password" placeholder="Password (min 6 chars)" autocomplete="' + (_authMode==='signup'?'new-password':'current-password') + '" />' +
+        '<div id="auth-error" class="auth-error" style="display:none;"></div>' +
+        '<button class="ob-cta" id="auth-submit-btn" onclick="authSubmit()">' + (_authMode==='login'?'Sign in':'Create account') + '</button>' +
+      '</div>' +
+      '<button class="auth-skip" onclick="skipLogin()">Skip — use without account</button>' +
+    '</div></div>'
+  );
+}
+
+function setAuthMode(mode) {
+  _authMode = mode;
+  showLogin();
+}
+
+function authSubmit() {
+  var emailEl = document.getElementById('auth-email');
+  var pwEl    = document.getElementById('auth-pw');
+  var errEl   = document.getElementById('auth-error');
+  var btn     = document.getElementById('auth-submit-btn');
+  if (!emailEl || !pwEl) return;
+
+  var email = emailEl.value.trim();
+  var pw    = pwEl.value;
+  if (!email || !pw) {
+    if (errEl) { errEl.textContent = 'Please enter your email and password.'; errEl.style.display = ''; }
+    return;
+  }
+  if (btn) btn.disabled = true;
+  if (errEl) errEl.style.display = 'none';
+
+  var promise = _authMode === 'signup' ? SB.signUp(email, pw) : SB.signIn(email, pw);
+  promise.then(function (result) {
+    if (result && result.error) {
+      if (errEl) { errEl.textContent = result.error.message; errEl.style.display = ''; }
+      if (btn) btn.disabled = false;
+      return;
+    }
+    var user = result && result.data && result.data.user;
+    if (user) {
+      onLoggedIn(user);
+    } else if (_authMode === 'signup') {
+      if (errEl) { errEl.textContent = 'Account created — check your email to confirm, then sign in.'; errEl.style.display = ''; }
+      if (btn) btn.disabled = false;
+    }
+  }).catch(function (e) {
+    if (errEl) { errEl.textContent = e.message || 'An error occurred. Please try again.'; errEl.style.display = ''; }
+    if (btn) btn.disabled = false;
+  });
+}
+
+function skipLogin() {
+  localStorage.setItem('navya_skip_login', '1');
+  initApp();
+}
+
+function onLoggedIn(user) {
+  _currentUserId = user.id;
+  localStorage.setItem('navya_user_id', user.id);
+  setContent(
+    '<div style="display:flex;align-items:center;justify-content:center;height:60vh;flex-direction:column;gap:1rem;">' +
+    '<span class="material-symbols-outlined" style="font-size:2rem;color:var(--primary-container);animation:spin 1s linear infinite;">refresh</span>' +
+    '<p style="font-size:.875rem;color:var(--on-surface-var);">Syncing your data\u2026</p>' +
+    '</div>'
+  );
+  SB.syncDown(user.id).then(function () { initApp(); });
+}
+
+function authLogout() {
+  if (window.SB && SB.isReady()) SB.signOut();
+  _currentUserId = null;
+  localStorage.removeItem('navya_user_id');
+  localStorage.removeItem('navya_skip_login');
+  var nav = document.querySelector('.nav-bottom');
+  if (nav) nav.style.display = 'none';
+  showLogin();
+}
+
+/* ─────────────────────────────────────────────────────────────
+   17. JOURNEY — North star metrics, mood graph, symptom cloud
+   ──────────────────────────────────────────────────────────── */
+
+function showJourney() {
+  var checkins = DB.getAllCheckins();
+  var tracks   = DB.getAllSymptomTracks();
+
+  if (!checkins.length) {
+    setContent(
+      '<div>' +
+      '<h1 style="font-family:var(--font-head);font-size:1.75rem;color:var(--on-surface);margin-bottom:.375rem;">Your journey</h1>' +
+      '<p style="font-size:.875rem;color:var(--on-surface-var);margin-bottom:2rem;">40 days of healing, one check-in at a time.</p>' +
+      '<div class="notes-empty"><span class="material-symbols-outlined">insights</span>' +
+        '<p>No data yet.</p><p style="font-size:.75rem;margin-top:.25rem;">Complete your first daily check-in to start tracking.</p>' +
+        '<button class="ob-cta" style="margin-top:1.25rem;" onclick="navigate(\'#checkin\')">Start check-in</button>' +
+      '</div></div>'
+    );
+    return;
+  }
+
+  setContent(
+    '<div>' +
+    '<h1 style="font-family:var(--font-head);font-size:1.75rem;color:var(--on-surface);margin-bottom:.25rem;">Your journey</h1>' +
+    '<p style="font-size:.875rem;color:var(--on-surface-var);margin-bottom:1.5rem;">' + checkins.length + ' check-in' + (checkins.length!==1?'s':'') + ' · Day ' + getCurrentDay() + ' of 40</p>' +
+
+    '<div class="journey-section">' + buildNorthStar(checkins, tracks) + '</div>' +
+
+    '<div class="journey-section">' + buildMoodGraph(checkins) + '</div>' +
+
+    '<div class="journey-section">' +
+      '<h3 style="font-family:var(--font-head);font-size:1rem;color:var(--on-surface);margin-bottom:.75rem;">Symptom frequency</h3>' +
+      '<div class="word-cloud">' + buildWordCloud(checkins) + '</div>' +
+      '<p style="font-size:.6875rem;color:var(--on-surface-var);margin-top:.75rem;">Size = how often logged over your journey.</p>' +
+    '</div>' +
+    '</div>'
+  );
+}
+
+var _moodScore  = { rough: 1, tired: 2, okay: 3, good: 4, great: 5 };
+var _moodColor  = { rough: '#a73b21', tired: '#7d554f', okay: '#797c76', good: '#466743', great: '#274626' };
+
+function buildNorthStar(checkins, tracks) {
+  var today = new Date();
+
+  // Streak: consecutive days ending today
+  var streak = 0;
+  for (var d = 0; d <= 40; d++) {
+    var dt = new Date(today); dt.setDate(dt.getDate() - d);
+    var iso = dt.toISOString().slice(0, 10);
+    if (checkins.some(function (c) { return c.date === iso; })) {
+      streak++;
+    } else if (d > 0) {
+      break;
+    }
+  }
+
+  // Mood trend: avg last 7 days vs prev 7
+  function avgMood(cks) {
+    if (!cks.length) return null;
+    return cks.reduce(function (s, c) { return s + (_moodScore[c.mood] || 3); }, 0) / cks.length;
+  }
+  var recent  = checkins.filter(function (c) { var diff = (today - new Date(c.date)) / 86400000; return diff <= 7 && c.mood; });
+  var prev    = checkins.filter(function (c) { var diff = (today - new Date(c.date)) / 86400000; return diff > 7 && diff <= 14 && c.mood; });
+  var rAvg    = avgMood(recent), pAvg = avgMood(prev);
+  var trendIcon  = rAvg === null ? '\u2014' : pAvg === null ? '\u2192' : rAvg > pAvg + 0.3 ? '\u2191' : rAvg < pAvg - 0.3 ? '\u2193' : '\u2192';
+  var trendLabel = trendIcon === '\u2191' ? 'Improving' : trendIcon === '\u2193' ? 'Declining' : 'Stable';
+  var trendColor = trendIcon === '\u2191' ? '#466743' : trendIcon === '\u2193' ? '#a73b21' : '#797c76';
+
+  // Most common symptom
+  var symCounts = {};
+  checkins.forEach(function (c) { (c.symptoms || []).forEach(function (s) { symCounts[s] = (symCounts[s] || 0) + 1; }); });
+  var topSlug = Object.keys(symCounts).sort(function (a, b) { return symCounts[b] - symCounts[a]; })[0];
+  var topSym  = topSlug ? (CHECK_IN_SYMPTOMS.find(function (s) { return s.slug === topSlug; }) || { label: topSlug }) : null;
+
+  var resolved = tracks.filter(function (t) { return t.status === 'resolved'; }).length;
+
+  return '<div class="metrics-grid">' +
+    '<div class="metric-card">' +
+      '<div class="mc-value">' + streak + '</div>' +
+      '<div class="mc-label">Day streak</div>' +
+      '<div class="mc-sub">' + (streak >= 3 ? 'Keep going!' : 'Check in daily') + '</div>' +
+    '</div>' +
+    '<div class="metric-card">' +
+      '<div class="mc-value" style="color:' + trendColor + '">' + trendIcon + '</div>' +
+      '<div class="mc-label">Mood trend</div>' +
+      '<div class="mc-sub">' + trendLabel + ' · 7 days</div>' +
+    '</div>' +
+    '<div class="metric-card">' +
+      '<div class="mc-value" style="font-size:1rem;line-height:1.2;">' + esc(topSym ? topSym.label : 'None yet') + '</div>' +
+      '<div class="mc-label">Top symptom</div>' +
+      '<div class="mc-sub">' + (topSlug ? symCounts[topSlug] + 'x logged' : 'No symptoms logged') + '</div>' +
+    '</div>' +
+    '<div class="metric-card">' +
+      '<div class="mc-value" style="color:#466743">' + resolved + '</div>' +
+      '<div class="mc-label">Resolved</div>' +
+      '<div class="mc-sub">issues cleared</div>' +
+    '</div>' +
+  '</div>';
+}
+
+function buildMoodGraph(checkins) {
+  var PL = 32, PR = 8, PT = 12, PB = 26;
+  var VW = 360, VH = 158;
+  var W  = VW - PL - PR;
+  var H  = VH - PT - PB;
+
+  function xPos(day) { return PL + (day - 1) / 39 * W; }
+  function yPos(score) { return PT + H - (score - 1) / 4 * H; }
+
+  var sorted = checkins.filter(function (c) { return c.mood && c.day; })
+    .sort(function (a, b) { return a.day - b.day; });
+
+  if (!sorted.length) return '<p style="font-size:.875rem;color:var(--on-surface-var);">Check in daily to see your mood journey.</p>';
+
+  // Build polyline segments (break gap > 5 days)
+  var segments = [], seg = [];
+  for (var i = 0; i < sorted.length; i++) {
+    var c = sorted[i];
+    if (i > 0 && c.day - sorted[i - 1].day > 5) { if (seg.length) { segments.push(seg); seg = []; } }
+    seg.push({ x: xPos(c.day), y: yPos(_moodScore[c.mood] || 3), mood: c.mood });
+  }
+  if (seg.length) segments.push(seg);
+
+  var polylines = segments.filter(function (s) { return s.length > 1; }).map(function (s) {
+    return '<polyline fill="none" stroke="#466743" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55" points="' +
+      s.map(function (p) { return p.x.toFixed(1) + ',' + p.y.toFixed(1); }).join(' ') + '" />';
+  }).join('');
+
+  var circles = sorted.map(function (c) {
+    return '<circle cx="' + xPos(c.day).toFixed(1) + '" cy="' + yPos(_moodScore[c.mood] || 3).toFixed(1) +
+      '" r="4.5" fill="' + (_moodColor[c.mood] || '#466743') + '" stroke="white" stroke-width="1.5" />';
+  }).join('');
+
+  var xGrid = [1, 10, 20, 30, 40].map(function (d) {
+    var x = xPos(d).toFixed(1);
+    return '<line x1="' + x + '" y1="' + PT + '" x2="' + x + '" y2="' + (PT + H) + '" stroke="#e8e9e3" stroke-width="1" />' +
+           '<text x="' + x + '" y="' + (PT + H + 16) + '" text-anchor="middle" font-size="9" fill="#797c76">' + d + '</text>';
+  }).join('');
+
+  var yLabels = [{score:1,label:'\uD83D\uDE14'},{score:3,label:'\uD83D\uDE42'},{score:5,label:'\uD83C\uDF1F'}].map(function (m) {
+    var y = yPos(m.score).toFixed(1);
+    return '<text x="' + (PL - 4) + '" y="' + (parseFloat(y) + 4) + '" text-anchor="end" font-size="11" fill="#797c76">' + m.label + '</text>';
+  }).join('');
+
+  var legend = Object.keys(_moodColor).map(function (k) {
+    return '<span class="graph-legend-item"><span style="background:' + _moodColor[k] + '"></span>' + k.charAt(0).toUpperCase() + k.slice(1) + '</span>';
+  }).join('');
+
+  return '<h3 style="font-family:var(--font-head);font-size:1rem;color:var(--on-surface);margin-bottom:.625rem;">Mood across 40 days</h3>' +
+    '<div class="graph-wrap">' +
+    '<svg viewBox="0 0 ' + VW + ' ' + VH + '" width="100%" style="max-height:200px;display:block;">' +
+      xGrid + yLabels + polylines + circles +
+      '<text x="' + (PL + W / 2).toFixed(1) + '" y="' + (VH - 3) + '" text-anchor="middle" font-size="8" fill="#797c76">day (1–40)</text>' +
+    '</svg>' +
+    '<div class="graph-legend">' + legend + '</div>' +
+    '</div>';
+}
+
+function buildWordCloud(checkins) {
+  var counts = {};
+  checkins.forEach(function (c) {
+    (c.symptoms || []).forEach(function (slug) { counts[slug] = (counts[slug] || 0) + 1; });
+  });
+  var keys = Object.keys(counts);
+  if (!keys.length) return '<p style="font-size:.875rem;color:var(--on-surface-var);">No symptoms logged yet.</p>';
+
+  var maxCount = Math.max.apply(null, keys.map(function (k) { return counts[k]; }));
+  var severityColor = { red: '#a73b21', yellow: '#78450a', green: '#274626' };
+
+  return keys.sort(function (a, b) { return counts[b] - counts[a]; }).map(function (slug) {
+    var sym   = CHECK_IN_SYMPTOMS.find(function (s) { return s.slug === slug; }) || { label: slug, severity: 'green' };
+    var ratio = counts[slug] / maxCount;
+    var size  = (0.8 + ratio * 1.4).toFixed(2);
+    var color = severityColor[sym.severity] || '#466743';
+    var op    = (0.55 + ratio * 0.45).toFixed(2);
+    return '<span class="cloud-word" style="font-size:' + size + 'rem;color:' + color + ';opacity:' + op + ';" title="' + esc(sym.label) + ' (' + counts[slug] + 'x)">' + esc(sym.label) + '</span>';
+  }).join('');
+}
+
+/* ─────────────────────────────────────────────────────────────
+   15. INIT
+   ──────────────────────────────────────────────────────────── */
+
+document.addEventListener('DOMContentLoaded', function () {
   notifMgr = new NotifManager();
 
+  // Preload JSON data in background immediately
+  if (!allCards.length) {
+    fetch('./bf_symptom_cards.json').then(function(r){return r.json();}).then(function(d){allCards=d;}).catch(function(){});
+  }
+  if (!mealPlan.length) {
+    fetch('./meal_plan.json').then(function(r){return r.json();}).then(function(d){mealPlan=d;}).catch(function(){});
+  }
+
+  // Auth check
+  if (window.SB && SB.isReady()) {
+    SB.getSession().then(function (result) {
+      var session = result && result.data && result.data.session;
+      if (session && session.user) {
+        _currentUserId = session.user.id;
+        localStorage.setItem('navya_user_id', session.user.id);
+        initApp();
+      } else if (localStorage.getItem('navya_skip_login')) {
+        initApp();
+      } else {
+        showLogin();
+      }
+    }).catch(function () { initApp(); });
+
+    SB.onAuthChange(function (event, session) {
+      if (event === 'SIGNED_IN' && session && session.user) {
+        _currentUserId = session.user.id;
+      } else if (event === 'SIGNED_OUT') {
+        _currentUserId = null;
+      }
+    });
+  } else {
+    // SB not configured — offline mode
+    initApp();
+  }
+});
+
+function initApp() {
+  var nav = document.querySelector('.nav-bottom');
   if (!DB.get('navya_onboarded')) {
-    var nav = document.querySelector('.nav-bottom');
     if (nav) nav.style.display = 'none';
     obData = {};
     obStep = 1;
     showOnboarding(1);
     return;
   }
-
+  if (nav) nav.style.display = '';
   currentDay = getCurrentDay();
   notifMgr.restoreFromPrefs(DB.getNotifPrefs());
-
   route(location.hash || '#home');
-
-  // Preload JSON data in background
-  if (!allCards.length) {
-    fetch('./bf_symptom_cards.json').then(function(r){ return r.json(); }).then(function(d){ allCards = d; }).catch(function(){});
-  }
-  if (!mealPlan.length) {
-    fetch('./meal_plan.json').then(function(r){ return r.json(); }).then(function(d){ mealPlan = d; }).catch(function(){});
-  }
-});
+}

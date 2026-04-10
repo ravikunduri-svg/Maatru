@@ -13,6 +13,11 @@
 
   <link rel="stylesheet" href="styles.css" />
 
+  <!-- Supabase JS v2 -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="navya-config.js"></script>
+  <script src="supabase-client.js"></script>
+
   <style>
     /* Critical inline: prevent flash of unstyled content */
     body { margin: 0; background: #faf9f5; }
@@ -49,7 +54,7 @@
   </div>
 </main>
 
-<!-- BOTTOM NAV — 5 tabs -->
+<!-- BOTTOM NAV — 6 tabs -->
 <nav class="nav-bottom" aria-label="Main navigation">
   <div class="nav-bottom-row">
     <button class="nb-btn" id="nb-home" onclick="navigate('#home')" aria-label="Home">
@@ -67,6 +72,10 @@
     <button class="nb-btn" id="nb-meal" onclick="navigate('#meal-plan')" aria-label="Meal plan">
       <span class="material-symbols-outlined">restaurant_menu</span>
       <span class="nb-label">Meals</span>
+    </button>
+    <button class="nb-btn" id="nb-journey" onclick="navigate('#journey')" aria-label="Journey">
+      <span class="material-symbols-outlined">insights</span>
+      <span class="nb-label">Journey</span>
     </button>
     <button class="nb-btn" id="nb-settings" onclick="navigate('#settings')" aria-label="Settings">
       <span class="material-symbols-outlined">tune</span>
