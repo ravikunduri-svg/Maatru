@@ -1567,7 +1567,7 @@ function showLogin() {
         '<div id="auth-error" class="auth-error" style="display:none;"></div>' +
         '<button class="ob-cta" id="auth-submit-btn" onclick="authSubmit()">' + (_authMode==='login'?'Sign in':'Create account') + '</button>' +
       '</div>' +
-      '<button class="auth-skip" onclick="skipLogin()">Skip — use without account</button>' +
+      // no skip button when Supabase is configured
     '</div></div>'
   );
 }
@@ -1627,7 +1627,14 @@ function onLoggedIn(user) {
     '<p style="font-size:.875rem;color:var(--on-surface-var);">Syncing your data\u2026</p>' +
     '</div>'
   );
-  SB.syncDown(user.id).then(function () { initApp(); });
+  SB.syncDown(user.id).then(function () {
+    SB.loadProfile(user.id).then(function (profile) {
+      if (!profile || !profile.birth_date) {
+        localStorage.removeItem('navya_onboarded');
+      }
+      initApp();
+    }).catch(function () { initApp(); });
+  });
 }
 
 function authLogout() {
@@ -1843,12 +1850,10 @@ document.addEventListener('DOMContentLoaded', function () {
         _currentUserId = session.user.id;
         localStorage.setItem('navya_user_id', session.user.id);
         initApp();
-      } else if (localStorage.getItem('navya_skip_login')) {
-        initApp();
       } else {
-        showLogin();
+        showLogin();  // SB configured — always require login
       }
-    }).catch(function () { initApp(); });
+    }).catch(function () { showLogin(); });
 
     SB.onAuthChange(function (event, session) {
       if (event === 'SIGNED_IN' && session && session.user) {
