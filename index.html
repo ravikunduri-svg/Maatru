@@ -1,283 +1,103 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Postpartum Guide</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="theme-color" content="#faf9f5" />
+  <title>Navya — Postpartum Care</title>
+  <link rel="manifest" href="manifest.json" />
 
-  <!-- Google Fonts: Noto Serif (headlines) + Plus Jakarta Sans (body) -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <!-- Material Symbols icon font -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-    rel="stylesheet"
-  />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
 
-  <!-- Tailwind CSS (CDN – replace with a local build for production) -->
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-
-  <!-- ─── Design-system tokens ──────────────────────────────────────────── -->
-  <script>
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            /* Surface hierarchy */
-            "surface":                  "#faf9f5",
-            "surface-bright":           "#faf9f5",
-            "surface-dim":              "#d9dbd5",
-            "surface-container-lowest": "#ffffff",
-            "surface-container-low":    "#f4f4ef",
-            "surface-container":        "#eeeee9",
-            "surface-container-high":   "#e8e9e3",
-            "surface-container-highest":"#e1e3dd",
-            "surface-variant":          "#e1e3dd",
-            "surface-tint":             "#466743",
-            /* Primary – Sage Green */
-            "primary":            "#466743",
-            "primary-container":  "#c6edbf",
-            "primary-fixed":      "#c6edbf",
-            "primary-fixed-dim":  "#b9dfb2",
-            "primary-dim":        "#3a5b38",
-            "on-primary":         "#eaffe3",
-            "on-primary-container": "#395937",
-            "on-primary-fixed":   "#274626",
-            "on-primary-fixed-variant": "#426340",
-            "inverse-primary":    "#ccf3c5",
-            /* Secondary – Dusty Rose */
-            "secondary":          "#7d554f",
-            "secondary-container":"#ffdad4",
-            "secondary-fixed":    "#ffdad4",
-            "secondary-fixed-dim":"#fdc8c0",
-            "secondary-dim":      "#704943",
-            "on-secondary":       "#fff7f6",
-            "on-secondary-container": "#6e4842",
-            "on-secondary-fixed": "#593630",
-            "on-secondary-fixed-variant": "#79524b",
-            /* Tertiary */
-            "tertiary":           "#5d632f",
-            "tertiary-container": "#f8ffbc",
-            "tertiary-fixed":     "#f8ffbc",
-            "tertiary-fixed-dim": "#eaf0af",
-            "tertiary-dim":       "#515724",
-            "on-tertiary":        "#f8febc",
-            "on-tertiary-container": "#5d632f",
-            "on-tertiary-fixed":  "#4b501f",
-            "on-tertiary-fixed-variant": "#676e39",
-            /* Error */
-            "error":              "#a73b21",
-            "error-container":    "#fd795a",
-            "error-dim":          "#791903",
-            "on-error":           "#fff7f6",
-            "on-error-container": "#6e1400",
-            /* Neutral */
-            "background":         "#faf9f5",
-            "on-background":      "#30332f",
-            "on-surface":         "#30332f",
-            "on-surface-variant": "#5d605b",
-            "outline":            "#797c76",
-            "outline-variant":    "#b0b3ad",
-            "inverse-surface":    "#0d0f0d",
-            "inverse-on-surface": "#9d9d9a",
-          },
-          borderRadius: {
-            DEFAULT: "0.25rem",
-            lg:   "0.5rem",
-            xl:   "0.75rem",
-            "2xl":"1rem",
-            "3xl":"1.5rem",
-            full: "9999px",
-          },
-          fontFamily: {
-            headline: ["Noto Serif", "serif"],
-            body:     ["Plus Jakarta Sans", "sans-serif"],
-            label:    ["Plus Jakarta Sans", "sans-serif"],
-          },
-        },
-      },
-    };
-  </script>
-
-  <!-- ─── Link to your shared stylesheet (create styles.css next) ───────── -->
-  <!-- CHANGE PATH if styles.css moves to a sub-folder, e.g. "css/styles.css" -->
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Inline base styles (keep minimal – styles.css owns the rest) -->
   <style>
-    /* Icon font rendering */
-    .material-symbols-outlined {
-      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    }
-    /* Base typography */
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      min-height: max(884px, 100dvh);
-    }
-    h1, h2, h3 {
-      font-family: 'Noto Serif', serif;
-    }
+    /* Critical inline: prevent flash of unstyled content */
+    body { margin: 0; background: #faf9f5; }
+    #app-root { min-height: calc(100dvh - 144px); }
   </style>
 </head>
+<body>
 
-<body class="bg-surface text-on-surface min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<!-- Ambient glows (decorative, pointer-events-none) -->
+<div aria-hidden="true" style="position:fixed;top:15%;left:-6rem;width:20rem;height:20rem;background:rgba(198,237,191,.12);border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;"></div>
+<div aria-hidden="true" style="position:fixed;bottom:12%;right:-6rem;width:24rem;height:24rem;background:rgba(255,218,212,.08);border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;"></div>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       TOP APP BAR
-       Fixed header with glassmorphism as per DESIGN.md "Glass & Gradient Signature"
-  ════════════════════════════════════════════════════════════════════════════ -->
-  <header
-    id="top-bar"
-    class="fixed top-0 left-0 w-full z-50
-           bg-stone-50/80 dark:bg-stone-900/80
-           backdrop-blur-xl
-           shadow-[0_1px_0_rgba(48,51,47,0.06)]"
-  >
-    <div class="flex items-center justify-between px-6 h-20 max-w-2xl mx-auto w-full">
-
-      <!-- Left: Logo + App name -->
-      <div class="flex items-center gap-3">
-        <div class="w-10 h-10 flex items-center justify-center rounded-xl bg-primary-container text-primary">
-          <span class="material-symbols-outlined" style="font-size:22px;">spa</span>
-        </div>
-        <div>
-          <h1 class="text-lg font-semibold tracking-tight text-on-surface font-headline leading-tight">
-            Postpartum Guide
-          </h1>
-          <p class="text-[11px] font-medium text-on-surface-variant uppercase tracking-widest font-body">
-            Breastfeeding support
-          </p>
-        </div>
-      </div>
-
-      <!-- Right: User avatar -->
-      <!-- CHANGE: Replace the src URL with your own image path, e.g. "images/avatar.jpg"
-           or remove this block entirely if you don't need a profile photo -->
-      <div class="w-10 h-10 rounded-full overflow-hidden ring-2 ring-primary-fixed ring-offset-2 ring-offset-surface flex-shrink-0">
-        <img
-          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwxhsu3PvdGoGBxdfphPvnd3I6LnilTXectvXkPYs6WryjIenpn0pSDhb2GuP7HRrqfZMZ3_eJ7Xn50oTRZj42YHej5sE7_5mvCdWT5d4FKSky_1cKqq1uiQ7qrmLhY1lnF4Oca0Hkqzqr6KROXQSPM-qGizI1mR7Gdw8RzVpuCyI4rGDSza29EFZFuVR1837l3GbTqp5HsrbQTR693xJoPbHXmEo704B9cIJAHe_nWH0w4mRHx3W1CS1cuAa-RrdqReJFChcVhGqH"
-          alt="User profile"
-          class="w-full h-full object-cover"
-        />
-      </div>
-
+<!-- TOP APP BAR -->
+<header class="nav-top" role="banner">
+  <div class="nav-top-logo">
+    <div class="nav-top-logo-icon">
+      <span class="material-symbols-outlined">spa</span>
     </div>
-  </header>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       MAIN CONTENT CANVAS
-       pt-24  = clears the fixed top bar (80px)
-       pb-32  = clears the fixed bottom nav
-       JavaScript (app.js) renders content into #app-root
-  ════════════════════════════════════════════════════════════════════════════ -->
-  <main
-    id="main-canvas"
-    class="flex-grow max-w-2xl mx-auto w-full"
-  >
-    <!-- ── App Root ────────────────────────────────────────────────────────
-         app.js will inject one of three states into this element:
-           • Symptoms list  (loaded from bf_symptom_cards.json)
-           • Symptom detail (when a card is tapped)
-           • Loading skeleton
-           • Error state
-         Do not put visible content here – JavaScript owns it.
-    ───────────────────────────────────────────────────────────────────────── -->
-    <div id="app-root" aria-live="polite"></div>
-  </main>
-
-
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       BOTTOM NAVIGATION BAR
-       Mobile-first pill nav as per DESIGN.md "Thumb Zone" layout rule.
-       On md+ screens Tailwind hides it (md:hidden) – adjust if you want
-       desktop nav too.
-  ════════════════════════════════════════════════════════════════════════════ -->
-  <nav
-    id="bottom-nav"
-    class="fixed bottom-0 left-0 w-full z-50
-           rounded-t-3xl
-           bg-stone-50/90 dark:bg-stone-900/90
-           backdrop-blur-xl
-           shadow-[0_-4px_24px_rgba(48,51,47,0.06)]"
-    aria-label="Main navigation"
-  >
-    <div class="flex justify-around items-center px-4 pt-3 pb-8 max-w-2xl mx-auto">
-
-      <!-- ── Symptoms tab (ACTIVE) ──────────────────────────────────────── -->
-      <!-- app.js adds/removes the active styles via data-nav="symptoms" -->
-      <button
-        id="nav-symptoms"
-        data-nav="symptoms"
-        aria-label="Symptoms"
-        aria-current="page"
-        class="flex flex-col items-center justify-center
-               bg-primary-container/60 text-primary
-               rounded-full px-6 py-2.5
-               transition-all duration-300 active:scale-95"
-      >
-        <span
-          class="material-symbols-outlined mb-0.5"
-          style="font-variation-settings:'FILL' 1;"
-        >health_metrics</span>
-        <span class="text-[11px] font-semibold tracking-wide uppercase font-label">Symptoms</span>
-      </button>
-
-      <!-- ── Positions tab (DISABLED placeholder) ───────────────────────── -->
-      <!-- Remove "disabled" attribute and update aria when Positions screen is built -->
-      <button
-        id="nav-positions"
-        data-nav="positions"
-        aria-label="Positions – coming soon"
-        disabled
-        class="flex flex-col items-center justify-center
-               text-on-surface-variant opacity-40
-               rounded-full px-6 py-2.5
-               cursor-not-allowed"
-      >
-        <span class="material-symbols-outlined mb-0.5">self_care</span>
-        <span class="text-[11px] font-medium tracking-wide uppercase font-label">Positions</span>
-      </button>
-
-      <!-- ── More tab (DISABLED placeholder) ───────────────────────────── -->
-      <!-- Remove "disabled" attribute and update aria when More screen is built -->
-      <button
-        id="nav-more"
-        data-nav="more"
-        aria-label="More – coming soon"
-        disabled
-        class="flex flex-col items-center justify-center
-               text-on-surface-variant opacity-40
-               rounded-full px-6 py-2.5
-               cursor-not-allowed"
-      >
-        <span class="material-symbols-outlined mb-0.5">more_horiz</span>
-        <span class="text-[11px] font-medium tracking-wide uppercase font-label">More</span>
-      </button>
-
+    <div>
+      <div class="nav-top-app-name">Navya</div>
+      <div class="nav-top-sub">Postpartum care</div>
     </div>
-  </nav>
+  </div>
+  <div id="top-bar-right">
+    <!-- app.js injects: day badge or avatar -->
+  </div>
+</header>
 
+<!-- MAIN CONTENT — app.js owns everything inside #app-root -->
+<main id="app-root" aria-live="polite" role="main">
+  <!-- Loading placeholder, replaced immediately by app.js -->
+  <div style="display:flex;align-items:center;justify-content:center;height:60vh;">
+    <span class="material-symbols-outlined" style="font-size:2.5rem;color:var(--primary-container);animation:spin 1s linear infinite;">refresh</span>
+  </div>
+</main>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       AMBIENT BACKGROUND GLOWS
-       Decorative blobs as per DESIGN.md "Glass & Gradient Signature".
-       pointer-events-none so they never block taps.
-  ════════════════════════════════════════════════════════════════════════════ -->
-  <div aria-hidden="true" class="fixed top-[15%] -left-24 w-80 h-80 bg-primary-container/15 rounded-full blur-[120px] pointer-events-none -z-10"></div>
-  <div aria-hidden="true" class="fixed bottom-[12%] -right-24 w-96 h-96 bg-secondary-container/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+<!-- BOTTOM NAV — 5 tabs -->
+<nav class="nav-bottom" aria-label="Main navigation">
+  <div class="nav-bottom-row">
+    <button class="nb-btn" id="nb-home" onclick="navigate('#home')" aria-label="Home">
+      <span class="material-symbols-outlined">home</span>
+      <span class="nb-label">Home</span>
+    </button>
+    <button class="nb-btn" id="nb-checkin" onclick="navigate('#checkin')" aria-label="Daily check-in">
+      <span class="material-symbols-outlined">health_metrics</span>
+      <span class="nb-label">Check-in</span>
+    </button>
+    <button class="nb-btn" id="nb-symptoms" onclick="navigate('#symptoms')" aria-label="Breastfeeding guide">
+      <span class="material-symbols-outlined">favorite</span>
+      <span class="nb-label">Guide</span>
+    </button>
+    <button class="nb-btn" id="nb-meal" onclick="navigate('#meal-plan')" aria-label="Meal plan">
+      <span class="material-symbols-outlined">restaurant_menu</span>
+      <span class="nb-label">Meals</span>
+    </button>
+    <button class="nb-btn" id="nb-settings" onclick="navigate('#settings')" aria-label="Settings">
+      <span class="material-symbols-outlined">tune</span>
+      <span class="nb-label">Settings</span>
+    </button>
+  </div>
+</nav>
 
+<!-- NOTIFICATION TOAST (shown via NotifManager.showToast) -->
+<div class="notif-toast" id="notif-toast" role="alert" aria-live="assertive">
+  <span class="material-symbols-outlined">notifications</span>
+  <span id="notif-toast-body"></span>
+</div>
 
-  <!-- ═══════════════════════════════════════════════════════════════════════
-       SCRIPTS
-       Load app.js last so the DOM is ready.
-       CHANGE PATH if app.js moves to a sub-folder, e.g. "js/app.js"
-  ════════════════════════════════════════════════════════════════════════════ -->
-  <script src="app.js"></script>
+<style>
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+
+<script src="app.js"></script>
+
+<script>
+// Service Worker registration
+// Works on HTTPS and localhost only — silently skips file:// protocol
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => { window._swReg = reg; })
+      .catch(() => { window._swReg = null; }); // degrade gracefully on file://
+  });
+}
+</script>
 
 </body>
 </html>

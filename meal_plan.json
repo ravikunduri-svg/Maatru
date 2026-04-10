@@ -1,0 +1,2005 @@
+[
+  {
+    "day": 1,
+    "phase": "Phase 1 — Days 1–7",
+    "phase_theme": "Rest, warmth & first healing foods",
+    "mom": {
+      "focus": "Uterine recovery, colostrum support, iron replenishment. Keep everything warm and easy to digest.",
+      "meals": {
+        "breakfast": {
+          "name": "Methi kheer (fenugreek milk pudding)",
+          "why": "Fenugreek triggers prolactin — your milk-making hormone. Warm milk soothes the uterus.",
+          "recipe_tip": "Dry-roast 1 tsp methi seeds, grind to powder. Boil with 1 cup full-fat milk, 1 tsp ghee, jaggery to taste."
+        },
+        "lunch": {
+          "name": "Moong dal khichdi with a big spoon of ghee",
+          "why": "Easiest protein to digest right after birth. Ghee lubricates the gut, reduces constipation risk.",
+          "recipe_tip": "Use yellow moong dal (skinless). Add cumin, turmeric, a pinch of hing. Top with warm ghee at the table."
+        },
+        "dinner": {
+          "name": "Drumstick leaf soup + soft rice",
+          "why": "Drumstick leaves are the richest plant source of calcium and iron — critical for post-birth recovery.",
+          "recipe_tip": "Sauté drumstick leaves with garlic in ghee. Add water, boil 10 mins, strain or serve whole."
+        },
+        "snacks": [
+          "Til (sesame) ladoo — iron + calcium",
+          "Warm ajwain (carom seed) water — reduces gas and bloating",
+          "2–3 soaked dates with almonds"
+        ]
+      },
+      "foods_to_avoid": [
+        "Cold water or cold drinks",
+        "Raw salads and raw vegetables",
+        "Cabbage, cauliflower, broccoli — can cause gas passed to baby via milk",
+        "Spicy curries — wait until day 7+"
+      ],
+      "hydration_tip": "6–8 glasses of warm water daily. Try jeera (cumin) water or ajwain water — both reduce postpartum bloating.",
+      "traditional_note": "South India: Pongal with ghee + drumstick sambar is the classic Day 1 meal. North India: Panjeeri (whole wheat + ghee + dry fruits) given from day 1. East India: Khichuri (rice + lentils) with posto (poppy seeds) for pain relief."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding — colostrum only",
+      "feeds_per_day": "8–12 feeds (every 1.5–2 hours, including at night)",
+      "what_to_expect": "Baby is getting colostrum — thick, golden-yellow, small in quantity. This is perfect. Colostrum is so nutrient-dense that even 1–2 teaspoons per feed is enough. Baby's stomach is the size of a marble today.",
+      "signs_feeding_well": [
+        "Baby swallows after every few sucks — you can hear a soft 'kuh' sound",
+        "At least 1–2 wet diapers in first 24 hours",
+        "Baby seems calm and relaxed after feeding"
+      ],
+      "signs_to_watch": [
+        "Fewer than 1 wet diaper in 24 hours",
+        "Baby seems very lethargic and won't wake to feed",
+        "Baby is losing weight beyond 7% of birth weight"
+      ],
+      "latch_tip": "Baby's mouth should cover most of the areola (dark area), not just the nipple. A wide, deep latch prevents sore nipples. If it hurts after the first 30 seconds, gently break the latch with your finger and try again."
+    }
+  },
+  {
+    "day": 2,
+    "phase": "Phase 1 — Days 1–7",
+    "phase_theme": "Rest, warmth & first healing foods",
+    "mom": {
+      "focus": "Continue warm, soft foods. Iron-rich ingredients are priority. Avoid anything that causes gas.",
+      "meals": {
+        "breakfast": {
+          "name": "Ragi porridge with jaggery and ghee",
+          "why": "Ragi (finger millet) is the highest calcium grain — critical when you're breastfeeding. Jaggery replenishes iron lost during birth.",
+          "recipe_tip": "Mix 2 tbsp ragi flour in cold water, then stir into boiling water. Cook 5 min, add ghee + jaggery."
+        },
+        "lunch": {
+          "name": "Masoor dal (red lentil) soup + soft chapati with ghee",
+          "why": "Masoor dal is the fastest-cooking, easiest-to-digest lentil. High in folate and iron.",
+          "recipe_tip": "Pressure cook masoor dal until very soft. Temper with ghee, cumin, garlic. Skip chilli today."
+        },
+        "dinner": {
+          "name": "Bottle gourd (lauki) sabzi + rice",
+          "why": "Lauki is highly hydrating, cooling (balances post-birth heat), and easy on the gut.",
+          "recipe_tip": "Cook lauki soft with minimal spices — just cumin, turmeric, salt in ghee."
+        },
+        "snacks": [
+          "Halim (garden cress) seeds in warm milk — iron booster",
+          "Dry fruit ladoo with gondh (edible gum) for back support",
+          "Warm turmeric milk before bed"
+        ]
+      },
+      "foods_to_avoid": [
+        "Maida (refined flour) products",
+        "Cold or refrigerated foods",
+        "Tea and coffee — both reduce iron absorption"
+      ],
+      "hydration_tip": "Try saunf (fennel seed) water — boil 1 tsp fennel in 2 cups water, cool to warm, sip through the day. Helps milk let-down and reduces infant gas.",
+      "traditional_note": "Gondh ke ladoo (edible gum + whole wheat + ghee) are a North Indian staple from day 2 onwards — excellent for back pain and lactation. Ask your family to prepare a batch."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding — colostrum",
+      "feeds_per_day": "8–12 feeds",
+      "what_to_expect": "Baby is losing some birth weight today — this is completely normal and expected. Up to 7% weight loss is standard. Baby's stomach has grown to the size of a walnut.",
+      "signs_feeding_well": [
+        "2–3 wet diapers",
+        "Dark meconium (tar-like black stools) starting to lighten to green",
+        "Baby roots and feeds eagerly"
+      ],
+      "signs_to_watch": [
+        "Still no wet diapers",
+        "Baby seems too sleepy to feed — set an alarm to wake baby every 2 hours"
+      ],
+      "latch_tip": "Try the laid-back feeding position if you're sore — lie back at 45°, let baby lie on your chest belly-down. Gravity helps them latch deeply."
+    }
+  },
+  {
+    "day": 3,
+    "phase": "Phase 1 — Days 1–7",
+    "phase_theme": "Rest, warmth & first healing foods",
+    "mom": {
+      "focus": "Day 3 milk surge — your breasts may feel engorged and hard. This is normal. Feed frequently. Stay hydrated.",
+      "meals": {
+        "breakfast": {
+          "name": "Sabudana (sago) khichdi with peanuts and ghee",
+          "why": "Quick energy, easy digestion. Sago is soothing on an engorged day when stress is high.",
+          "recipe_tip": "Soak sabudana overnight. Cook with roasted peanuts, cumin, green chilli optional, ghee. Lemon juice at the end."
+        },
+        "lunch": {
+          "name": "Palak (spinach) dal + rice + papad",
+          "why": "Spinach is your highest plant-based iron source. Pair with vitamin C foods to boost absorption.",
+          "recipe_tip": "Blend cooked spinach into toor dal. Add tomato for vitamin C. Avoid raw spinach — cook it fully."
+        },
+        "dinner": {
+          "name": "Chicken or mutton bone broth + soft rice (non-veg) / Paneer bhurji + roti (veg)",
+          "why": "Bone broth is collagen-rich — supports perineal and abdominal tissue healing. Paneer gives protein + calcium for veg moms.",
+          "recipe_tip": "For broth: slow-cook bones 4–6 hours with ginger, garlic, turmeric. Strain and sip warm."
+        },
+        "snacks": [
+          "Methi ladoo",
+          "Coconut water (room temperature, not chilled)",
+          "Roasted makhana (fox nuts) — light, iron-rich"
+        ]
+      },
+      "foods_to_avoid": [
+        "Skip citrus fruits today if baby seems gassy",
+        "Avoid too much fiber — focus on gentle, cooked foods"
+      ],
+      "hydration_tip": "On engorgement day, drink MORE water — 8–10 glasses. Dehydration worsens engorgement and reduces milk supply.",
+      "traditional_note": "Day 3 engorgement is the #1 reason mothers think their milk is 'too much' or 'too little' — it's neither. It's your body calibrating. This passes by day 5–7."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "8–12 feeds — may feel like constant feeding today",
+      "what_to_expect": "Transitional milk is coming in — yellow-white, more fluid than colostrum. Baby may be fussier and feed more frequently. This is called cluster feeding and it's completely normal — baby is stimulating your supply.",
+      "signs_feeding_well": [
+        "4–6 wet diapers today",
+        "Stools changing from black/green to yellow-mustard",
+        "Baby feeds, seems satisfied, sleeps, wakes to feed again"
+      ],
+      "signs_to_watch": [
+        "Fewer than 4 wet diapers",
+        "Baby crying inconsolably between feeds even after feeding"
+      ],
+      "latch_tip": "On engorgement days, soften the areola before feeding — hand-express a little milk, or use a warm cloth for 2 minutes. A hard, swollen breast makes latching harder for baby."
+    }
+  },
+  {
+    "day": 4,
+    "phase": "Phase 1 — Days 1–7",
+    "phase_theme": "Rest, warmth & first healing foods",
+    "mom": {
+      "focus": "Keep warm. Rest between feeds. Let family do everything else.",
+      "meals": {
+        "breakfast": {
+          "name": "Bajra (pearl millet) khichdi with ghee",
+          "why": "Bajra is warming, iron-rich, and builds stamina for sleep-deprived nights.",
+          "recipe_tip": "Pressure cook bajra with moong dal, salt, turmeric. Top generously with ghee."
+        },
+        "lunch": {
+          "name": "Arhar (toor) dal + rice + any soft vegetable",
+          "why": "Toor dal is your everyday protein base. Rotate vegetables to prevent boredom.",
+          "recipe_tip": "Keep cooking simple — pressure cook dal, add ghee tadka with cumin, garlic."
+        },
+        "dinner": {
+          "name": "Suji (semolina) upma with vegetables",
+          "why": "Easy digestion, comforting, filling without being heavy.",
+          "recipe_tip": "Use fine suji. Add carrots, peas, cashews. Light ghee tadka with mustard seeds."
+        },
+        "snacks": [
+          "Almond and walnut mix (5 almonds + 3 walnuts) — brain-supportive omega-3",
+          "Gond ke ladoo if available",
+          "Warm milk with haldi and a pinch of black pepper"
+        ]
+      },
+      "foods_to_avoid": [
+        "Street food or outside food — still too soon",
+        "Cold drinks and ice cream"
+      ],
+      "hydration_tip": "Keep a water bottle with you during every feed. You may feel suddenly very thirsty while breastfeeding — this is normal. Your body triggers thirst during milk let-down.",
+      "traditional_note": "The 'no cold food' rule in most Indian traditions exists because cold constricts blood vessels — which can slow uterine recovery and milk let-down. It's science wrapped in tradition."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "8–12 feeds",
+      "what_to_expect": "Baby's stools should be transitioning to yellow-mustard by today. Weight loss peaks around day 3–4 and starts recovering from day 5.",
+      "signs_feeding_well": [
+        "5–6 wet diapers",
+        "Yellow stools appearing",
+        "Baby's skin colour looks healthy, not overly yellow"
+      ],
+      "signs_to_watch": [
+        "Deep yellow/orange skin (jaundice) — common, usually harmless, but check with doctor if spreading below chest",
+        "Baby refusing both breasts"
+      ],
+      "latch_tip": "Switch breasts every feed — start with the breast you ended on last time. This ensures both sides are stimulated equally."
+    }
+  },
+  {
+    "day": 5,
+    "phase": "Phase 1 — Days 1–7",
+    "phase_theme": "Rest, warmth & first healing foods",
+    "mom": {
+      "focus": "Engorgement usually peaks and then eases by today. Keep feeding frequently. Celebrate — you've made it to day 5.",
+      "meals": {
+        "breakfast": {
+          "name": "Whole wheat pancakes (tawa roti) with ghee and jaggery",
+          "why": "Whole wheat provides sustained energy. Jaggery's iron is absorbed better than processed sugar.",
+          "recipe_tip": "Simple atta paratha with a thick coating of ghee. No need for anything fancy."
+        },
+        "lunch": {
+          "name": "Chana dal with gourd (turai/ridge gourd) + rice",
+          "why": "Chana dal is protein + fiber. Ridge gourd is cooling and reduces post-birth inflammation.",
+          "recipe_tip": "Pressure cook chana dal. Add sautéed turai with cumin, turmeric. No red chilli."
+        },
+        "dinner": {
+          "name": "Egg curry (soft-cooked) + rice (non-veg) / Rajma (kidney beans) + rice (veg)",
+          "why": "Complete proteins. Eggs especially are the easiest bioavailable protein for postpartum recovery.",
+          "recipe_tip": "For egg curry: poach eggs in a simple onion-tomato-turmeric gravy. Avoid heavy spices."
+        },
+        "snacks": [
+          "Panjeeri — if North Indian tradition",
+          "Banana with warm milk",
+          "Halim seeds soaked in water + jaggery"
+        ]
+      },
+      "foods_to_avoid": [
+        "Fermented foods (idli, dosa) are fine for South Indian moms, but watch if baby seems gassy"
+      ],
+      "hydration_tip": "Today is a good day to add fresh coconut water (room temperature) — hydrating, potassium-rich, and supports blood pressure.",
+      "traditional_note": "Day 5 is when many families do the first ritual bath for the mother in many Indian traditions — warm water infused with neem leaves or herbal mixtures. This is wonderful for skin and mood."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "8–12 feeds",
+      "what_to_expect": "Breastmilk is now fully established. Baby's weight loss should be stopping and recovery beginning. Baby may have a longer sleep stretch of 2–3 hours at night.",
+      "signs_feeding_well": [
+        "6+ wet diapers consistently",
+        "Bright yellow mustard stools — seedy texture is normal",
+        "Baby gaining back weight"
+      ],
+      "signs_to_watch": [
+        "Still losing weight after day 5 — speak to your paediatrician",
+        "Sunken fontanelle (soft spot on head that looks dipped) — sign of dehydration"
+      ],
+      "latch_tip": "If your nipples are sore, apply a few drops of expressed breastmilk after each feed and let it air-dry. Breastmilk has antibacterial properties that help heal cracked nipples faster than any cream."
+    }
+  },
+  {
+    "day": 6,
+    "phase": "Phase 1 — Days 1–7",
+    "phase_theme": "Rest, warmth & first healing foods",
+    "mom": {
+      "focus": "You may feel emotionally low today — this is the 'baby blues' peak. It is hormonal, normal, and almost always resolves by day 10. You are not failing.",
+      "meals": {
+        "breakfast": {
+          "name": "Warm oats porridge with ghee, jaggery, cardamom",
+          "why": "Oats are the most well-researched galactagogue (milk-booster). Cardamom uplifts mood.",
+          "recipe_tip": "Use rolled oats, not instant. Cook with milk, not just water. Add ghee + cardamom + jaggery."
+        },
+        "lunch": {
+          "name": "Mixed dal (toor + moong) + spinach sabzi + rice",
+          "why": "Mixed dals cover a broader amino acid profile. Spinach iron supports energy on emotional days.",
+          "recipe_tip": "Mix cooked toor and moong dal. Add wilted spinach. Simple garlic-ghee tadka."
+        },
+        "dinner": {
+          "name": "Warm kheer (rice pudding) + soft dal + roti",
+          "why": "Kheer is comfort food — serotonin-boosting carbs + warm milk. Exactly what you need on a hard emotional day.",
+          "recipe_tip": "Make with full-fat milk, basmati rice, cardamom, saffron if available. Ghee on roti."
+        },
+        "snacks": [
+          "Saffron milk (2–3 strands saffron in warm milk) — mood-lifting",
+          "Dates + cashews",
+          "Light biscuits or murmura"
+        ]
+      },
+      "foods_to_avoid": [
+        "Avoid any foods that gave baby gas in last 2 days",
+        "Limit tea — caffeine worsens anxiety on emotional days"
+      ],
+      "hydration_tip": "Saffron water — 3 strands saffron in warm water — is a traditional mood-lifter backed by modern research. Drink once daily.",
+      "traditional_note": "Baby blues peak around day 3–5 and ease by day 10 in most women. This is different from postpartum depression. If low mood persists beyond 2 weeks or feels severe, please speak to your doctor."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "8–12 feeds",
+      "what_to_expect": "Baby's eyes may look a little puffy or crusty — this is from the antibiotic eye drops given at birth. Clean gently with warm water and a soft cloth. Baby is becoming more alert between feeds.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Baby makes eye contact briefly during feeding",
+        "Stools are yellow and frequent"
+      ],
+      "signs_to_watch": [
+        "Yellow eyes (whites of the eyes look yellow) — check for jaundice",
+        "Baby extremely sleepy, hard to wake"
+      ],
+      "latch_tip": "Try feeding in a quiet room with low light for evening feeds — it helps baby (and you) settle faster and reduces overtiredness."
+    }
+  },
+  {
+    "day": 7,
+    "phase": "Phase 1 — Days 1–7",
+    "phase_theme": "Rest, warmth & first healing foods",
+    "mom": {
+      "focus": "One full week. You've done it. Your milk is established. Your body is beginning to heal. Celebrate today.",
+      "meals": {
+        "breakfast": {
+          "name": "Poha with peanuts + a glass of warm milk",
+          "why": "Poha is iron-fortified, light, and easy. Peanuts add protein. A complete feel-good breakfast.",
+          "recipe_tip": "Rinse poha, drain. Sauté with mustard, curry leaves, onion, turmeric. Top with lemon + coriander."
+        },
+        "lunch": {
+          "name": "Dal makhani (mild) + rice + cucumber raita",
+          "why": "Dal makhani is protein-rich and comforting. A week in, you can introduce mild spice and raita.",
+          "recipe_tip": "Use very little cream. Skip heavy kasuri methi. Cook the dal very soft."
+        },
+        "dinner": {
+          "name": "Fish curry + rice (non-veg) / Kadhi pakora + rice (veg)",
+          "why": "Fish (especially rohu or pomfret) gives DHA — critical for baby's brain development through breastmilk. Kadhi (yoghurt curry) supports gut health.",
+          "recipe_tip": "Fish curry: light turmeric + coriander base. Avoid too much tamarind today."
+        },
+        "snacks": [
+          "Murmura (puffed rice) chivda",
+          "Fresh fruit — banana, chiku, papaya (fully ripe)",
+          "Til chikki (sesame brittle)"
+        ]
+      },
+      "foods_to_avoid": [
+        "Papaya that isn't fully ripe — raw/semi-ripe papaya can affect milk supply",
+        "Heavy fried snacks"
+      ],
+      "hydration_tip": "Fenugreek tea: boil 1 tsp methi seeds in 2 cups water for 10 minutes, strain, add honey. Drink once daily — well-researched for increasing milk supply.",
+      "traditional_note": "Many families do a 'naming ceremony' or puja on day 7 in various Indian traditions. Let the family handle the arrangements — your only job is to rest and feed."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "8–12 feeds",
+      "what_to_expect": "Baby has usually regained birth weight by day 7–10. Cord stump is drying and will fall off in the next few days. Baby is more awake and responsive. This is the beginning of social connection.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Weight at or approaching birth weight",
+        "Baby tracks your face with their eyes"
+      ],
+      "signs_to_watch": [
+        "Cord stump looks red, smells bad, or has discharge — see paediatrician",
+        "Baby hasn't regained birth weight by day 10"
+      ],
+      "latch_tip": "One week in, your nipples should not be hurting after the first 30 seconds of a feed. If they are, get a latch check from a lactation consultant — most pain is preventable with a small adjustment."
+    }
+  },
+  {
+    "day": 8,
+    "phase": "Phase 2 — Days 8–14",
+    "phase_theme": "Milk establishment & strength building",
+    "mom": {
+      "focus": "Mature milk is now fully established. Focus on galactagogue foods that support supply. You can very slowly add a bit more variety.",
+      "meals": {
+        "breakfast": {
+          "name": "Methi paratha (fenugreek flatbread) with curd",
+          "why": "Methi paratha is the best all-round breakfast for breastfeeding moms — iron, calcium, and prolactin support in one.",
+          "recipe_tip": "Mix 1 tsp methi powder into atta dough. Make thicker parathas. Serve with plain curd (not chilled)."
+        },
+        "lunch": {
+          "name": "Palak paneer + roti + dal",
+          "why": "Paneer = protein + calcium. Spinach = iron. This combo is perfect for rebuild week.",
+          "recipe_tip": "Light palak paneer — no heavy cream. Use 1 tsp ghee, cumin, garlic, blanched spinach, soft paneer cubes."
+        },
+        "dinner": {
+          "name": "Drumstick (moringa) dal + rice",
+          "why": "Moringa leaves have 3x more iron than spinach, 4x more calcium than milk. Week 2 is when to start loading on it.",
+          "recipe_tip": "Pressure cook toor dal. Add drumstick pods OR drumstick leaf paste. Coconut-based tadka for South Indian version."
+        },
+        "snacks": [
+          "Oats energy balls with methi and jaggery",
+          "Sprouted moong salad (lightly stir-fried, not raw)",
+          "Warm saunf water after meals"
+        ]
+      },
+      "foods_to_avoid": [
+        "Raw sprouts — still avoid raw until week 3",
+        "Fizzy drinks"
+      ],
+      "hydration_tip": "Moringa tea: steep dried moringa leaves in hot water for 5 minutes. Mild in flavour, incredibly nutrient-dense. One cup daily.",
+      "traditional_note": "In Karnataka and Tamil Nadu, drumstick sambar every day during weeks 1–6 is the traditional prescription. It's backed by nutrition science."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding — mature milk",
+      "feeds_per_day": "8–10 feeds",
+      "what_to_expect": "Mature milk is white and may look thin/watery — this is completely normal. The first milk (foremilk) is thin and hydrating; the later milk (hindmilk) is creamier and more calorie-dense. Baby needs both.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Gaining approximately 150–200g per week now",
+        "Baby is alert and active between feeds"
+      ],
+      "signs_to_watch": [
+        "Green, frothy stools — may indicate foremilk-hindmilk imbalance (too many short feeds)",
+        "Baby seems hungry very soon after feeding"
+      ],
+      "latch_tip": "To ensure baby gets hindmilk: feed from one breast until baby spontaneously pulls off or falls asleep. Only then offer the second breast. Don't switch every few minutes."
+    }
+  },
+  {
+    "day": 9,
+    "phase": "Phase 2 — Days 8–14",
+    "phase_theme": "Milk establishment & strength building",
+    "mom": {
+      "focus": "Engorgement easing. Keep eating warm, nourishing foods. Rest when baby rests.",
+      "meals": {
+        "breakfast": {
+          "name": "Methi paratha + warm milk",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Toor dal + lauki sabzi + rice",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Chicken broth + rice (non-veg) / Paneer khichdi (veg)",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Til ladoo",
+          "Warm ajwain water",
+          "Soaked almonds"
+        ]
+      },
+      "foods_to_avoid": [
+        "Cold drinks",
+        "Raw vegetables"
+      ],
+      "hydration_tip": "Saunf water sipped warm through the day. Fennel reduces infant gas passed through milk.",
+      "traditional_note": "Massage with warm sesame oil is traditionally given daily in weeks 1–2. Accept it — it genuinely aids recovery."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "8–12 feeds",
+      "what_to_expect": "Baby is getting more efficient at feeding — shorter feeds are normal as baby and you sync up.",
+      "signs_feeding_well": [
+        "6+ wet diapers",
+        "Yellow stools",
+        "Baby seems settled after feeds"
+      ],
+      "signs_to_watch": [
+        "Sudden weight plateau",
+        "Jaundice spreading below chest"
+      ],
+      "latch_tip": "Hold baby's head at breast level — if you have to bend your nipple down to baby, your position needs adjusting."
+    }
+  },
+  {
+    "day": 10,
+    "phase": "Phase 2 — Days 8–14",
+    "phase_theme": "Milk establishment & strength building",
+    "mom": {
+      "focus": "Baby blues should be lifting by now. If you're still feeling very low, talk to someone. Your emotional health is as important as your physical recovery.",
+      "meals": {
+        "breakfast": {
+          "name": "Vegetable daliya (broken wheat porridge) with ghee",
+          "why": "Daliya is high in fibre, reduces constipation (a common post-birth issue). Warming and filling.",
+          "recipe_tip": "Pressure cook broken wheat with mixed vegetables, cumin, turmeric. Generous ghee on top."
+        },
+        "lunch": {
+          "name": "Rajma (kidney beans) + rice",
+          "why": "Rajma is your best plant-based complete protein. High in folate and iron.",
+          "recipe_tip": "Soak overnight, pressure cook well, make a simple onion-tomato base. Avoid too much garam masala."
+        },
+        "dinner": {
+          "name": "Light chicken soup with rice (non-veg) / Lauki chana dal (veg)",
+          "why": "Chicken soup supports collagen production for healing. Lauki chana dal is gentle and protein-rich.",
+          "recipe_tip": "Chicken soup: slow-cook with ginger, garlic, black pepper, turmeric. Add rice towards the end."
+        },
+        "snacks": [
+          "Anjeer (fig) + milk — highest plant calcium source",
+          "Pumpkin seeds — zinc for recovery",
+          "Light murmura"
+        ]
+      },
+      "foods_to_avoid": [
+        "Avoid chocolate for now — caffeine can disrupt baby's sleep"
+      ],
+      "hydration_tip": "Milk thistle tea or ashwagandha warm milk (with doctor's advice) can support mood and energy in week 2.",
+      "traditional_note": "Day 10 is a common milestone in many Indian traditions — some families do a small pooja or ritual to mark the end of the first week+ of confinement."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "8–10 feeds",
+      "what_to_expect": "Baby should be at or above birth weight by today. Cord stump has likely fallen off. Baby is having more wakeful, alert periods. First real social smiles are still weeks away, but baby is listening to your voice intently.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "3–4 yellow stools daily (or one large one — both normal)",
+        "Baby seems content between feeds"
+      ],
+      "signs_to_watch": [
+        "Umbilical area looks red or swollen after cord falls off",
+        "Baby arching back during feeds — may indicate reflux"
+      ],
+      "latch_tip": "Burp baby in the middle of a feed (when they naturally pause) and at the end. At this age, babies swallow a lot of air. A mid-feed burp reduces spit-up."
+    }
+  },
+  {
+    "day": 11,
+    "phase": "Phase 2 — Days 8–14",
+    "phase_theme": "Milk establishment & strength building",
+    "mom": {
+      "focus": "Week 2 energy. Focus on iron-rich foods every day — your reserves are still rebuilding.",
+      "meals": {
+        "breakfast": {
+          "name": "Ragi dosa + sambar",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Palak dal + rice + ghee",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Khichdi + papad",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Gondh ke ladoo",
+          "Halim seeds in milk",
+          "Murmura"
+        ]
+      },
+      "foods_to_avoid": [
+        "Excessive tea/coffee",
+        "Processed packaged snacks"
+      ],
+      "hydration_tip": "Moringa leaf tea once daily. The mineral density of moringa is unmatched.",
+      "traditional_note": "Oil massage (champi) to hair and scalp is given in most Indian traditions in week 2. Sesame oil is preferred for its warming properties."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "8–10 feeds",
+      "what_to_expect": "Baby may have a brief 10-day growth spurt — increased feeding frequency for 1–2 days. Normal and temporary.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Steady weight gain",
+        "Baby becoming more alert"
+      ],
+      "signs_to_watch": [
+        "Green frothy stools (foremilk imbalance)",
+        "Baby arching back during feeds"
+      ],
+      "latch_tip": "Foremilk-hindmilk balance: let baby fully drain one breast before offering the second."
+    }
+  },
+  {
+    "day": 12,
+    "phase": "Phase 2 — Days 8–14",
+    "phase_theme": "Milk establishment & strength building",
+    "mom": {
+      "focus": "You may start to feel more like yourself. Don't overdo it — rest is still medicine.",
+      "meals": {
+        "breakfast": {
+          "name": "Oats porridge with dry fruits and ghee",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Rajma + rice (pressure-cooked very soft)",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Suji upma + raita",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Dates + walnuts",
+          "Fresh coconut slices with jaggery",
+          "Warm turmeric milk"
+        ]
+      },
+      "foods_to_avoid": [
+        "Heavy fried snacks",
+        "Very spicy preparations"
+      ],
+      "hydration_tip": "Dates soaked in warm water overnight — drink the water in the morning. Natural electrolytes and iron.",
+      "traditional_note": "Day 12 is when many North Indian families begin Panjeeri distribution. Eat at least 1–2 tablespoons daily."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "8–10 feeds",
+      "what_to_expect": "Baby's sleep cycles are about 45 minutes. They may wake after one cycle and need resettling. This is normal brain development, not hunger.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Baby regained birth weight",
+        "Periods of alertness increasing"
+      ],
+      "signs_to_watch": [
+        "Baby seeming very uncomfortable and gassy — track maternal diet",
+        "Persistent yellow skin"
+      ],
+      "latch_tip": "If you have fast let-down and baby chokes at the start of feeds, try laid-back feeding position to slow flow."
+    }
+  },
+  {
+    "day": 13,
+    "phase": "Phase 2 — Days 8–14",
+    "phase_theme": "Milk establishment & strength building",
+    "mom": {
+      "focus": "Tomorrow is the 2-week mark. A true milestone. Your milk supply is established and your body is healing well.",
+      "meals": {
+        "breakfast": {
+          "name": "Methi thepla + curd",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Chana dal + dudhi (bottle gourd) + rice",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Moong dal soup + roti",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Peanut chikki",
+          "Roasted chana",
+          "Banana + warm milk"
+        ]
+      },
+      "foods_to_avoid": [
+        "Carbonated drinks",
+        "Heavily processed food"
+      ],
+      "hydration_tip": "Jeera water: boil 1 tsp cumin in 2 cups water, cool to warm. Best digestive drink for postpartum.",
+      "traditional_note": "Day 13 — many families complete the first two-week prayers/rituals. Accept blessings graciously."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "8–10 feeds",
+      "what_to_expect": "Baby is nearly at 2 weeks. Cord stump has likely fallen off. Baby's skin is normalising after peeling phase.",
+      "signs_feeding_well": [
+        "Consistent wet and dirty diapers",
+        "Baby gaining weight",
+        "Umbilical area healing cleanly"
+      ],
+      "signs_to_watch": [
+        "Umbilical area redness or smell",
+        "Baby seems to not recognise your face — very unusual at this stage"
+      ],
+      "latch_tip": "Two-week check point: is feeding comfortable? If you haven't resolved latch pain yet, today is a good day to see a lactation consultant."
+    }
+  },
+  {
+    "day": 14,
+    "phase": "Phase 2 — Days 8–14",
+    "phase_theme": "Milk establishment & strength building",
+    "mom": {
+      "focus": "Two weeks in — a major milestone. Milk supply is well established. You can now slowly reintroduce more foods. Trust your body.",
+      "meals": {
+        "breakfast": {
+          "name": "Idli with sambar and coconut chutney (South) / Besan chilla (North)",
+          "why": "Fermented idli improves gut microbiome — good for both you and baby via breastmilk. Besan (gram flour) is protein-dense.",
+          "recipe_tip": "Watch if baby seems gassy for 12 hours after you eat fermented foods. Most babies are fine."
+        },
+        "lunch": {
+          "name": "Full thali — dal, sabzi, rice, roti, curd",
+          "why": "At 2 weeks, a balanced full thali is appropriate. You need variety for complete nutrition.",
+          "recipe_tip": "Include a green leafy vegetable in every lunch from now on. Variety is your nutrition strategy."
+        },
+        "dinner": {
+          "name": "Khichdi + pickle (small amount) + papad",
+          "why": "Light, comforting, and easily digestible. A good dinner when you're exhausted from a full day.",
+          "recipe_tip": "Khichdi should always have a generous spoon of ghee — it aids absorption of fat-soluble vitamins."
+        },
+        "snacks": [
+          "Fresh fruit — mango if in season, papaya (fully ripe), banana",
+          "Handful of mixed dry fruits",
+          "Coconut-based sweets (coconut barfi) for energy"
+        ]
+      },
+      "foods_to_avoid": [
+        "Still avoid very spicy or excessively oily food",
+        "Limit alcohol completely while breastfeeding"
+      ],
+      "hydration_tip": "Nimbu pani with black salt (room temperature) is now fine — it replenishes electrolytes and vitamin C.",
+      "traditional_note": "Day 14 marks the end of 'strict confinement' in many Indian families. A warm bath with herbal water, a massage, and a small celebration are traditional. You've earned it."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "8–10 feeds",
+      "what_to_expect": "Baby is growing rapidly — gaining 150–200g per week. Baby is more aware of surroundings. May startle at loud sounds. First real smile is still a few weeks away but baby's face is becoming more expressive.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Steady weight gain",
+        "Baby locks eyes with you during feeding"
+      ],
+      "signs_to_watch": [
+        "Baby seems very uncomfortable — pulling legs up, crying after feeds (possible colic or reflux)",
+        "Very infrequent stools (less than once in 3 days)"
+      ],
+      "latch_tip": "At 2 weeks, if breastfeeding is still painful or difficult, please don't push through alone. A lactation consultant visit now can resolve 90% of latch issues in one session."
+    }
+  },
+  {
+    "day": 15,
+    "phase": "Phase 3 — Days 15–21",
+    "phase_theme": "Strength rebuilding & gradual normalcy",
+    "mom": {
+      "focus": "Phase 3 begins. You can slowly add more variety. Your digestive system is recovering. Your energy is returning.",
+      "meals": {
+        "breakfast": {
+          "name": "Besan chilla with vegetables",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Mixed dal + rice + spinach sabzi",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Paneer curry + roti (veg) / Egg curry + rice (non-veg)",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Mixed nuts and seeds",
+          "Anjeer (fig) + milk",
+          "Coconut water at room temperature"
+        ]
+      },
+      "foods_to_avoid": [
+        "Very spicy restaurant food — still rebuild gradually"
+      ],
+      "hydration_tip": "Hibiscus-tulsi herbal tea — cooling, iron-rich, mood-supportive. One cup daily.",
+      "traditional_note": "Week 3 is when gentle movement begins in traditional recovery. Short, slow walks within the house are appropriate."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "8–10 feeds",
+      "what_to_expect": "Baby is becoming more socially aware. Responds to your voice with increased activity. First real smiles are approaching.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Baby alerts to your voice",
+        "Settling into loose rhythms"
+      ],
+      "signs_to_watch": [
+        "Sudden change in stool frequency or colour",
+        "Baby seems unwell — fever in a baby this young is always a doctor visit"
+      ],
+      "latch_tip": "Experiment with different feeding positions for comfort. The best position is the one that is comfortable for both of you."
+    }
+  },
+  {
+    "day": 16,
+    "phase": "Phase 3 — Days 15–21",
+    "phase_theme": "Strength rebuilding & gradual normalcy",
+    "mom": {
+      "focus": "Emotional peaks and valleys are normal at this stage. Hormones are still recalibrating. Be patient with yourself.",
+      "meals": {
+        "breakfast": {
+          "name": "Poha with peanuts and pomegranate seeds",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Kadhi pakora + jeera rice",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Vegetable soup + toast",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Saffron milk for mood",
+          "Dates + cashews",
+          "Light biscuits with warm milk"
+        ]
+      },
+      "foods_to_avoid": [
+        "Alcohol — not while breastfeeding",
+        "Excess caffeine on emotional days"
+      ],
+      "hydration_tip": "Saffron water: 3–4 strands in warm water. Saffron's safranal compound has clinical evidence for mood support.",
+      "traditional_note": "Day 16 — in many families the oil bath continues. Warm sesame oil massage before bath is deeply restorative for postpartum back and joint pain."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "8–10 feeds",
+      "what_to_expect": "Three-week growth spurt may begin around day 17–21. Watch for sudden increase in feeding frequency.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Baby happy between feeds",
+        "Steady growth"
+      ],
+      "signs_to_watch": [
+        "Your own mood — if persistent sadness, anxiety, or feeling disconnected from baby, speak to your doctor"
+      ],
+      "latch_tip": "Try skin-to-skin during one feed daily even at this stage. Oxytocin released during skin contact boosts supply."
+    }
+  },
+  {
+    "day": 17,
+    "phase": "Phase 3 — Days 15–21",
+    "phase_theme": "Strength rebuilding & gradual normalcy",
+    "mom": {
+      "focus": "You should be feeling some energy returning. C-section moms: your incision is healing — watch for any redness or discharge. Normal delivery moms: perineal stitches should be much more comfortable.",
+      "meals": {
+        "breakfast": {
+          "name": "Banana oat smoothie (warm or room temperature)",
+          "why": "Bananas are rich in B6 which supports mood regulation. Oats boost milk supply. A quick breakfast for busy mornings.",
+          "recipe_tip": "Blend ripe banana + cooked oats + milk + 1 tsp ghee + cardamom. Warm slightly on stove or drink at room temp."
+        },
+        "lunch": {
+          "name": "Chole (chickpeas) + bhatura/roti + raita",
+          "why": "Chickpeas are the highest-protein legume. Full of iron and zinc.",
+          "recipe_tip": "Bhatura is fine once a week now. Use well-cooked chole with moderate spice. Raita cools it down."
+        },
+        "dinner": {
+          "name": "Grilled fish + steamed vegetables + rice (non-veg) / Tofu stir-fry + rice (veg)",
+          "why": "Week 3 allows more variety. Fish + vegetables is a nutrient-dense, light dinner.",
+          "recipe_tip": "Season fish with turmeric, coriander, cumin. Grill or pan-fry in minimal oil. Avoid deep frying."
+        },
+        "snacks": [
+          "Dark chocolate (1–2 squares) — you've earned it",
+          "Avocado on toast — if available",
+          "Roasted chana + jaggery"
+        ]
+      },
+      "foods_to_avoid": [
+        "If baby develops rash or unusual fussiness, track what you ate 4–6 hours earlier"
+      ],
+      "hydration_tip": "You can now drink room-temperature water. The strict 'warm water only' phase is over for most moms unless you specifically feel better with warm water.",
+      "traditional_note": "Week 3 is when most Indian families do the 'Naamkaran' (naming ceremony). The emotional joy of this event is wonderful medicine — participate fully."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "8–10 feeds — watch for growth spurt feeds",
+      "what_to_expect": "First growth spurt often happens around 2–3 weeks. Baby will feed constantly for 1–2 days, then settle back. This is temporary, normal, and necessary for supply increase. It feels overwhelming but it passes.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Baby is growing visibly — cheeks filling out",
+        "Baby has more awake, alert time"
+      ],
+      "signs_to_watch": [
+        "Baby's poop is suddenly red-tinged — can indicate sensitivity to dairy in your diet",
+        "Baby seems in pain during or after feeds"
+      ],
+      "latch_tip": "During a growth spurt, the urge to supplement with formula is very strong. Resist if possible — your supply will catch up within 24–48 hours of frequent feeding. Supplementing can actually reduce supply."
+    }
+  },
+  {
+    "day": 18,
+    "phase": "Phase 3 — Days 15–21",
+    "phase_theme": "Strength rebuilding & gradual normalcy",
+    "mom": {
+      "focus": "You're past the midpoint. Strength is returning. The hardest nights are behind you.",
+      "meals": {
+        "breakfast": {
+          "name": "Daliya (broken wheat) khichdi with ghee",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Moong sprout sabzi (lightly cooked) + dal + rice",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Fish curry + rice (non-veg) / Tofu curry + rice (veg)",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Dark chocolate 1–2 squares",
+          "Roasted makhana",
+          "Trail mix"
+        ]
+      },
+      "foods_to_avoid": [
+        "Watching what consistently makes baby gassy — make your own elimination list"
+      ],
+      "hydration_tip": "Coconut milk: add to your chai instead of regular milk occasionally. Supports energy and lactation.",
+      "traditional_note": "Week 3 is when family helpers typically transition. Be honest about what support you still need."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "8–10 feeds",
+      "what_to_expect": "Baby enjoys being talked to and will coo back. These 'conversations' are your baby's first language development.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Baby vocalizing",
+        "More wakeful alert time"
+      ],
+      "signs_to_watch": [
+        "Baby has developed a flat spot on head — reposition regularly during sleep and tummy time"
+      ],
+      "latch_tip": "If baby seems distracted during feeds, try humming or softly singing — familiar sounds help baby focus."
+    }
+  },
+  {
+    "day": 19,
+    "phase": "Phase 3 — Days 15–21",
+    "phase_theme": "Strength rebuilding & gradual normalcy",
+    "mom": {
+      "focus": "Focus on protein at every meal — muscle recovery and milk production both require it.",
+      "meals": {
+        "breakfast": {
+          "name": "Greek-style curd with honey and nuts",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Chole + roti + raita",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Grilled chicken + steamed rice + salad (non-veg) / Paneer tikka + rice (veg)",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Boiled eggs (non-veg) / Sprouted moong (veg)",
+          "Pumpkin seeds + almonds",
+          "Fresh fruit"
+        ]
+      },
+      "foods_to_avoid": [
+        "Skipping meals — your body needs consistent fuel for milk production"
+      ],
+      "hydration_tip": "Protein shake: blend 1 cup milk + 1 banana + 1 tbsp nut butter + cardamom. Natural, no powder needed.",
+      "traditional_note": "Naamkaran (naming ceremony) often happens around week 3. The ritual joy and family gathering supports postpartum recovery."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "8–10 feeds — more frequent in evenings",
+      "what_to_expect": "Baby's nervous system is maturing. They may seem more unsettled in the evenings — this is 'witching hour' and is very common.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Baby is growing well",
+        "Parent-baby connection deepening"
+      ],
+      "signs_to_watch": [
+        "Witching hour crying (6–10pm) lasting 3+ hours for multiple days may be colic"
+      ],
+      "latch_tip": "Evening cluster feeding during witching hour is normal — baby is building your evening supply. It will ease."
+    }
+  },
+  {
+    "day": 20,
+    "phase": "Phase 3 — Days 15–21",
+    "phase_theme": "Strength rebuilding & gradual normalcy",
+    "mom": {
+      "focus": "Three weeks tomorrow. The 'fourth trimester' survival mode is easing. You're moving into a rhythm.",
+      "meals": {
+        "breakfast": {
+          "name": "Methi paratha + curd + pickle",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Sambhar + idli + chutney (South) / Dal + rice + pickle (North)",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Light khichdi + papad",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Coconut ladoo",
+          "Roasted chana",
+          "Warm milk with cardamom"
+        ]
+      },
+      "foods_to_avoid": [
+        "Skimping on ghee — fat-soluble vitamins A, D, E, K all depend on it"
+      ],
+      "hydration_tip": "Warm milk + ashwagandha powder (with doctor's guidance) — supports energy and stress response.",
+      "traditional_note": "Day 20 — five days to the 3-week mark. Acknowledge your progress out loud today."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "8–10 feeds",
+      "what_to_expect": "Baby is beginning to distinguish between day and night, but may not reliably 'sleep at night' for several more weeks. This is developmental, not a problem.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Baby is tracking moving objects with their eyes",
+        "Weight on track"
+      ],
+      "signs_to_watch": [
+        "If baby's eyes appear crossed consistently — mention at next paediatrician visit (some eye crossing is normal early on)"
+      ],
+      "latch_tip": "Practice responsive feeding — feed when baby shows hunger cues (sucking hands, rooting) rather than crying. Earlier response = less stressed feed."
+    }
+  },
+  {
+    "day": 21,
+    "phase": "Phase 3 — Days 15–21",
+    "phase_theme": "Strength rebuilding & gradual normalcy",
+    "mom": {
+      "focus": "Three weeks. Your body has done something extraordinary. Be gentle with yourself — physically and emotionally.",
+      "meals": {
+        "breakfast": {
+          "name": "Dosa + sambar + coconut chutney",
+          "why": "Full South Indian breakfast is now perfect. Fermented dosa supports gut health. Sambar has all your vegetables.",
+          "recipe_tip": "Classic thin crispy dosa. Make the sambar with drumstick, carrot, tomato, and a generous tamarind-lentil base."
+        },
+        "lunch": {
+          "name": "Ghee rice + chicken curry (non-veg) / Dal tadka + jeera rice (veg)",
+          "why": "Ghee rice is deeply nourishing — fat-soluble vitamins from ghee, carbs from rice. A celebration-worthy lunch.",
+          "recipe_tip": "Ghee rice: fry whole spices (cardamom, clove, bay leaf) in ghee, add rice and water 1:1.5."
+        },
+        "dinner": {
+          "name": "Light soup + toast + fruit",
+          "why": "Keep dinner light for better sleep. Heavy dinners disrupt the already-fragmented sleep of a breastfeeding mother.",
+          "recipe_tip": "Tomato shorba or mixed vegetable soup with whole wheat toast. Fruit salad (room temperature)."
+        },
+        "snacks": [
+          "Fresh coconut pieces + jaggery",
+          "Lemon curd on toast",
+          "Makhana (fox nut) in ghee + rock salt"
+        ]
+      },
+      "foods_to_avoid": [
+        "No specific restrictions now — use common sense and watch baby's reaction"
+      ],
+      "hydration_tip": "At 3 weeks, you can resume coffee — but limit to 1 cup per day and drink it right after a feed (not before) to minimize caffeine in breastmilk.",
+      "traditional_note": "Three weeks is often when the 'helper' leaves. This is the hardest transition point for many Indian mothers — going from supported to alone. Plan this in advance. Ask your partner to take leave if possible."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "8–10 feeds",
+      "what_to_expect": "Baby is growing rapidly and becoming more interactive. Eye contact is more sustained. Baby may begin to recognize your smell, voice, and face distinctly. Second growth spurt may happen around 3 weeks.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Gaining 150–200g/week",
+        "Baby smiles responsively at your face (not just gas-smiles)"
+      ],
+      "signs_to_watch": [
+        "Persistent crying for 3+ hours per day — may indicate colic",
+        "Baby refusing one breast consistently"
+      ],
+      "latch_tip": "If baby consistently refuses one breast, that side may have a slower flow or different nipple angle. Try different feeding positions on the 'refused' side — football hold often works when cradle hold doesn't."
+    }
+  },
+  {
+    "day": 22,
+    "phase": "Phase 4 — Days 22–35",
+    "phase_theme": "Gradual normalcy & full diet recovery",
+    "mom": {
+      "focus": "Phase 4. Full diet is appropriate. Focus on quality and variety.",
+      "meals": {
+        "breakfast": {
+          "name": "Vegetable upma + coconut chutney",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Your choice — no restrictions in phase 4",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Light soup + roti + sabzi",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Your favourite snack",
+          "Mixed nuts",
+          "Seasonal fruit"
+        ]
+      },
+      "foods_to_avoid": [
+        "Very high-mercury fish",
+        "Alcohol while breastfeeding"
+      ],
+      "hydration_tip": "Aim for 2.5–3L total fluids daily. Track by keeping a water bottle nearby at all feeds.",
+      "traditional_note": "Week 4 is often when the final family helper leaves. Have a plan for support."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "7–9 feeds",
+      "what_to_expect": "Baby is 3+ weeks — you know their patterns now. Trust your knowledge.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Baby thriving",
+        "You feel more confident"
+      ],
+      "signs_to_watch": [
+        "Your own energy levels — are you getting any sleep?",
+        "Watch for signs of mastitis if you feel flu-like symptoms"
+      ],
+      "latch_tip": "Mastitis early signs: one breast is red, hot, painful, and you feel feverish. Feed more frequently on that side and see a doctor immediately."
+    }
+  },
+  {
+    "day": 23,
+    "phase": "Phase 4 — Days 22–35",
+    "phase_theme": "Gradual normalcy & full diet recovery",
+    "mom": {
+      "focus": "Week 4. You've crossed into familiar territory — the acute recovery phase is behind you.",
+      "meals": {
+        "breakfast": {
+          "name": "Egg bhurji + toast (non-veg) / Paneer bhurji + paratha (veg)",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Biryani or pulao — you've earned it",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Curd rice + vegetable curry",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Your favourite mithai",
+          "Fresh coconut water",
+          "Roasted nuts"
+        ]
+      },
+      "foods_to_avoid": [
+        "Nothing — use good judgement and enjoy food"
+      ],
+      "hydration_tip": "Nimbu pani with black salt is back on the menu and delicious.",
+      "traditional_note": "If family has a tradition of first outing with baby at 3–4 weeks, this is the week for it."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "7–9 feeds",
+      "what_to_expect": "Baby will have first vaccines at 6 weeks. Baby may be fussier after vaccines — extra feeds and cuddles are the best medicine.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Baby alert and growing",
+        "Good weight gain"
+      ],
+      "signs_to_watch": [
+        "Prepare a list of questions for the 6-week paediatrician appointment"
+      ],
+      "latch_tip": "A well-fed baby at 3+ weeks feeds for 10–15 minutes per side efficiently. Duration of feed is no longer a reliable indicator of intake."
+    }
+  },
+  {
+    "day": 24,
+    "phase": "Phase 4 — Days 22–35",
+    "phase_theme": "Gradual normalcy & full diet recovery",
+    "mom": {
+      "focus": "Notice your emotional state today. Week 4 PPD risk is real. How are you feeling beyond 'fine'?",
+      "meals": {
+        "breakfast": {
+          "name": "Banana pancakes + ghee",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Fish curry + rice (non-veg) / Palak paneer + roti (veg)",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Khichdi + warm milk",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Saffron milk",
+          "Mixed dry fruits",
+          "Light snack of your choice"
+        ]
+      },
+      "foods_to_avoid": [
+        "Isolating yourself — reach out to a friend or family member today"
+      ],
+      "hydration_tip": "Rose milk (warm) — rose is associated with heart-opening and emotional wellbeing in Ayurveda.",
+      "traditional_note": "Check in with yourself: beyond the physical, how is your emotional health? Postpartum depression is common and treatable. Asking for help is strength."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "7–9 feeds",
+      "what_to_expect": "Baby's personality is emerging clearly. You can tell the difference between all their cries. This knowledge is hard-won.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Baby responsive and connected",
+        "You trust your instincts"
+      ],
+      "signs_to_watch": [
+        "If you feel persistently anxious, sad, or unlike yourself — please speak to your doctor today. PPD is at its peak risk around weeks 4–6."
+      ],
+      "latch_tip": "At 3.5 weeks, consider attending a local breastfeeding support group (or online group) — community with other nursing mothers is incredibly supportive."
+    }
+  },
+  {
+    "day": 25,
+    "phase": "Phase 4 — Days 22–35",
+    "phase_theme": "Gradual normalcy & full diet recovery",
+    "mom": {
+      "focus": "You're over the hardest part. Full diet is now appropriate for most moms. Focus on quality — not restriction.",
+      "meals": {
+        "breakfast": {
+          "name": "Egg bhurji + toast (non-veg) / Paneer bhurji + paratha (veg)",
+          "why": "Eggs or paneer are complete proteins that give you sustained energy for the morning.",
+          "recipe_tip": "Keep the bhurji moderately spiced. Avoid chillies if baby still seems sensitive."
+        },
+        "lunch": {
+          "name": "Any regional favourite — biryani, pulao, full thali",
+          "why": "Week 4 is when you can eat 'normally' again. Your digestive system is recovered. The 40-day protocol is about to complete.",
+          "recipe_tip": "Biryani: choose lighter versions (yakhni pulao, vegetable biryani). Keep portions moderate."
+        },
+        "dinner": {
+          "name": "Light sabzi + dal + roti",
+          "why": "Keep dinners lighter than lunches — helps with sleep quality.",
+          "recipe_tip": "Simple home dal. A sabzi of your choice. Two rotis with ghee. Simple is perfect."
+        },
+        "snacks": [
+          "Any snack you've been missing",
+          "Your favourite mithai in moderation",
+          "Fresh seasonal fruit"
+        ]
+      },
+      "foods_to_avoid": [
+        "Very high-mercury fish (shark, swordfish, tuna) — limit to once a week",
+        "Excessive alcohol — limit or avoid while breastfeeding"
+      ],
+      "hydration_tip": "Daily target: 2.5–3 litres of fluids total (water, milk, soups, nimbu pani). Breastfeeding requires extra hydration.",
+      "traditional_note": "Week 4 is when many families do the first outing for mother and baby — a temple visit, a walk in the neighbourhood. Fresh air and sunlight are genuinely healing."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "7–9 feeds — getting a bit more efficient",
+      "what_to_expect": "Baby is becoming a more efficient feeder — feeds that used to take 45 minutes now take 10–15 minutes. Baby is awake for longer stretches. May have started a loose day/night rhythm.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Consistent weekly weight gain",
+        "Baby is alert and content for 1–2 hour stretches"
+      ],
+      "signs_to_watch": [
+        "Feeding efficiency drops suddenly — may indicate illness like ear infection",
+        "White patches inside baby's mouth (thrush)"
+      ],
+      "latch_tip": "As feeds get shorter, don't panic that baby isn't getting enough. An efficient 10-minute feed at 4 weeks delivers more milk than a sleepy 40-minute feed at day 3."
+    }
+  },
+  {
+    "day": 26,
+    "phase": "Phase 4 — Days 22–35",
+    "phase_theme": "Gradual normalcy & full diet recovery",
+    "mom": {
+      "focus": "Almost at one month. A profound milestone. Your body has done extraordinary things.",
+      "meals": {
+        "breakfast": {
+          "name": "Whole wheat toast with avocado and eggs (non-veg) / Nut butter on toast (veg)",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Dal + sabzi + rice + roti + curd",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Soup + bread + salad",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Your choice — you know your body",
+          "Fresh fruit",
+          "Nuts and seeds"
+        ]
+      },
+      "foods_to_avoid": [
+        "Skipping meals under any circumstances — milk production suffers immediately"
+      ],
+      "hydration_tip": "Coconut water daily from this point — electrolytes support energy during the demanding fourth week.",
+      "traditional_note": "Many families mark one month with a small pooja or family gathering. It's a beautiful moment to receive blessings."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "7–9 feeds",
+      "what_to_expect": "One-month-old baby is a completely different being from the newborn of day 1. Interactive, expressive, and deeply bonded with you.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Baby thriving in all ways",
+        "Feeding relationship feels established"
+      ],
+      "signs_to_watch": [
+        "Prepare vaccine records for the 6-week visit",
+        "Note any questions about baby's development"
+      ],
+      "latch_tip": "By one month, most breastfeeding challenges are manageable or resolved. If you're still struggling — please get help. It is available and it works."
+    }
+  },
+  {
+    "day": 27,
+    "phase": "Phase 4 — Days 22–35",
+    "phase_theme": "Gradual normalcy & full diet recovery",
+    "mom": {
+      "focus": "One month postpartum today. Congratulations. You are a different person than you were 27 days ago.",
+      "meals": {
+        "breakfast": {
+          "name": "Special celebratory breakfast",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Festive lunch with family",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Your favourite comfort dinner",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Celebration mithai",
+          "Fresh fruit",
+          "Whatever you love"
+        ]
+      },
+      "foods_to_avoid": [
+        "Nothing — eat with gratitude and joy"
+      ],
+      "hydration_tip": "Celebrate with your favourite drink — nimbu pani, coconut water, or a special herbal drink.",
+      "traditional_note": "One month is celebrated in many Indian cultures. Accept all blessings and food with grace."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "7–9 feeds",
+      "what_to_expect": "Baby is one month old! First proper social smiles are imminent if they haven't appeared yet.",
+      "signs_feeding_well": [
+        "Baby is thriving",
+        "First real smiles are coming",
+        "Both of you have grown enormously"
+      ],
+      "signs_to_watch": [
+        "Upcoming 6-week vaccination — prepare yourself emotionally (it's harder on the parent than the baby)"
+      ],
+      "latch_tip": "One month of breastfeeding — whether it has been easy or hard, you have given your baby something irreplaceable. Be proud."
+    }
+  },
+  {
+    "day": 28,
+    "phase": "Phase 4 — Days 22–35",
+    "phase_theme": "Gradual normalcy & full diet recovery",
+    "mom": {
+      "focus": "Four weeks. Your 6-week check-up is coming. Start thinking about what questions you want to ask your doctor.",
+      "meals": {
+        "breakfast": {
+          "name": "Upma / Poha / Paratha — your choice",
+          "why": "You know what works for you now. Trust yourself.",
+          "recipe_tip": "Stick with what gives you energy and doesn't make baby gassy."
+        },
+        "lunch": {
+          "name": "Comfort food of your choice — eat what makes you happy",
+          "why": "Nutrition and joy are not separate. A meal that makes you happy is nutritionally better than a perfect meal eaten with resentment.",
+          "recipe_tip": "Cook what you love. Ask family to cook your favourites."
+        },
+        "dinner": {
+          "name": "Easy, light, stress-free dinner",
+          "why": "The mental load of cooking plus feeding a baby is real. Simplify dinners.",
+          "recipe_tip": "Curd rice + pickle is a complete, quick, gut-healthy dinner for exhausted evenings."
+        },
+        "snacks": [
+          "Whatever you enjoy",
+          "Focus on staying hydrated",
+          "Nuts and seeds remain excellent daily habits"
+        ]
+      },
+      "foods_to_avoid": [
+        "Trust your own experience by now — you know what affects your baby"
+      ],
+      "hydration_tip": "Coconut milk chai (replace regular milk with coconut milk) is a nice change — lower in lactose, higher in medium-chain fatty acids that support energy.",
+      "traditional_note": "Four weeks is a natural moment to take stock. How is your mental health? Are you getting any sleep? Do you have support? These questions matter as much as nutrition."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "7–9 feeds",
+      "what_to_expect": "Baby may have their first genuine social smile around now — the full face-lights-up smile that is unmistakably directed at you. This is one of the most rewarding moments of early parenthood.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Happy, content baby between feeds",
+        "Baby smiles at you during feeding pauses"
+      ],
+      "signs_to_watch": [
+        "Any sudden change in feeding pattern, sleep, or behaviour — trust your gut, see the doctor",
+        "Mama, watch your own mood too — PPD can appear at 4 weeks"
+      ],
+      "latch_tip": "Four-week-old babies often get distracted during feeds — looking around, pulling off to see a sound. This is normal development. Feed in a quieter space for more efficient sessions."
+    }
+  },
+  {
+    "day": 29,
+    "phase": "Phase 4 — Days 22–35",
+    "phase_theme": "Gradual normalcy & full diet recovery",
+    "mom": {
+      "focus": "Week 5 begins. The 40-day milestone is close. You're entering the final stretch.",
+      "meals": {
+        "breakfast": {
+          "name": "Oat banana smoothie bowl",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Grilled fish + rice + dal (non-veg) / Tofu stir fry + noodles (veg)",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Khichdi + sabzi",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Energy bar (oats + dates + nuts)",
+          "Fresh fruit",
+          "Warm chai"
+        ]
+      },
+      "foods_to_avoid": [
+        "Nothing specific — maintain the healthy habits you've built"
+      ],
+      "hydration_tip": "Tulsi ginger tea — anti-inflammatory, immunity-boosting, and wonderfully warming.",
+      "traditional_note": "Week 5 confinement is easing in most families. Short outdoor walks in morning sun are recommended."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "7–9 feeds",
+      "what_to_expect": "Baby is going through rapid brain development. They are building memory — they will remember the melody you sing, the words you repeat.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Baby tracks faces",
+        "Growing well"
+      ],
+      "signs_to_watch": [
+        "Your own sleep — are you getting any stretches? Sleep deprivation at 5 weeks is a real health concern"
+      ],
+      "latch_tip": "Morning feeds often have the richest milk — highest fat content because supply recalibrates overnight."
+    }
+  },
+  {
+    "day": 30,
+    "phase": "Phase 4 — Days 22–35",
+    "phase_theme": "Gradual normalcy & full diet recovery",
+    "mom": {
+      "focus": "Thirty days. A profound number. You have spent 30 days doing one of the hardest things a human can do.",
+      "meals": {
+        "breakfast": {
+          "name": "Methi thepla + pickle + curd",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Your favourite regional meal",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Light soup + roti",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Til chikki",
+          "Mixed fruits",
+          "Warm spiced milk"
+        ]
+      },
+      "foods_to_avoid": [
+        "Nothing — trust yourself completely now"
+      ],
+      "hydration_tip": "Water with mint and cucumber (room temperature) — refreshing and hydrating.",
+      "traditional_note": "Some families observe a 30-day ritual. Let tradition support you — don't let it exhaust you."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "7–9 feeds",
+      "what_to_expect": "Baby at 30 days has tripled their synaptic connections from birth. The calm time you spend with them is literally building their brain.",
+      "signs_feeding_well": [
+        "Consistent diapers and growth",
+        "Baby responds to your face and voice with full engagement",
+        "You feel connected"
+      ],
+      "signs_to_watch": [
+        "Your breast health — any lumps, redness, or pain should be assessed. Blocked ducts are common at this stage."
+      ],
+      "latch_tip": "Blocked duct relief: massage firmly toward nipple during feeding on affected side. Warm compress before feed, cold compress after."
+    }
+  },
+  {
+    "day": 31,
+    "phase": "Phase 4 — Days 22–35",
+    "phase_theme": "Gradual normalcy & full diet recovery",
+    "mom": {
+      "focus": "Nine days to the milestone. You are nearly there.",
+      "meals": {
+        "breakfast": {
+          "name": "Protein-rich breakfast of your choice",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Full thali lunch",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Light dinner",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Your regular snack routine",
+          "Seasonal fruit",
+          "Nuts"
+        ]
+      },
+      "foods_to_avoid": [
+        "Skipping sleep when the opportunity presents"
+      ],
+      "hydration_tip": "Electrolyte water: water + pinch of salt + squeeze of lemon + pinch of jaggery. Natural sports drink.",
+      "traditional_note": "Preparations for the Day 40 celebration can begin. What ritual will your family observe?"
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "7–9 feeds",
+      "what_to_expect": "Baby is becoming highly interactive. Babbling, cooing, and 'talking back' in their own language.",
+      "signs_feeding_well": [
+        "All indicators normal",
+        "Baby is thriving",
+        "You are thriving"
+      ],
+      "signs_to_watch": [
+        "Prepare your 6-week checkup questions for yourself AND the 6-week paed appointment"
+      ],
+      "latch_tip": "Consider pumping once a day to build a freezer stash if you plan to return to work."
+    }
+  },
+  {
+    "day": 32,
+    "phase": "Phase 4 — Days 22–35",
+    "phase_theme": "Gradual normalcy & full diet recovery",
+    "mom": {
+      "focus": "Week 5. Recovery is substantially complete for most moms. C-section moms: your internal healing continues for 6–8 weeks total.",
+      "meals": {
+        "breakfast": {
+          "name": "South: pesarattu + ginger chutney | North: moong chilla + mint chutney",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Fish biryani (non-veg) / Vegetable biryani (veg)",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Soup + salad",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Your choice",
+          "Seasonal fruit bowl",
+          "Nuts and dark chocolate"
+        ]
+      },
+      "foods_to_avoid": [
+        "C-section moms: avoid heavy lifting still. Check with your doctor at 6-week visit."
+      ],
+      "hydration_tip": "Cinnamon water: boil a cinnamon stick in 2 cups water. Anti-inflammatory and blood-sugar stabilizing.",
+      "traditional_note": "Week 5 — last week before the traditional Japa period ends. Begin preparing mentally for the transition back to regular life."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "7–8 feeds",
+      "what_to_expect": "Baby may show first evidence of sleep consolidation — a slightly longer stretch at night (3–4 hours). Treasure it.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Baby shows clear day/night preference beginning",
+        "Growing steadily"
+      ],
+      "signs_to_watch": [
+        "If you're returning to work in weeks, start establishing a pumping schedule now"
+      ],
+      "latch_tip": "If returning to work: pace bottle feeding. Have the caregiver use slow-flow nipple and paced bottle feeding to avoid nipple confusion."
+    }
+  },
+  {
+    "day": 33,
+    "phase": "Phase 4 — Days 22–35",
+    "phase_theme": "Gradual normalcy & full diet recovery",
+    "mom": {
+      "focus": "Week 5, day 5. The body that grew and birthed a human is now almost fully recovered. Honour it.",
+      "meals": {
+        "breakfast": {
+          "name": "Granola with warm milk and fruit (Indian adaptation: muesli with warm milk)",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Dal + sabzi + rice + curd — simple and complete",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Paneer bhurji + roti (veg) / Egg bhurji + roti (non-veg)",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Trail mix",
+          "Banana with honey",
+          "Warm milk + haldi"
+        ]
+      },
+      "foods_to_avoid": [
+        "Nothing — eat with mindfulness and joy"
+      ],
+      "hydration_tip": "Almond milk chai (blend soaked almonds into warm water + chai spices) — a luxurious variant for the penultimate week.",
+      "traditional_note": "Day 33 — 7 days to Japa completion. Begin any family preparations for the celebration."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "7–8 feeds",
+      "what_to_expect": "Baby is visibly bigger than at birth. Filling out, stronger, more responsive. You are the expert on your baby.",
+      "signs_feeding_well": [
+        "All developmental milestones on track",
+        "Baby thriving",
+        "Feeding relationship strong"
+      ],
+      "signs_to_watch": [
+        "At 5+ weeks, if breastfeeding is still very difficult — please get support. It doesn't have to be this hard."
+      ],
+      "latch_tip": "Skin-to-skin contact at any age has measurable benefits — oxytocin, bonding, regulation. Never too old for it."
+    }
+  },
+  {
+    "day": 34,
+    "phase": "Phase 4 — Days 22–35",
+    "phase_theme": "Gradual normalcy & full diet recovery",
+    "mom": {
+      "focus": "Almost there. Six more days. Your body and your baby are both doing beautifully.",
+      "meals": {
+        "breakfast": {
+          "name": "Special breakfast — treat yourself",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Your favourite lunch",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Light satisfying dinner",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Whatever brings comfort and joy",
+          "Good quality mithai",
+          "Fresh seasonal fruit"
+        ]
+      },
+      "foods_to_avoid": [
+        "Stress — as much as humanly possible with a 5-week-old"
+      ],
+      "hydration_tip": "Lavender-hibiscus herbal infusion: steep dried hibiscus and lavender in hot water. Calming and iron-rich.",
+      "traditional_note": "Families often do a complete home cleaning and preparation ritual before the Day 40 ceremony."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "7–8 feeds",
+      "what_to_expect": "Baby at 34 days knows you. Completely and deeply. They will show signs of distress if held by strangers — this is healthy attachment forming.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Baby shows stranger awareness beginning",
+        "Weight gain on track"
+      ],
+      "signs_to_watch": [
+        "Note everything you want to ask at the 6-week appointments — yours and baby's"
+      ],
+      "latch_tip": "The 40-day feeding journey so far has been one of the most physically and emotionally demanding things you've done. It is also one of the most profound."
+    }
+  },
+  {
+    "day": 35,
+    "phase": "Phase 4 — Days 22–35",
+    "phase_theme": "Gradual normalcy & full diet recovery",
+    "mom": {
+      "focus": "Almost at the milestone. Five weeks of recovery, growth, and becoming a mother. You are different than you were 35 days ago — more capable than you know.",
+      "meals": {
+        "breakfast": {
+          "name": "Vermicelli upma + boiled egg (non-veg) / Semolina upma + coconut chutney (veg)",
+          "why": "Light, quick, filling — optimised for busy mornings with a 5-week-old.",
+          "recipe_tip": "Roast semolina/vermicelli in ghee first for better flavour. Add vegetables and roasted peanuts."
+        },
+        "lunch": {
+          "name": "Dal + sabzi + rice + roti + salad",
+          "why": "The full balanced Indian thali — your default should be this from now on.",
+          "recipe_tip": "Include one raw element now (cucumber, tomato, carrot) — digestive system is fully recovered."
+        },
+        "dinner": {
+          "name": "Khichdi or soup + roti — light ending to the day",
+          "why": "Light dinners help you fall back asleep faster after night feeds.",
+          "recipe_tip": "5-spice khichdi: cumin, coriander, turmeric, ginger, garlic. Simple and deeply nourishing."
+        },
+        "snacks": [
+          "Seasonal fruit chaat",
+          "Trail mix (nuts + seeds + dried fruit)",
+          "Homemade energy bar (oats + dates + nuts)"
+        ]
+      },
+      "foods_to_avoid": [
+        "No restrictions except personal sensitivities and high-mercury fish"
+      ],
+      "hydration_tip": "Herbal teas (tulsi, ginger, cinnamon) are a wonderful daily habit to maintain — anti-inflammatory and supports overall immunity.",
+      "traditional_note": "Day 35 — five weeks. In many traditions, the mother starts resuming light household activities. Listen to your body. Don't rush. Your recovery timeline is your own."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "7–9 feeds",
+      "what_to_expect": "Baby is becoming a full personality. Distinct crying patterns for hunger, tiredness, and discomfort. Baby enjoys being talked to and will vocalize back. Tummy time is important from now — a few minutes daily.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Steady weight gain week on week",
+        "Baby is interactive and engaged"
+      ],
+      "signs_to_watch": [
+        "Baby not gaining weight despite feeding frequently — supply check needed",
+        "Baby very stiff or very floppy during handling"
+      ],
+      "latch_tip": "At 5 weeks, you and baby are a well-practiced team. Trust the process. If something feels off, it probably is — seek help without hesitation."
+    }
+  },
+  {
+    "day": 36,
+    "phase": "Phase 5 — Days 36–40",
+    "phase_theme": "Milestone celebration & beyond",
+    "mom": {
+      "focus": "Phase 5 begins. Four days to the milestone. Begin the gentle celebration.",
+      "meals": {
+        "breakfast": {
+          "name": "Celebration-worthy breakfast — puri halwa (North) / Dosa + all chutneys (South)",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Festive meal with family",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Light khichdi",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Traditional sweets beginning",
+          "Dry fruits",
+          "Saffron milk"
+        ]
+      },
+      "foods_to_avoid": [
+        "Nothing — full food freedom is your reward"
+      ],
+      "hydration_tip": "Rose + cardamom milk: warm milk with rose water and cardamom. Celebratory and deeply nourishing.",
+      "traditional_note": "Day 36 begins the final phase in Indian tradition. In some families, gifts are given to the new mother. The community acknowledges her journey."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "7–8 feeds",
+      "what_to_expect": "Baby at 36 days is a complete little person. Their personality is visible. Their preferences are clear. Their bond with you is unbreakable.",
+      "signs_feeding_well": [
+        "All indicators excellent",
+        "Baby thriving in every dimension",
+        "You are thriving too"
+      ],
+      "signs_to_watch": [
+        "4 days to the milestone — write down 3 things you are proud of from this journey"
+      ],
+      "latch_tip": "Day 36 latch tip: you don't need tips anymore. You have earned your expertise."
+    }
+  },
+  {
+    "day": 37,
+    "phase": "Phase 5 — Days 36–40",
+    "phase_theme": "Milestone celebration & beyond",
+    "mom": {
+      "focus": "Three days to Day 40. What do you want to carry forward from this journey? What do you want to leave behind?",
+      "meals": {
+        "breakfast": {
+          "name": "Warm oats with ghee + cardamom + jaggery",
+          "why": "Nourishing choice for this phase of recovery.",
+          "recipe_tip": "Prepare simply and warmly."
+        },
+        "lunch": {
+          "name": "Your choice — whatever makes you happy",
+          "why": "Balanced and appropriate for your recovery stage.",
+          "recipe_tip": "Cook with ghee and warming spices."
+        },
+        "dinner": {
+          "name": "Light, early dinner",
+          "why": "Light and easily digestible for better sleep quality.",
+          "recipe_tip": "Keep it simple — exhaustion is real."
+        },
+        "snacks": [
+          "Family's homemade sweets",
+          "Fresh fruit",
+          "Warm chai"
+        ]
+      },
+      "foods_to_avoid": [
+        "Nothing"
+      ],
+      "hydration_tip": "Turmeric golden milk + black pepper + ghee. Anti-inflammatory, healing, and ceremonially appropriate for the final days.",
+      "traditional_note": "Day 37 is when many families begin gathering for the Day 40 celebration. Grandmothers, aunts, and community come together."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "7–8 feeds",
+      "what_to_expect": "Baby at 37 days is ready to meet the world in a limited way. Careful, short outings in clean, uncrowded environments are appropriate.",
+      "signs_feeding_well": [
+        "Baby is flourishing",
+        "You are flourishing",
+        "The bond between you is visible to everyone"
+      ],
+      "signs_to_watch": [
+        "Two more days. You have this."
+      ],
+      "latch_tip": "Three days to go. You are a breastfeeding mother. Whatever comes next in your feeding journey, you have given your baby something that cannot be replicated."
+    }
+  },
+  {
+    "day": 38,
+    "phase": "Phase 5 — Days 36–40",
+    "phase_theme": "Milestone celebration & beyond",
+    "mom": {
+      "focus": "The home stretch. Day 40 is 2 days away. The traditional Japa period is almost complete. Reflect on how far you've come.",
+      "meals": {
+        "breakfast": {
+          "name": "Special halwa (wheat + ghee + nuts) or your favourite celebratory breakfast",
+          "why": "Day 38 calls for something special — you're nearly at the milestone.",
+          "recipe_tip": "Atta halwa: roast whole wheat flour in generous ghee, add sugar syrup, nuts. Warming and celebratory."
+        },
+        "lunch": {
+          "name": "Festive meal of your choice — something you've been wanting",
+          "why": "Eat with joy. You've earned every bite.",
+          "recipe_tip": "Let family cook your favourite foods. Accept help graciously."
+        },
+        "dinner": {
+          "name": "Light, comforting dinner before the big day",
+          "why": "Rest well tonight — day 40 is your milestone.",
+          "recipe_tip": "Dahi rice or khichdi — light, gut-friendly, easy."
+        },
+        "snacks": [
+          "Traditional sweets from your region",
+          "Dry fruits and nuts",
+          "Warm milk with haldi and ashwagandha (with doctor's guidance)"
+        ]
+      },
+      "foods_to_avoid": [
+        "Nothing is off-limits at this stage — eat with awareness and joy"
+      ],
+      "hydration_tip": "Saffron milk — a full glass with saffron, cardamom, and warm milk — is the traditional Day 38–40 drink. Beautiful and restorative.",
+      "traditional_note": "Different regions celebrate day 40 differently. Bengalis have Shashthi (day 6) and other rituals. Tamil families have Seemantham. North Indian families often do a large pooja at 40 days. Ask your family what your tradition involves."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding recommended until 6 months",
+      "feeds_per_day": "6–9 feeds — settling into a rhythm",
+      "what_to_expect": "Your baby at 38 days is alert, expressive, and beginning to understand cause and effect. They know that crying brings you. They know your smell. They are forming the first attachment relationship of their life — with you.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Growing steadily",
+        "Baby is engaged and responsive"
+      ],
+      "signs_to_watch": [
+        "Watch for postpartum depression in yourself — 6 weeks is a peak risk time",
+        "Baby's first vaccinations are at 6 weeks — prepare mentally and practically"
+      ],
+      "latch_tip": "At 5+ weeks, breastfeeding becomes much more relaxed — you can feed lying down, while walking around, while talking to someone. Your body and baby have found their rhythm."
+    }
+  },
+  {
+    "day": 39,
+    "phase": "Phase 5 — Days 36–40",
+    "phase_theme": "Milestone celebration & beyond",
+    "mom": {
+      "focus": "Tomorrow is Day 40. Whatever you feel — proud, exhausted, emotional, relieved — all of it is valid.",
+      "meals": {
+        "breakfast": {
+          "name": "Your choice — whatever feels most like you",
+          "why": "You know your body now. Feed it what it needs.",
+          "recipe_tip": "Make something you've been craving since before delivery."
+        },
+        "lunch": {
+          "name": "A meal shared with family",
+          "why": "Food tastes better in community. Let people around you today.",
+          "recipe_tip": "Let someone else cook. You rest."
+        },
+        "dinner": {
+          "name": "Early, light dinner for good rest before Day 40",
+          "why": "Tomorrow is a milestone. Sleep as much as the baby allows.",
+          "recipe_tip": "Curd rice + vegetable curry. Simple and complete."
+        },
+        "snacks": [
+          "Favourite mithai",
+          "Seasonal fruit",
+          "Whatever brings you comfort"
+        ]
+      },
+      "foods_to_avoid": [
+        "Nothing — eat with complete freedom and joy"
+      ],
+      "hydration_tip": "Rose milk (warm milk with rose syrup and cardamom) is a beautiful pre-sleep drink for Day 39 evening.",
+      "traditional_note": "Day 39 evening: reflect on the last 40 days. Write down 3 things your body did that amazed you. You grew a human. You healed. You fed. You will carry this strength forever."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding",
+      "feeds_per_day": "6–9 feeds",
+      "what_to_expect": "Your baby tomorrow will be 40 days old. In 40 days they have tripled their neural connections, doubled their wakefulness, and entirely reorganised your world. They know your voice, your smell, your heartbeat. This is the beginning of a lifelong relationship.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Thriving, growing, engaged",
+        "Baby smiles at you"
+      ],
+      "signs_to_watch": [
+        "If anything concerns you, 6-week paediatrician visit is just days away — write down all your questions"
+      ],
+      "latch_tip": "40 days in, breastfeeding may feel completely natural — or it may still feel hard. Both are valid. The decision to continue, reduce, or stop is yours alone. There is no right answer except the one that works for your family."
+    }
+  },
+  {
+    "day": 40,
+    "phase": "Phase 5 — Days 36–40",
+    "phase_theme": "Day 40 milestone — Japa complete",
+    "mom": {
+      "focus": "Day 40. The Japa period is complete. You have done it. Your body has healed, your milk is flowing, your baby is thriving. Today, we celebrate you.",
+      "meals": {
+        "breakfast": {
+          "name": "Celebration breakfast — make it special",
+          "why": "Day 40 is your graduation day. Eat like it.",
+          "recipe_tip": "Puri + halwa + chana is the classic North Indian celebration breakfast. Dosa + all chutneys for South. Whatever your family makes to celebrate."
+        },
+        "lunch": {
+          "name": "Full festive thali with all your favourites",
+          "why": "A full, joyful meal shared with people you love is the best nutrition there is.",
+          "recipe_tip": "Let the family cook everything. Your only job today is to eat, feed your baby, and receive love."
+        },
+        "dinner": {
+          "name": "Whatever your heart desires",
+          "why": "You have earned complete food freedom. Use it wisely and joyfully.",
+          "recipe_tip": "If you feel like biryani, have biryani. If you want khichdi, have khichdi. There are no rules after today."
+        },
+        "snacks": [
+          "Mithai from the celebration",
+          "Your favourite snacks",
+          "Tender coconut water — to begin the next phase fresh"
+        ]
+      },
+      "foods_to_avoid": [
+        "Nothing — today you eat with joy and zero restriction"
+      ],
+      "hydration_tip": "Traditional Day 40 herbal drink: boil tulsi leaves, ginger, cinnamon, cardamom in water. Strain. Add honey and drink warm. This is your new chapter — clean, energised, and forward-facing.",
+      "traditional_note": "Day 40 — Japa complete. In Indian tradition, the 40-day period (Japa or confinement) officially ends today. You receive your first full bath with herbal water. You are blessed by elders. You step out of the home for the first time. You are a mother, fully initiated. Whatever comes next — trust yourself. You already know how."
+    },
+    "baby": {
+      "feeding_type": "Exclusive breastfeeding — continue until 6 months",
+      "feeds_per_day": "6–9 feeds",
+      "what_to_expect": "Your 40-day-old baby is a miracle of development. They have social smiles, distinct vocalisations, strong neck muscles from tummy time, and a full personality. Their first vaccination visit is around 6 weeks. Solid foods begin at 6 months — you still have time.",
+      "signs_feeding_well": [
+        "6–8 wet diapers",
+        "Happy, healthy, growing baby",
+        "Your instincts are calibrated — trust them"
+      ],
+      "signs_to_watch": [
+        "Your own wellbeing — postpartum depression can peak at 6 weeks. If you feel persistently low, anxious, or unlike yourself — please reach out to your doctor. You deserve support too.",
+        "Baby's 6-week check-up — prepare your questions"
+      ],
+      "latch_tip": "Day 40 latch tip: You don't need a tip anymore. You are the expert on your baby. If something doesn't feel right, you'll know. Trust that knowledge — it was hard-earned over 40 days."
+    }
+  }
+]
