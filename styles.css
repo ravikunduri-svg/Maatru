@@ -1976,13 +1976,15 @@ a, button {
 }
 .ob-option-icon .material-symbols-outlined { font-size: 18px; color: var(--primary); }
 
-/* ── Settings PIN modal (bottom sheet) ──────────────────────── */
+/* ── Settings PIN modal (centered dialog) ────────────────────── */
 .pin-modal {
   background: var(--surface-white, #fff);
-  border-radius: 1.25rem 1.25rem 0 0;
-  padding: 1.5rem 1.25rem 2rem;
-  width: 100%;
-  max-width: 480px;
+  border-radius: 1.25rem;
+  padding: 1.5rem 1.25rem 1.75rem;
+  width: calc(100% - 2rem);
+  max-width: 400px;
+  max-height: 90svh;
+  overflow-y: auto;
 }
 .pin-modal-title {
   font-family: var(--font-head, 'Noto Serif', serif);

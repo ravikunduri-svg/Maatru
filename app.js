@@ -532,6 +532,7 @@ var _ciState = { symptoms: [], symptomTimes: {}, mood: null, note: '', voiceText
 var _voiceBlob = null;
 
 function showCheckin() {
+  _voiceBlob = null;  // clear any stale blob from a previous session
   var day   = getCurrentDay();
   var today = getTodayISO();
   var prev  = DB.getCheckin(today);
@@ -726,32 +727,48 @@ function ciSave() {
     }
 
     // Supabase sync (best-effort, errors logged but not shown)
+    // Wrap in Promise.resolve() to guarantee .catch() is available regardless
+    // of which postgrest-js version the CDN serves (PromiseLike vs full Promise).
     if (window.SB && SB.isReady() && _currentUserId) {
-      SB.saveCheckin(_currentUserId, rec).catch(function(e) {
+      try {
+        Promise.resolve(SB.saveCheckin(_currentUserId, rec)).catch(function(e) {
+          console.warn('[Navya] Supabase checkin sync failed:', e);
+        });
+      } catch(e) {
         console.warn('[Navya] Supabase checkin sync failed:', e);
-      });
+      }
     }
 
-    if (window.PH) PH.capture('checkin_saved', {
-      day:           day,
-      mood:          _ciState.mood || null,
-      symptom_count: _ciState.symptoms.length,
-      has_note:      !!(rec.note_text && rec.note_text.trim()),
-      has_voice:     !!(rec.voice_transcript && rec.voice_transcript.trim()),
-    });
+    try {
+      if (window.PH) PH.capture('checkin_saved', {
+        day:           day,
+        mood:          rec.mood || null,
+        symptom_count: rec.symptoms ? rec.symptoms.length : 0,
+        has_note:      !!(rec.note_text && rec.note_text.trim()),
+        has_voice:     !!(rec.voice_transcript && rec.voice_transcript.trim()),
+      });
+    } catch(e) {
+      console.warn('[Navya] PostHog capture failed:', e);
+    }
 
     showToast('Check-in saved! Great work today.');
     setTimeout(function() { navigate('#home'); }, 1200);
   }
 
   if (_voiceBlob) {
+    var blob = _voiceBlob;
+    _voiceBlob = null;
     var reader = new FileReader();
     reader.onloadend = function() {
-      record.voice_b64 = reader.result;
+      record.voice_b64 = reader.result || null;
       doSave(record);
     };
-    reader.readAsDataURL(_voiceBlob);
-    _voiceBlob = null;
+    try {
+      reader.readAsDataURL(blob);
+    } catch(e) {
+      console.warn('[Navya] FileReader error, saving without audio:', e);
+      doSave(record);
+    }
   } else {
     _voiceBlob = null;
     doSave(record);
@@ -1369,7 +1386,7 @@ function settingsSetPIN() {
       '<button class="ob-cta" style="margin-top:.75rem;" onclick="spmSave()">Save PIN</button>' +
       '<p class="ob-skip" onclick="spmClose()">Cancel</p>' +
     '</div>';
-  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:flex-end;justify-content:center;z-index:200;padding:0;';
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;z-index:200;padding:1rem;';
   document.body.appendChild(overlay);
   overlay.addEventListener('click', function(e) { if (e.target === overlay) spmClose(); });
   requestAnimationFrame(function() { var el = document.getElementById('spm-0'); if (el) el.focus(); });
