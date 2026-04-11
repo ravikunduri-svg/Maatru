@@ -43,6 +43,50 @@ const MOODS = [
   { key: 'great',  emoji: '🌟', label: 'Great'  },
 ];
 
+/* 40 daily quotes — one per postpartum day, cycling if needed */
+const DAILY_QUOTES = [
+  "Your body grew a human. Healing takes exactly as long as it takes.",
+  "There is no perfect way to do this. There is only your way.",
+  "Even in exhaustion, you show up. That is enough.",
+  "Every time you feed her, you are pouring love into the world.",
+  "Rest is not laziness. Rest is how you rebuild.",
+  "You are allowed to find this hard.",
+  "She doesn't need a perfect mother. She needs you.",
+  "Your tears are not weakness. They are love overflowing.",
+  "The nights are long, but so is the grace you carry.",
+  "One breath. One feed. One moment at a time.",
+  "You are learning her while she is learning the world.",
+  "What feels impossible today will feel ordinary soon.",
+  "Your body knows what it is doing. Trust it.",
+  "You are not just surviving. You are becoming.",
+  "The silence of 3 AM holds only you and your baby.",
+  "Asking for help is not giving up. It is wisdom.",
+  "She chose you. You were always enough.",
+  "Every scar, every mark — evidence of love made visible.",
+  "Motherhood begins before the first breath and never ends.",
+  "Even when you feel empty, you give. That is the miracle.",
+  "Slow down. The world can wait. Your baby cannot.",
+  "You do not have to earn your rest.",
+  "The love you feel — that is the universe knowing itself.",
+  "You are writing her first memory of being held.",
+  "Imperfect and present is better than perfect and absent.",
+  "Your milk is made from your heartbeat.",
+  "She knows your smell, your voice, your warmth. She knows you.",
+  "Some days are survival. Survival is sacred.",
+  "You were made for exactly this moment.",
+  "Let the dishes wait. Hold her while she still fits.",
+  "The grace you show yourself becomes the grace she will know.",
+  "You are the centre of her whole universe right now.",
+  "Every night you rise for her is an act of devotion.",
+  "This season is hard. It is also holy.",
+  "You are not behind. You are exactly where you need to be.",
+  "Healing is not linear. Neither is love.",
+  "Your child will not remember the mess. She will remember your presence.",
+  "In forty days you will not recognise how strong you were.",
+  "Rest, Mama. Tomorrow you begin again.",
+  "You are already the mother she needed.",
+];
+
 const PHASES = [
   { days: [1,7],   label: 'Phase 1 — Days 1-7',   theme: 'Rest, warmth & first healing foods',   icon: 'spa',            iconClass: 'qc-icon-green'  },
   { days: [8,14],  label: 'Phase 2 — Days 8-14',  theme: 'Milk establishment & strength',         icon: 'water_drop',     iconClass: 'qc-icon-rose'   },
@@ -148,6 +192,7 @@ function route(hash) {
   var parts = (hash.replace('#','') || 'home').split('/');
   var base  = parts[0];
   var param = parts[1];
+  try { if (window.PH) PH.screen(base); } catch(e) {}
 
   var nav = document.querySelector('.nav-bottom');
   if (base === 'onboarding') {
@@ -456,6 +501,8 @@ function showHome() {
     ? '<div style="display:flex;align-items:center;gap:.4rem;font-size:.75rem;font-weight:700;color:var(--primary);margin-bottom:1rem;"><span class="material-symbols-outlined" style="font-size:.875rem;">check_circle</span> Check-in done today</div>'
     : '<div style="display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--on-surface-var);margin-bottom:1rem;"><span class="material-symbols-outlined" style="font-size:.875rem;">radio_button_unchecked</span> Check-in not done yet</div>';
 
+  var quote = DAILY_QUOTES[(day - 1) % DAILY_QUOTES.length];
+
   var encs = [
     { h: 'Rest is healing, Mama.', p: 'Your body is doing extraordinary work. Let others carry everything else.' },
     { h: 'Milk is establishing.', p: 'Every feed builds your supply. You\'re doing more than you know.' },
@@ -515,10 +562,16 @@ function showHome() {
 
     ciStatus +
 
+    '<div class="quote-card">' +
+      '<span class="material-symbols-outlined quote-leaf">park</span>' +
+      '<p class="quote-text">' + esc(quote) + '</p>' +
+      '<p class="quote-day">Day ' + day + ' · for you</p>' +
+    '</div>' +
+
     '<div class="encouragement-card">' +
       '<h4>' + esc(e.h) + '</h4>' +
       '<p>' + esc(e.p) + '</p>' +
-      '<span class="material-symbols-outlined deco">favorite</span>' +
+      '<span class="material-symbols-outlined deco">park</span>' +
     '</div>' +
     '</div>'
   );
@@ -650,6 +703,7 @@ function ciSetMood(key, btn) {
   _ciState.mood = key;
   btn.closest('.mood-row').querySelectorAll('.mood-btn').forEach(function(b) { b.classList.remove('selected'); });
   btn.classList.add('selected');
+  try { if (window.PH) PH.capture('mood_selected', { mood: key, day: getCurrentDay() }); } catch(e) {}
 }
 
 function ciToggleVoice() {
@@ -673,6 +727,10 @@ function ciToggleVoice() {
     voiceRec.stop();
     ciVoiceStop();
   } else {
+    // Fresh session — clear previous transcript so voice replaces, not appends
+    _ciState.voiceText = '';
+    var box = document.getElementById('ci-transcript');
+    if (box) { box.innerHTML = '<span style="color:var(--on-surface-var);font-style:italic;">Listening…</span>'; box.classList.remove('interim'); }
     voiceRec.start().then(function() {
       var btn    = document.getElementById('ci-mic-btn');
       var icon   = document.getElementById('ci-mic-icon');
