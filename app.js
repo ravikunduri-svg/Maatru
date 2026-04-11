@@ -1308,14 +1308,49 @@ function settingsToggleCheckin(enabled) {
 }
 
 function settingsSetPIN() {
-  var pin = prompt('Enter a 4-digit PIN for your partner:');
-  if (pin && /^\d{4}$/.test(pin)) {
-    DB.set('navya_partner_pin', pin);
-    showToast('Partner PIN saved!');
-    showSettings();
-  } else if (pin !== null) {
-    showToast('PIN must be exactly 4 digits.');
+  // Render inline PIN modal instead of browser prompt
+  var overlay = document.createElement('div');
+  overlay.id  = 'pin-modal-overlay';
+  overlay.innerHTML =
+    '<div class="pin-modal">' +
+      '<p class="pin-modal-title">Set partner PIN</p>' +
+      '<p class="pin-modal-sub">Your partner will use this 4-digit PIN to view your daily log.</p>' +
+      '<div class="ob-pin-row" id="pin-modal-row">' +
+        [0,1,2,3].map(function(i) {
+          return '<input class="ob-pin-digit" id="spm-' + i + '" maxlength="1" inputmode="numeric" type="password" oninput="spmInput(this,' + i + ')" />';
+        }).join('') +
+      '</div>' +
+      '<p class="pin-modal-err" id="spm-err" style="display:none;color:var(--error);font-size:.8125rem;margin-bottom:.5rem;"></p>' +
+      '<button class="ob-cta" style="margin-top:.75rem;" onclick="spmSave()">Save PIN</button>' +
+      '<p class="ob-skip" onclick="spmClose()">Cancel</p>' +
+    '</div>';
+  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.45);display:flex;align-items:flex-end;justify-content:center;z-index:200;padding:0;';
+  document.body.appendChild(overlay);
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) spmClose(); });
+  requestAnimationFrame(function() { var el = document.getElementById('spm-0'); if (el) el.focus(); });
+}
+
+function spmInput(el, idx) {
+  el.value = el.value.replace(/\D/g,'').slice(-1);
+  if (el.value && idx < 3) { var n = document.getElementById('spm-' + (idx+1)); if (n) n.focus(); }
+}
+
+function spmSave() {
+  var pin = [0,1,2,3].map(function(i) { var d = document.getElementById('spm-' + i); return d ? d.value : ''; }).join('');
+  var err = document.getElementById('spm-err');
+  if (!/^\d{4}$/.test(pin)) {
+    if (err) { err.textContent = 'Please enter all 4 digits.'; err.style.display = ''; }
+    return;
   }
+  DB.set('navya_partner_pin', pin);
+  spmClose();
+  showToast('Partner PIN saved!');
+  showSettings();
+}
+
+function spmClose() {
+  var el = document.getElementById('pin-modal-overlay');
+  if (el) el.remove();
 }
 
 /* ─────────────────────────────────────────────────────────────
