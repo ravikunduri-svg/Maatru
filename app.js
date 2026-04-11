@@ -721,29 +721,44 @@ function ciSave() {
 function showSymptomList() {
   if (!allCards.length) { loadCards(null); return; }
 
-  var html = allCards.map(function(card) {
-    var pillCls = card.severity === 'red'
-      ? 'pill" style="background:var(--error-container);color:var(--error);"'
-      : card.severity === 'green' ? 'pill pill-green"' : 'pill pill-yellow"';
-    var pillLbl = card.severity === 'red' ? 'Urgent' : card.severity === 'green' ? 'Normal' : 'Attention';
-    return '<button class="symptom-card" onclick="navigate(\'#symptom/' + esc(card.slug) + '\')">' +
-      '<div class="sc-top">' +
-        '<div>' +
-          '<p class="sc-cat">' + esc(card.category||'') + '</p>' +
-          '<p class="sc-title">' + esc(card.title_user||card.title||card.slug) + '</p>' +
-          (card.clinical_name ? '<p class="sc-clinical">Clinical: ' + esc(card.clinical_name) + '</p>' : '') +
+  // Group by category
+  var catOrder = ['Breastfeeding', 'Mom recovery', 'Mental health', 'Newborn care', 'Baby health'];
+  var grouped = {};
+  allCards.forEach(function(card) {
+    var cat = card.category || 'Other';
+    if (!grouped[cat]) grouped[cat] = [];
+    grouped[cat].push(card);
+  });
+
+  var html = catOrder.concat(Object.keys(grouped).filter(function(c){return catOrder.indexOf(c)===-1;})).map(function(cat) {
+    var cards = grouped[cat];
+    if (!cards || !cards.length) return '';
+    var cardsHtml = cards.map(function(card) {
+      var pillCls = card.severity === 'red'
+        ? 'pill" style="background:var(--error-container);color:var(--error);"'
+        : card.severity === 'green' ? 'pill pill-green"' : 'pill pill-yellow"';
+      var pillLbl = card.severity === 'red' ? 'Urgent' : card.severity === 'green' ? 'Normal' : 'Attention';
+      return '<button class="symptom-card" onclick="navigate(\'#symptom/' + esc(card.slug) + '\')">' +
+        '<div class="sc-top">' +
+          '<div>' +
+            '<p class="sc-title">' + esc(card.title_user||card.title||card.slug) + '</p>' +
+          '</div>' +
+          '<span class="' + pillCls + '">' + pillLbl + '</span>' +
         '</div>' +
-        '<span class="' + pillCls + '">' + pillLbl + '</span>' +
-      '</div>' +
-      '<div class="sc-action">View guide <span class="material-symbols-outlined">arrow_forward</span></div>' +
-    '</button>';
+        '<div class="sc-action">View guide <span class="material-symbols-outlined">arrow_forward</span></div>' +
+      '</button>';
+    }).join('');
+    return '<div style="margin-bottom:1.5rem;">' +
+      '<p style="font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--primary);margin-bottom:.625rem;">' + esc(cat) + '</p>' +
+      '<div class="symptom-list-grid">' + cardsHtml + '</div>' +
+    '</div>';
   }).join('');
 
   setContent(
     '<div>' +
-    '<div class="page-header"><h1>Breastfeeding<br>symptoms</h1><p>Tap the symptom that feels closest to what you\'re experiencing.</p></div>' +
-    '<div class="symptom-list-grid">' + html + '</div>' +
-    '<div class="encouragement-card"><h4>You\'re doing great, Mama.</h4><p>It\'s normal to have questions. We\'re here for every feed.</p><span class="material-symbols-outlined deco">favorite</span></div>' +
+    '<div class="page-header"><h1>Symptoms<br>& guides</h1><p>Tap any concern to get guidance, dos & don\'ts, and red flags.</p></div>' +
+    html +
+    '<div class="encouragement-card"><h4>You\'re doing great, Mama.</h4><p>It\'s normal to have questions. Every concern deserves an answer.</p><span class="material-symbols-outlined deco">favorite</span></div>' +
     '</div>'
   );
 }
@@ -777,10 +792,10 @@ function showSymptomDetail(slug) {
     : card.severity === 'green' ? 'pill pill-green"' : 'pill pill-yellow"';
   var pillLbl = card.severity === 'red' ? 'Urgent' : card.severity === 'green' ? 'Normal' : 'Attention';
 
-  var stepsHtml = (card.steps||[]).map(function(s, i) {
+  var stepsHtml = (card.steps || card.immediate_relief_steps || []).map(function(s, i) {
     return '<div class="step-item">' +
       '<div class="step-num">' + (i+1) + '</div>' +
-      '<div><div class="step-title">' + esc(s.title||s) + '</div>' + (s.desc ? '<div class="step-desc">' + esc(s.desc) + '</div>' : '') + '</div>' +
+      '<div><div class="step-title">' + esc(s.title||s) + '</div>' + (s.desc||s.description ? '<div class="step-desc">' + esc(s.desc||s.description) + '</div>' : '') + '</div>' +
     '</div>';
   }).join('');
 
@@ -796,9 +811,9 @@ function showSymptomDetail(slug) {
       (card.category ? '<span class="pill pill-grey">' + esc(card.category) + '</span>' : '') +
     '</div>' +
     '<h1 style="font-size:1.5rem;color:var(--on-surface);line-height:1.2;margin-bottom:.375rem;">' + esc(card.title_user||card.title||card.slug) + '</h1>' +
-    (card.clinical_name ? '<p style="display:flex;align-items:center;gap:.3rem;color:var(--primary);font-weight:600;font-size:.875rem;margin-bottom:1.25rem;"><span class="material-symbols-outlined" style="font-size:1rem;">clinical_notes</span>Clinical: ' + esc(card.clinical_name) + '</p>' : '') +
+    ((card.clinical_name||card.title_clinical) ? '<p style="display:flex;align-items:center;gap:.3rem;color:var(--primary);font-weight:600;font-size:.875rem;margin-bottom:1.25rem;"><span class="material-symbols-outlined" style="font-size:1rem;">clinical_notes</span>Clinical: ' + esc(card.clinical_name||card.title_clinical) + '</p>' : '') +
 
-    (card.what_it_is ? '<div class="detail-intro"><h3>What this likely is</h3><p>' + esc(card.what_it_is) + '</p>' + (card.timing ? '<p style="margin-top:.5rem;"><strong style="color:var(--primary-dim);font-weight:700;">Typical timing:</strong> ' + esc(card.timing) + '</p>' : '') + '</div>' : '') +
+    (card.what_it_is ? '<div class="detail-intro"><h3>What this likely is</h3><p>' + esc(card.what_it_is) + '</p>' + ((card.timing||card.peak_timing) ? '<p style="margin-top:.5rem;"><strong style="color:var(--primary-dim);font-weight:700;">Typical timing:</strong> ' + esc(card.timing||card.peak_timing) + '</p>' : '') + '</div>' : '') +
 
     (stepsHtml ? '<div class="section-divider"><h3>Immediate relief steps</h3></div>' + stepsHtml : '') +
 
@@ -809,7 +824,7 @@ function showSymptomDetail(slug) {
 
     (flagsHtml ? '<div class="red-flags"><div class="rf-header"><span class="material-symbols-outlined">warning</span> Red flags — see a doctor if...</div><ul class="rf-list">' + flagsHtml + '</ul></div>' : '') +
 
-    (card.when_to_expect ? '<div style="background:rgba(198,237,191,.15);border-radius:.75rem;padding:.875rem;margin-bottom:1.25rem;display:flex;gap:.5rem;"><span class="material-symbols-outlined" style="color:var(--primary);font-size:1.125rem;flex-shrink:0;margin-top:.1rem;">hourglass_empty</span><div><p style="font-size:.8125rem;font-weight:700;color:var(--on-surface);margin-bottom:.2rem;">When to expect improvement</p><p style="font-size:.8125rem;color:var(--on-surface-var);line-height:1.55;">' + esc(card.when_to_expect) + '</p></div></div>' : '') +
+    ((card.when_to_expect||card.when_to_expect_improvement) ? '<div style="background:rgba(198,237,191,.15);border-radius:.75rem;padding:.875rem;margin-bottom:1.25rem;display:flex;gap:.5rem;"><span class="material-symbols-outlined" style="color:var(--primary);font-size:1.125rem;flex-shrink:0;margin-top:.1rem;">hourglass_empty</span><div><p style="font-size:.8125rem;font-weight:700;color:var(--on-surface);margin-bottom:.2rem;">When to expect improvement</p><p style="font-size:.8125rem;color:var(--on-surface-var);line-height:1.55;">' + esc(card.when_to_expect||card.when_to_expect_improvement) + '</p></div></div>' : '') +
 
     renderSymptomTracker(slug) +
     '</div>'

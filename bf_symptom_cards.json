@@ -1525,5 +1525,438 @@
     "last_reviewed_at": "2026-01-01T00:00:00Z",
     "reviewed_by": "SYNTHETIC_PLACEHOLDER",
     "source_notes": "Normal anxiety about unseen intake."
+  },
+  {
+    "id": 26,
+    "slug": "baby-blues",
+    "title_user": "I keep crying for no reason — is something wrong with me?",
+    "clinical_name": "Baby blues (postpartum mood changes)",
+    "severity": "green",
+    "category": "Mental health",
+    "tags": ["emotions", "day-3-5", "normal", "hormones"],
+    "timing": "Peaks around day 3–5 when hormones drop sharply after birth. Typically resolves on its own by day 10–14.",
+    "what_it_is": "Baby blues are a normal hormonal response to the sudden drop in oestrogen and progesterone after delivery. You may feel weepy, overwhelmed, or emotionally fragile even when things are going well. This affects up to 80% of new mothers and is not a sign of weakness or failure.",
+    "body_signals": [
+      "Bursting into tears unexpectedly",
+      "Feeling irritable or emotionally raw",
+      "Swinging between happiness and sadness quickly",
+      "Difficulty sleeping even when baby sleeps"
+    ],
+    "steps": [
+      { "order": 1, "title": "Let yourself cry without judgement", "desc": "Tears are your body processing a massive hormonal shift and life change. You don't need a reason. Let it out, then rest." },
+      { "order": 2, "title": "Accept help and rest", "desc": "Ask your partner, mother, or anyone nearby to hold the baby while you sleep, eat, or simply sit quietly. Rest is medicine right now." },
+      { "order": 3, "title": "Stay connected", "desc": "Talk to someone you trust about how you feel. Even a short conversation reduces the sense of isolation that can intensify the blues." }
+    ],
+    "dos": [
+      "Do rest as much as possible — sleep deprivation worsens every emotion",
+      "Do eat warm nourishing meals; your body is recovering from a huge physical event",
+      "Do tell your partner or family how you feel so they can support you"
+    ],
+    "donts": [
+      "Don't dismiss your feelings or tell yourself to just be happy",
+      "Don't be alone more than necessary — isolation intensifies the blues",
+      "Don't make major decisions while you're in the thick of it"
+    ],
+    "red_flags": [
+      "Feelings do not improve at all after 2 weeks",
+      "You feel no connection or warmth toward your baby",
+      "Thoughts of harming yourself or the baby"
+    ],
+    "when_to_expect": "Baby blues almost always lift naturally by day 10–14 as hormones stabilise. If not, speak to your doctor — it may be postpartum depression.",
+    "related_slugs": ["postpartum-depression", "postpartum-anxiety", "sleep-deprivation-coping"],
+    "disclaimer": "This information is for general education only and is not a substitute for professional medical care. If you are worried, seek help from a qualified health professional.",
+    "version": 1,
+    "status": "synthetic-dev-only",
+    "last_reviewed_at": "2026-01-01T00:00:00Z",
+    "reviewed_by": "SYNTHETIC_PLACEHOLDER"
+  },
+  {
+    "id": 27,
+    "slug": "postpartum-depression",
+    "title_user": "I feel empty, hopeless, and disconnected from my baby",
+    "clinical_name": "Postpartum depression (PPD)",
+    "severity": "red",
+    "category": "Mental health",
+    "tags": ["depression", "mental-health", "urgent", "bonding"],
+    "timing": "Can begin any time in the first year, most commonly within the first 4–6 weeks after birth.",
+    "what_it_is": "Postpartum depression is a medical condition, not a character flaw or weakness. It involves persistent low mood, difficulty bonding, loss of interest in things you normally enjoy, and sometimes frightening thoughts. It is very treatable and you deserve help.",
+    "body_signals": [
+      "Persistent sadness, emptiness, or numbness lasting more than 2 weeks",
+      "Unable to sleep even when baby sleeps, or sleeping too much",
+      "Loss of appetite or overeating",
+      "Feeling like a bad mother or that your baby would be better off without you"
+    ],
+    "steps": [
+      { "order": 1, "title": "Tell someone today", "desc": "Tell your partner, a family member, or your doctor how you truly feel. PPD does not get better with silence. You don't need to manage this alone." },
+      { "order": 2, "title": "Contact your doctor or midwife", "desc": "PPD responds well to support, therapy, and sometimes medication. Your doctor can assess you and guide the right treatment. This is a medical appointment, not a sign of failure." },
+      { "order": 3, "title": "Remove pressure temporarily", "desc": "Hand over as many tasks as possible to others. Your only job right now is to get support. Housework, cooking, and everything else can wait." }
+    ],
+    "dos": [
+      "Do seek medical care promptly — PPD is highly treatable",
+      "Do accept that needing help is not weakness; it is how healing starts",
+      "Do let trusted people stay close to you and your baby while you recover"
+    ],
+    "donts": [
+      "Don't wait hoping it will pass on its own past 2 weeks",
+      "Don't feel ashamed — PPD is a medical condition caused by biology, not your choices",
+      "Don't be alone with intrusive or frightening thoughts; call someone immediately"
+    ],
+    "red_flags": [
+      "Thoughts of harming yourself or your baby — call emergency services immediately",
+      "Feeling completely detached from reality or hearing/seeing things",
+      "Unable to care for yourself or baby at all"
+    ],
+    "when_to_expect": "With appropriate treatment, most women with PPD see significant improvement within 3–6 weeks. Recovery is real and full recovery is common.",
+    "related_slugs": ["baby-blues", "postpartum-anxiety"],
+    "disclaimer": "This information is for general education only and is not a substitute for professional medical care. If you are worried, seek help from a qualified health professional.",
+    "version": 1,
+    "status": "synthetic-dev-only",
+    "last_reviewed_at": "2026-01-01T00:00:00Z",
+    "reviewed_by": "SYNTHETIC_PLACEHOLDER"
+  },
+  {
+    "id": 28,
+    "slug": "afterpains",
+    "title_user": "I have strong crampy pains in my belly after birth",
+    "clinical_name": "Afterpains (uterine involution cramps)",
+    "severity": "yellow",
+    "category": "Mom recovery",
+    "tags": ["cramps", "uterus", "early-days", "breastfeeding-related"],
+    "timing": "Most intense in the first 2–4 days after birth. Often stronger during breastfeeding feeds because oxytocin triggers uterine contractions.",
+    "what_it_is": "Afterpains are your uterus contracting back to its pre-pregnancy size — a normal and necessary process. They feel like period cramps and are often stronger during feeds. They are more noticeable with second and subsequent babies.",
+    "body_signals": [
+      "Wave-like cramping in the lower abdomen",
+      "Pain that intensifies during or just after breastfeeding",
+      "Bleeding that increases slightly during cramping episodes"
+    ],
+    "steps": [
+      { "order": 1, "title": "Apply a warm compress", "desc": "A warm wheat bag or hot water bottle (not too hot) placed on your lower belly during a cramping episode brings real relief. Try this especially during feeds." },
+      { "order": 2, "title": "Adjust your position", "desc": "Lying on your stomach with a pillow under your belly can help. Side-lying during feeds reduces pain for some mothers." },
+      { "order": 3, "title": "Take prescribed pain relief", "desc": "If your doctor or midwife has recommended paracetamol or ibuprofen, take it about 30 minutes before a feed to stay ahead of the pain." }
+    ],
+    "dos": [
+      "Do empty your bladder frequently — a full bladder makes cramping worse",
+      "Do continue breastfeeding even though it triggers cramps — the contractions are beneficial",
+      "Do rest between feeds as much as possible"
+    ],
+    "donts": [
+      "Don't panic — strong afterpains are normal, especially in the first 2–3 days",
+      "Don't stop breastfeeding to avoid the pain; the cramps reduce supply only for a moment",
+      "Don't ignore pain that is one-sided, constant, or accompanied by fever"
+    ],
+    "red_flags": [
+      "Severe one-sided pain that doesn't ease",
+      "Fever above 38 °C with abdominal pain",
+      "Unusually heavy bleeding soaking more than one pad per hour"
+    ],
+    "when_to_expect": "Afterpains usually ease noticeably by day 4–5 and are mostly gone by day 7–10.",
+    "related_slugs": ["heavy-postpartum-bleeding", "perineal-pain"],
+    "disclaimer": "This information is for general education only and is not a substitute for professional medical care. If you are worried, seek help from a qualified health professional.",
+    "version": 1,
+    "status": "synthetic-dev-only",
+    "last_reviewed_at": "2026-01-01T00:00:00Z",
+    "reviewed_by": "SYNTHETIC_PLACEHOLDER"
+  },
+  {
+    "id": 29,
+    "slug": "perineal-pain",
+    "title_user": "I have stitches or soreness 'down below' and it hurts to sit",
+    "clinical_name": "Perineal discomfort / episiotomy recovery",
+    "severity": "yellow",
+    "category": "Mom recovery",
+    "tags": ["stitches", "perineum", "vaginal-birth", "pain"],
+    "timing": "Begins immediately after a vaginal birth. Stitches usually dissolve within 2–4 weeks; full comfort typically returns by 6 weeks.",
+    "what_it_is": "The perineum (the area between the vagina and the back passage) stretches significantly during a vaginal birth and may have a small tear or cut (episiotomy) that is stitched. Soreness and bruising in this area is completely normal and heals well with good care.",
+    "body_signals": [
+      "Throbbing, stinging, or aching pain between the legs",
+      "Discomfort or stinging when passing urine",
+      "Difficulty sitting comfortably for the first 1–2 weeks"
+    ],
+    "steps": [
+      { "order": 1, "title": "Use a sitz bath or warm water rinse", "desc": "Soaking in a shallow warm bath for 10–15 minutes several times a day soothes swelling and promotes healing. Pour warm water over the area when urinating to ease the sting." },
+      { "order": 2, "title": "Apply cold for the first 48 hours", "desc": "Wrap ice or a cold pack in a cloth and apply for 10–15 minutes every few hours. This reduces swelling significantly in the early days." },
+      { "order": 3, "title": "Keep the area clean and dry", "desc": "Pat gently dry after washing, change maternity pads regularly, and wear breathable cotton underwear. Avoid sitting on hard surfaces — use a soft ring cushion if needed." }
+    ],
+    "dos": [
+      "Do drink plenty of water and eat fibre to keep stools soft and reduce straining",
+      "Do do gentle pelvic floor contractions once the acute pain eases — this improves blood flow and healing",
+      "Do check your stitches with a mirror if you are worried; slight pink discharge is normal"
+    ],
+    "donts": [
+      "Don't use scented soaps, wipes, or bubble bath in the area",
+      "Don't strain during bowel movements — use a stool softener if prescribed",
+      "Don't return to exercise until cleared by your doctor or physiotherapist"
+    ],
+    "red_flags": [
+      "Swelling that is getting larger or feels very hot and tight",
+      "Foul-smelling or coloured discharge from the wound",
+      "Fever with increased pain — may indicate infection"
+    ],
+    "when_to_expect": "Significant improvement within 1–2 weeks. Most women are comfortable within 4–6 weeks, though full healing takes up to 3 months.",
+    "related_slugs": ["pelvic-floor-weakness", "postpartum-constipation"],
+    "disclaimer": "This information is for general education only and is not a substitute for professional medical care. If you are worried, seek help from a qualified health professional.",
+    "version": 1,
+    "status": "synthetic-dev-only",
+    "last_reviewed_at": "2026-01-01T00:00:00Z",
+    "reviewed_by": "SYNTHETIC_PLACEHOLDER"
+  },
+  {
+    "id": 30,
+    "slug": "postpartum-hair-loss",
+    "title_user": "I'm losing alarming amounts of hair — am I going bald?",
+    "clinical_name": "Postpartum telogen effluvium",
+    "severity": "green",
+    "category": "Mom recovery",
+    "tags": ["hair-loss", "hormones", "normal", "weeks-6-16"],
+    "timing": "Typically starts 2–4 months after birth and peaks around month 3–4. Can feel alarming but is almost always temporary.",
+    "what_it_is": "During pregnancy, high oestrogen keeps hair in the growth phase, so you lose very little. After birth, oestrogen drops and all that extra hair sheds at once. You are not going bald — you are returning to your normal hair density. This affects most new mothers.",
+    "body_signals": [
+      "Large amounts of hair coming out in the shower or brush",
+      "Thinning around the temples or a wider parting",
+      "Hair on pillows, in the sink, and throughout the house"
+    ],
+    "steps": [
+      { "order": 1, "title": "Be gentle with your hair", "desc": "Use a wide-tooth comb, avoid tight hairstyles, and let hair air-dry when possible. Reduce heat styling and harsh chemical treatments temporarily." },
+      { "order": 2, "title": "Keep nutrition strong", "desc": "Eat iron-rich foods (daal, green leafy vegetables, nuts, meat), protein, and biotin-rich foods. If you are vegetarian or breastfeeding, ask your doctor about supplements." },
+      { "order": 3, "title": "Accept it and give it time", "desc": "Knowing why this happens helps reduce the panic. Most hair is fully restored by 12–18 months after birth. Try a new shorter style if the change bothers you visually." }
+    ],
+    "dos": [
+      "Do continue taking your postnatal vitamins, especially if breastfeeding",
+      "Do eat enough protein and iron — deficiency worsens hair loss",
+      "Do use a volumising shampoo if hair feels thin"
+    ],
+    "donts": [
+      "Don't crash diet or restrict calories — this dramatically worsens hair loss",
+      "Don't pull hair into very tight ponytails, which cause further breakage",
+      "Don't panic — this is not permanent for the vast majority of women"
+    ],
+    "red_flags": [
+      "Hair loss continues beyond 12 months with no sign of regrowth",
+      "Loss of eyebrows or eyelashes as well as scalp hair",
+      "Extreme fatigue, cold intolerance, or unexplained weight changes alongside hair loss (may indicate thyroid issue)"
+    ],
+    "when_to_expect": "Shedding usually peaks around 3–4 months and slows noticeably by 6 months. Full density typically restored by 12–18 months.",
+    "related_slugs": ["baby-blues", "sleep-deprivation-coping"],
+    "disclaimer": "This information is for general education only and is not a substitute for professional medical care. If you are worried, seek help from a qualified health professional.",
+    "version": 1,
+    "status": "synthetic-dev-only",
+    "last_reviewed_at": "2026-01-01T00:00:00Z",
+    "reviewed_by": "SYNTHETIC_PLACEHOLDER"
+  },
+  {
+    "id": 31,
+    "slug": "postpartum-constipation",
+    "title_user": "I haven't had a proper bowel movement since giving birth",
+    "clinical_name": "Postpartum constipation",
+    "severity": "yellow",
+    "category": "Mom recovery",
+    "tags": ["constipation", "bowel", "early-days", "common"],
+    "timing": "Very common in the first 3–5 days after birth; fear of pain near stitches often delays the first bowel movement.",
+    "what_it_is": "After birth, pain medications, iron supplements, dehydration, and fear of straining near stitches can all slow down your bowels. The first post-birth bowel movement can feel scary but is rarely as painful as you fear. Stitches will not tear.",
+    "body_signals": [
+      "No bowel movement for 3 or more days after birth",
+      "Hard, dry stools that are difficult or painful to pass",
+      "Bloating or discomfort in the lower abdomen"
+    ],
+    "steps": [
+      { "order": 1, "title": "Drink warm water consistently", "desc": "Aim for 8–10 glasses of fluid daily. Warm water with a little lemon or jeera (cumin) water in the morning stimulates bowel movement naturally." },
+      { "order": 2, "title": "Eat fibre-rich soft foods", "desc": "Include papaya, bananas, soaked dried prunes or figs, warm daal, sabzi with ghee, and whole grains. Avoid dry, fried foods that worsen constipation." },
+      { "order": 3, "title": "Move gently and don't delay", "desc": "Short slow walks encourage gut movement. When you feel the urge, don't hold on — delaying makes stools harder. Use a small footstool under your feet on the toilet to take pressure off the area." }
+    ],
+    "dos": [
+      "Do take a stool softener if your doctor has prescribed one — this is not a laxative and is safe",
+      "Do eat a spoonful of ghee with meals — a traditional practice that genuinely lubricates the gut",
+      "Do keep warm fluids going throughout the day"
+    ],
+    "donts": [
+      "Don't strain hard — hold a pad against your perineum if you feel you need support",
+      "Don't eat constipating foods like bananas (ripe ones are fine), white bread, or too much rice immediately after birth",
+      "Don't ignore it beyond day 4–5 without speaking to your midwife or doctor"
+    ],
+    "red_flags": [
+      "No bowel movement for more than 5 days with significant pain",
+      "Blood in the stool (small amounts from haemorrhoids is common, but any bright red blood warrants a check)",
+      "Severe abdominal pain or vomiting"
+    ],
+    "when_to_expect": "Most women have their first bowel movement within 3–5 days of birth. With good hydration and diet, regularity returns within 1–2 weeks.",
+    "related_slugs": ["postpartum-hemorrhoids", "perineal-pain"],
+    "disclaimer": "This information is for general education only and is not a substitute for professional medical care. If you are worried, seek help from a qualified health professional.",
+    "version": 1,
+    "status": "synthetic-dev-only",
+    "last_reviewed_at": "2026-01-01T00:00:00Z",
+    "reviewed_by": "SYNTHETIC_PLACEHOLDER"
+  },
+  {
+    "id": 32,
+    "slug": "newborn-jaundice",
+    "title_user": "My baby's skin and eyes look yellow",
+    "clinical_name": "Neonatal jaundice (hyperbilirubinaemia)",
+    "severity": "yellow",
+    "category": "Baby health",
+    "tags": ["jaundice", "newborn", "day-2-5", "bilirubin"],
+    "timing": "Physiological jaundice typically appears on day 2–3, peaks around day 4–5, and clears by day 10–14 in most term babies. Jaundice in the first 24 hours is always urgent.",
+    "what_it_is": "Jaundice causes a yellow tinge to the skin and whites of the eyes because the baby's immature liver is processing a substance called bilirubin. Mild jaundice is very common and usually harmless. Severe or rapidly rising jaundice needs prompt treatment.",
+    "body_signals": [
+      "Yellow colour starting on the face and spreading to chest, belly, and limbs",
+      "Yellow tinge in the whites of the eyes",
+      "Baby is sleepy and difficult to feed"
+    ],
+    "steps": [
+      { "order": 1, "title": "Feed frequently — this is the most important step", "desc": "Feeding 8–12 times a day helps the baby pass bilirubin through bowel movements. If breastfeeding, ensure baby is latching well and transferring milk effectively." },
+      { "order": 2, "title": "Monitor the yellow colour", "desc": "In natural daylight (not artificial light), press gently on baby's nose or forehead with a finger. If the skin looks yellow when released, check with your doctor. The colour spreading below the knees or into the eyes requires same-day medical review." },
+      { "order": 3, "title": "Attend all follow-up checks", "desc": "Accept all home visits or clinic checks arranged for your baby in the first week. Bilirubin levels can be measured quickly with a skin device and don't always require a blood test." }
+    ],
+    "dos": [
+      "Do feed very frequently — this is the single most effective treatment for mild jaundice",
+      "Do look at your baby in natural daylight to assess the colour accurately",
+      "Do take your baby for a bilirubin check if you are unsure — it is quick and non-invasive"
+    ],
+    "donts": [
+      "Don't skip feeds or let baby sleep more than 3 hours without waking to feed",
+      "Don't use home sunlight exposure as treatment without medical guidance — it is not a substitute for phototherapy",
+      "Don't wait to seek help if yellow colour is spreading below the waist or your baby seems very unwell"
+    ],
+    "red_flags": [
+      "Jaundice appearing in the first 24 hours after birth — always urgent",
+      "Yellow colour reaching below the knees or into the palms and soles",
+      "Baby is extremely sleepy, not waking to feed, or has a very high-pitched cry"
+    ],
+    "when_to_expect": "Mild physiological jaundice clears by 10–14 days in term babies. With phototherapy if needed, levels drop within 24–48 hours of treatment.",
+    "related_slugs": ["newborn-weight-loss", "sleepy-baby-at-breast"],
+    "disclaimer": "This information is for general education only and is not a substitute for professional medical care. If you are worried, seek help from a qualified health professional.",
+    "version": 1,
+    "status": "synthetic-dev-only",
+    "last_reviewed_at": "2026-01-01T00:00:00Z",
+    "reviewed_by": "SYNTHETIC_PLACEHOLDER"
+  },
+  {
+    "id": 33,
+    "slug": "diaper-rash",
+    "title_user": "My baby's bottom is red and sore — diaper rash",
+    "clinical_name": "Napkin / diaper dermatitis",
+    "severity": "yellow",
+    "category": "Newborn care",
+    "tags": ["skin", "nappy", "rash", "common"],
+    "timing": "Can occur any time but is most common from 4 weeks onwards when stools change. Often flares during teething or after introduction of solid foods.",
+    "what_it_is": "Diaper rash is redness and inflammation of the skin in the nappy area caused by prolonged contact with urine or stool, friction, or a reaction to wipes or products. It is very common and clears quickly with the right care.",
+    "body_signals": [
+      "Red, inflamed skin in the nappy area",
+      "Baby cries or seems uncomfortable during nappy changes",
+      "Skin may look raw, bumpy, or have small spots"
+    ],
+    "steps": [
+      { "order": 1, "title": "Change nappies frequently", "desc": "Check and change the nappy every 2–3 hours and immediately after every bowel movement. Leaving a wet or soiled nappy on even briefly allows the rash to worsen." },
+      { "order": 2, "title": "Clean gently and let air-dry", "desc": "Use plain warm water and a soft cloth (or fragrance-free wipes). Pat dry gently — never rub. Allow a few minutes of nappy-free time with the area fully open to air whenever practical." },
+      { "order": 3, "title": "Apply a thick barrier cream", "desc": "Use a zinc oxide-based barrier cream (like Drapolene, Sudocrem, or plain zinc paste available in any pharmacy) at every change. Apply a thick layer — don't rub it in." }
+    ],
+    "dos": [
+      "Do let baby have nappy-free time on a towel in a warm room each day",
+      "Do use fragrance-free, alcohol-free products near the nappy area",
+      "Do apply fresh barrier cream at every single nappy change until fully healed"
+    ],
+    "donts": [
+      "Don't use talcum powder — it can be inhaled and doesn't help the rash",
+      "Don't use scented wipes or soaps in the nappy area",
+      "Don't put a tight nappy on — allow some air flow"
+    ],
+    "red_flags": [
+      "Rash spreading beyond the nappy area onto the abdomen or thighs",
+      "Bright red beefy rash with satellite spots at the edges (suggests fungal infection)",
+      "Blisters, open sores, or pus-filled spots"
+    ],
+    "when_to_expect": "With frequent changes and barrier cream, most diaper rash clears within 3–4 days. Fungal rashes need antifungal cream and take about a week.",
+    "related_slugs": ["newborn-acne", "thrush-nipple"],
+    "disclaimer": "This information is for general education only and is not a substitute for professional medical care. If you are worried, seek help from a qualified health professional.",
+    "version": 1,
+    "status": "synthetic-dev-only",
+    "last_reviewed_at": "2026-01-01T00:00:00Z",
+    "reviewed_by": "SYNTHETIC_PLACEHOLDER"
+  },
+  {
+    "id": 34,
+    "slug": "baby-colic",
+    "title_user": "My baby cries inconsolably every evening for hours",
+    "clinical_name": "Infantile colic",
+    "severity": "yellow",
+    "category": "Baby health",
+    "tags": ["crying", "colic", "evening", "weeks-2-12"],
+    "timing": "Typically begins around week 2–3, peaks around week 6, and resolves on its own by 3–4 months in most babies.",
+    "what_it_is": "Colic is defined as crying for more than 3 hours a day, more than 3 days a week, in an otherwise healthy baby under 3 months. The cause is not fully understood but is real and exhausting. It is not caused by bad parenting and it does end.",
+    "body_signals": [
+      "Intense, high-pitched crying that is difficult to console",
+      "Baby draws up legs, clenches fists, and arches back",
+      "Crying episodes tend to occur at the same time each day, often evening",
+      "Baby may pass wind or appear to be in pain"
+    ],
+    "steps": [
+      { "order": 1, "title": "Try movement and gentle pressure", "desc": "Hold baby face-down along your forearm (the 'colic hold'), rock gently, walk, or use a baby carrier. The combination of warmth, pressure on the belly, and movement soothes many babies." },
+      { "order": 2, "title": "Use white noise or shushing", "desc": "A strong 'shhhh' sound at the level of baby's cries, a running tap, or a white noise app can help. The womb was very loud — familiar sound is comforting." },
+      { "order": 3, "title": "Tag-team with your partner", "desc": "Set a time limit — if baby is crying and you have tried everything, hand over to your partner after 20 minutes and take a short break. Parental distress is heard and felt by the baby." }
+    ],
+    "dos": [
+      "Do ensure baby is winded thoroughly after every feed — sit baby upright and pat the back gently for 10–15 minutes",
+      "Do try Infacol or gripe water (available over the counter) if recommended by your pharmacist",
+      "Do accept that sometimes nothing works — holding through it is enough"
+    ],
+    "donts": [
+      "Don't shake or roughly handle the baby out of frustration — put baby down safely and step outside for a moment if you need to",
+      "Don't change formula repeatedly without medical advice — this rarely helps",
+      "Don't blame yourself — colic is not caused by anything you are doing wrong"
+    ],
+    "red_flags": [
+      "Baby has a fever above 38 °C alongside the crying",
+      "Baby is not feeding or is vomiting forcefully",
+      "The crying pattern changes suddenly or baby seems unwell between episodes"
+    ],
+    "when_to_expect": "Colic typically resolves completely by 3–4 months of age. Each week before then may still be hard, but there is a clear endpoint.",
+    "related_slugs": ["gassy-baby-fussiness", "baby-reflux", "day-night-confusion"],
+    "disclaimer": "This information is for general education only and is not a substitute for professional medical care. If you are worried, seek help from a qualified health professional.",
+    "version": 1,
+    "status": "synthetic-dev-only",
+    "last_reviewed_at": "2026-01-01T00:00:00Z",
+    "reviewed_by": "SYNTHETIC_PLACEHOLDER"
+  },
+  {
+    "id": 35,
+    "slug": "newborn-weight-loss",
+    "title_user": "My baby has lost weight since birth — is that normal?",
+    "clinical_name": "Physiological neonatal weight loss",
+    "severity": "yellow",
+    "category": "Baby health",
+    "tags": ["weight", "newborn", "normal", "day-1-5"],
+    "timing": "Expected weight loss occurs in the first 3–5 days of life and birth weight is normally regained by day 10–14.",
+    "what_it_is": "Almost all newborns lose weight in the first few days as they pass meconium, lose excess fluid, and adjust to feeding. A loss of up to 7% of birth weight is considered normal. Beyond 10% is a signal to investigate feeding and possibly supplement. It does not mean you have failed.",
+    "body_signals": [
+      "Baby may seem sleepy, with fewer wet or dirty nappies than expected",
+      "Baby may appear slightly yellow-tinged (often linked)",
+      "You may notice less milk on the breast pad or fewer swallows during feeds"
+    ],
+    "steps": [
+      { "order": 1, "title": "Feed at least 8–12 times in 24 hours", "desc": "Wake your baby for feeds if they sleep longer than 3 hours. Frequency of feeding is the single most important driver of weight gain in the first two weeks." },
+      { "order": 2, "title": "Confirm effective milk transfer", "desc": "Look for a rhythmic suck-swallow-breathe pattern during feeds, hear quiet swallowing, and see wet and dirty nappies. If unsure, ask for a weighted feed assessment with a lactation consultant." },
+      { "order": 3, "title": "Attend every weight check", "desc": "Accept all weight checks offered in the first two weeks. Tracking the trend is more important than any single number." }
+    ],
+    "dos": [
+      "Do look for output as a sign of input — wet nappies and stools tell you baby is getting milk",
+      "Do seek a lactation consultant review if weight loss exceeds 7% or regain is slow",
+      "Do keep baby close and feed on demand throughout the day and night"
+    ],
+    "donts": [
+      "Don't be afraid to ask for a weight check if you are worried — this is always appropriate",
+      "Don't offer formula without medical guidance as the first response to weight loss",
+      "Don't wait more than 24 hours if baby is losing weight rapidly or seems unwell"
+    ],
+    "red_flags": [
+      "Weight loss exceeding 10% of birth weight",
+      "Birth weight not regained by day 14",
+      "Baby showing signs of dehydration: no wet nappy in 12 hours, sunken fontanelle, dry mouth"
+    ],
+    "when_to_expect": "With good feeding, weight should stabilise by day 4–5 and return to birth weight by day 10–14. Most babies gain 150–200 g per week after that.",
+    "related_slugs": ["baby-not-gaining-weight", "low-milk-supply-concern", "newborn-jaundice"],
+    "disclaimer": "This information is for general education only and is not a substitute for professional medical care. If you are worried, seek help from a qualified health professional.",
+    "version": 1,
+    "status": "synthetic-dev-only",
+    "last_reviewed_at": "2026-01-01T00:00:00Z",
+    "reviewed_by": "SYNTHETIC_PLACEHOLDER"
   }
 ]
