@@ -130,7 +130,12 @@ function loadAllData() {
     _db.from('symptom_tracks').select('*'),
     _db.from('guide_views').select('*'),
   ]).then(function (results) {
-    _profiles = (results[0].data || []);
+    var profilesResult = results[0];
+    if (profilesResult.error) {
+      setRoot('<div class="adm-center"><p style="color:#a73b21;">RLS error loading profiles: ' + esc(profilesResult.error.message) + '</p></div>');
+      return;
+    }
+    _profiles = (profilesResult.data || []);
     _checkins = (results[1].data || []);
     _tracks   = (results[2].data || []);
     _views    = (results[3].data || []);
@@ -142,22 +147,22 @@ function loadAllData() {
 
 /* ── Dashboard ──────────────────────────────────────────────── */
 function renderDashboard() {
-  // Aggregate stats
-  var nonAdminProfiles = _profiles.filter(function (p) { return !p.is_admin; });
-  var totalUsers   = nonAdminProfiles.length;
-  var guestUsers   = nonAdminProfiles.filter(function (p) { return p.is_guest; }).length;
+  // Show ALL profiles (including admin) so 0 is never shown when DB is connected
+  var totalUsers   = _profiles.length;
+  var guestUsers   = _profiles.filter(function (p) { return p.is_guest; }).length;
+  var adminCount   = _profiles.filter(function (p) { return p.is_admin; }).length;
   var totalCIs     = _checkins.length;
   var moodedCIs    = _checkins.filter(function (c) { return c.mood; });
   var avgMood      = moodedCIs.length
     ? (moodedCIs.reduce(function (s, c) { return s + (MOOD_SCORE[c.mood] || 3); }, 0) / moodedCIs.length).toFixed(1)
     : '—';
   var totalTracks  = _tracks.length;
-  var resolved     = _tracks.filter(function (t) { return t.status === 'resolved'; }).length;
-  var resRate      = totalTracks ? Math.round(resolved / totalTracks * 100) : 0;
+  var resolvedCnt  = _tracks.filter(function (t) { return t.status === 'resolved'; }).length;
+  var resRate      = totalTracks ? Math.round(resolvedCnt / totalTracks * 100) : 0;
 
   var html =
     '<div class="adm-main">' +
-    summaryHtml(totalUsers, guestUsers, totalCIs, avgMood, resRate) +
+    summaryHtml(totalUsers, guestUsers, adminCount, totalCIs, avgMood, resRate, resolvedCnt) +
     '<div class="adm-tabs">' +
       tabBtn('users',    'group',       'Users')    +
       tabBtn('symptoms', 'favorite',    'Symptoms') +
@@ -170,17 +175,20 @@ function renderDashboard() {
   showTab(_activeTab);
 }
 
-function summaryHtml(users, guests, cis, avgMood, resRate) {
-  var registered = users - guests;
+function summaryHtml(users, guests, admins, cis, avgMood, resRate, resolvedCnt) {
+  var regular = users - guests - admins;
+  var sub = [
+    regular > 0 ? regular + ' registered' : null,
+    guests  > 0 ? guests  + ' guest'      : null,
+    admins  > 0 ? admins  + ' admin'      : null,
+  ].filter(Boolean).join(' · ') || 'no users yet';
   return '<div class="adm-summary">' +
-    statCard(users,       'Total users',    registered + ' registered · ' + guests + ' guest') +
-    statCard(cis,         'Check-ins',      'total logged') +
-    statCard(avgMood + ' / 5', 'Avg mood', 'across all check-ins') +
-    statCard(resRate + '%',    'Resolution rate', resolved + ' of ' + _tracks.length + ' issues cleared') +
+    statCard(users,            'Total accounts',    sub) +
+    statCard(cis,              'Check-ins',         'total logged') +
+    statCard(avgMood + ' / 5', 'Avg mood',          'across all check-ins') +
+    statCard(resRate + '%',    'Resolution rate',   resolvedCnt + ' of ' + _tracks.length + ' issues cleared') +
   '</div>';
 }
-
-var resolved = 0; // will be set in renderDashboard
 
 function statCard(val, label, sub) {
   return '<div class="adm-stat-card"><div class="adm-stat-val">' + val + '</div><div class="adm-stat-label">' + esc(label) + '</div><div class="adm-stat-sub">' + esc(sub) + '</div></div>';
@@ -212,8 +220,6 @@ function showTab(tab) {
 
 /* ── Users tab ───────────────────────────────────────────────── */
 function renderUsersTab() {
-  var nonAdmins = _profiles.filter(function (p) { return !p.is_admin; });
-
   return '<div>' +
     '<div class="adm-search-wrap">' +
       '<span class="material-symbols-outlined adm-search-icon">search</span>' +
@@ -223,14 +229,14 @@ function renderUsersTab() {
       '<thead><tr>' +
         '<th>User</th><th>Day</th><th>Last check-in</th><th>Check-ins</th><th>Avg mood</th><th>Streak</th><th>Top symptom</th>' +
       '</tr></thead>' +
-      '<tbody id="adm-users-body">' + renderUserRows(nonAdmins, _search) + '</tbody>' +
+      '<tbody id="adm-users-body">' + renderUserRows(_profiles, _search) + '</tbody>' +
     '</table></div></div>';
 }
 
 function filterUsers(q) {
   _search = q.toLowerCase();
   var tbody = document.getElementById('adm-users-body');
-  if (tbody) tbody.innerHTML = renderUserRows(_profiles.filter(function (p) { return !p.is_admin; }), _search);
+  if (tbody) tbody.innerHTML = renderUserRows(_profiles, _search);
 }
 
 function renderUserRows(profiles, q) {
@@ -250,8 +256,11 @@ function renderUserRows(profiles, q) {
     var initial = (p.mom_name||'M')[0].toUpperCase();
     var isRose  = (p.delivery_type === 'csection');
 
-    var subLabel = p.is_guest
-      ? '<span class="adm-pill adm-pill-grey" style="font-size:.625rem;">Guest</span>'
+    var badges = [];
+    if (p.is_admin) badges.push('<span class="adm-pill adm-pill-green" style="font-size:.625rem;">Admin</span>');
+    if (p.is_guest) badges.push('<span class="adm-pill adm-pill-grey"  style="font-size:.625rem;">Guest</span>');
+    var subLabel = badges.length
+      ? badges.join(' ')
       : '<span style="color:#797c76;">' + esc(p.email||'') + '</span>';
 
     return '<tr class="clickable" onclick="showUserDetail(\'' + p.id + '\')">' +
@@ -395,7 +404,8 @@ function showUserDetail(uid) {
       '<div style="flex:1;">' +
         '<div class="adm-user-hero-name">' + esc(profile.mom_name||'Unknown') + '</div>' +
         '<div class="adm-user-hero-meta">' +
-          (profile.is_guest ? '<span class="adm-pill adm-pill-grey" style="margin-right:.375rem;">Guest</span>' : esc(profile.email||'') + ' · ') +
+          (profile.is_admin ? '<span class="adm-pill adm-pill-green" style="margin-right:.375rem;">Admin</span>' : '') +
+          (profile.is_guest ? '<span class="adm-pill adm-pill-grey"  style="margin-right:.375rem;">Guest</span>' : (!profile.is_admin ? esc(profile.email||'') + ' · ' : '')) +
           esc(profile.delivery_type==='csection'?'C-section':'Normal delivery') + ' · ' + (day?'Day '+day:'Day ?') +
         '</div>' +
         '<div class="adm-detail-chips">' +
