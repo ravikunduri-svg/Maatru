@@ -387,6 +387,16 @@ function obFinish() {
   if (obData.partnerName && obData.partnerName.trim()) DB.set('navya_partner_name', obData.partnerName.trim());
   if (obData.pin && obData.pin.join('').length === 4)  DB.set('navya_partner_pin', obData.pin.join(''));
 
+  // Persist to Supabase so onboarding is not repeated on next login
+  if (window.SB && SB.isReady() && _currentUserId) {
+    SB.saveProfile(_currentUserId, {
+      mom_name:      (obData.name || 'Mama').trim(),
+      birth_date:    obData.birthDate || getTodayISO(),
+      delivery_type: obData.deliveryType || 'vaginal',
+      partner_name:  (obData.partnerName || 'Partner').trim(),
+    });
+  }
+
   var finishNav = function() {
     DB.set('navya_onboarded', true);
     navigate('#home');
