@@ -1753,9 +1753,26 @@ function onLoggedIn(user, isGuest) {
   );
   SB.syncDown(user.id).then(function () {
     SB.loadProfile(user.id).then(function (profile) {
+      var localBirthDate = DB.get('navya_birth_date');
+      var localOnboarded = DB.get('navya_onboarded');
+
       if (!profile || !profile.birth_date) {
-        localStorage.removeItem('navya_onboarded');
+        if (localOnboarded && localBirthDate) {
+          // User completed onboarding offline / before Supabase save was wired up.
+          // Push their local profile up so this never repeats.
+          SB.saveProfile(user.id, {
+            mom_name:      DB.get('navya_mom_name', 'Mama'),
+            birth_date:    localBirthDate,
+            delivery_type: DB.get('navya_delivery_type', 'vaginal'),
+            partner_name:  DB.get('navya_partner_name', 'Partner'),
+          }).catch(function(){});
+          // Leave navya_onboarded intact — they are already onboarded
+        } else {
+          // Genuinely new account — clear flag so onboarding runs
+          localStorage.removeItem('navya_onboarded');
+        }
       }
+
       var profilePatch = {};
       if (user.email) profilePatch.email = user.email;
       if (isGuest)    profilePatch.is_guest = true;
