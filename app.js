@@ -62,6 +62,7 @@ let voiceRec        = null;
 let notifMgr        = null;
 let _currentUserId  = null;   // set on Supabase login
 let _authMode       = 'login'; // 'login' | 'signup'
+let _intendedHash   = null;    // deep-link hash captured before async auth runs
 
 /* ─────────────────────────────────────────────────────────────
    3. localStorage helpers (DB)
@@ -1923,6 +1924,12 @@ function buildWordCloud(checkins) {
 document.addEventListener('DOMContentLoaded', function () {
   notifMgr = new NotifManager();
 
+  // Capture intended deep-link hash before auth redirects can clobber it
+  var h = location.hash;
+  if (h && h !== '#' && h !== '#home' && !/^#access_token|^#type=|^#error/.test(h)) {
+    _intendedHash = h;
+  }
+
   // Preload JSON data in background immediately
   if (!allCards.length) {
     fetch('./bf_symptom_cards.json').then(function(r){return r.json();}).then(function(d){allCards=d;}).catch(function(){});
@@ -1969,5 +1976,7 @@ function initApp() {
   if (nav) nav.style.display = '';
   currentDay = getCurrentDay();
   notifMgr.restoreFromPrefs(DB.getNotifPrefs());
-  route(location.hash || '#home');
+  var target = _intendedHash || location.hash || '#home';
+  _intendedHash = null;
+  route(target);
 }
