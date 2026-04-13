@@ -183,8 +183,15 @@ const DB = {
    4. ROUTER  (hash-based)
    ──────────────────────────────────────────────────────────── */
 
+var _navFlag = false;
 function navigate(hash) {
-  location.hash = hash;
+  if (location.hash === hash) {
+    route(hash);
+  } else {
+    _navFlag = true;
+    location.hash = hash;
+    route(hash);
+  }
 }
 
 function route(hash) {
@@ -225,7 +232,10 @@ function route(hash) {
   }
 }
 
-window.addEventListener('hashchange', function() { route(location.hash); });
+window.addEventListener('hashchange', function() {
+  if (_navFlag) { _navFlag = false; return; }
+  route(location.hash);
+});
 
 function setNavActive(base) {
   document.querySelectorAll('.nb-btn').forEach(function(b) { b.classList.remove('active'); });

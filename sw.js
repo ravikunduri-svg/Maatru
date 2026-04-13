@@ -9,7 +9,7 @@
    • Background sync is not implemented — out of scope.
    ============================================================ */
 
-const CACHE_NAME = 'navya-v4';
+const CACHE_NAME = 'navya-v5';
 
 const APP_SHELL = [
   './',
