@@ -291,6 +291,7 @@ a, button {
 
 /* Individual symptom card */
 .symptom-card {
+  display: block;
   width: 100%;
   text-align: left;
   background-color: var(--surface-container-lowest);
@@ -300,6 +301,8 @@ a, button {
   cursor: pointer;
   box-shadow: var(--shadow-card);
   transition: background-color 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+  color: inherit;
   /* DESIGN.md "No-Line Rule" – no border */
 }
 

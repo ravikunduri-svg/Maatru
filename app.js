@@ -865,9 +865,9 @@ function showSymptomList() {
     var cardsHtml = cards.map(function(card) {
       var pillCls = card.severity === 'red'
         ? 'pill" style="background:var(--error-container);color:var(--error);"'
-        : card.severity === 'green' ? 'pill pill-green"' : 'pill pill-yellow"';
+        : card.severity === 'green' ? 'pill pill-green' : 'pill pill-yellow';
       var pillLbl = card.severity === 'red' ? 'Urgent' : card.severity === 'green' ? 'Normal' : 'Attention';
-      return '<button class="symptom-card" onclick="navigate(\'#symptom/' + esc(card.slug) + '\')">' +
+      return '<a class="symptom-card" href="#symptom/' + esc(card.slug) + '">' +
         '<div class="symptom-card__top">' +
           '<div>' +
             '<p class="symptom-card__title">' + esc(card.title_user||card.title||card.slug) + '</p>' +
@@ -875,7 +875,7 @@ function showSymptomList() {
           '<span class="' + pillCls + '">' + pillLbl + '</span>' +
         '</div>' +
         '<div class="symptom-card__action">View guide <span class="material-symbols-outlined">arrow_forward</span></div>' +
-      '</button>';
+      '</a>';
     }).join('');
     return '<div style="margin-bottom:1.5rem;">' +
       '<p style="font-size:.6875rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--primary);margin-bottom:.625rem;">' + esc(cat) + '</p>' +
