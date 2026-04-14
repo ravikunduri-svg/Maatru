@@ -1432,11 +1432,13 @@ function sendFeedback() {
   if (errEl) errEl.style.display = 'none';
   var profile = getProfile();
   SB.submitFeedback(_currentUserId || null, profile.name, _fbType, msg)
-    .then(function () {
+    .then(function (result) {
+      if (result && result.error) throw result.error;
       closeFeedbackModal();
       showToast('Thank you! Your feedback was sent.');
     })
-    .catch(function () {
+    .catch(function (err) {
+      console.error('[Navya] feedback error:', err);
       if (errEl) { errEl.textContent = 'Could not send — check your connection.'; errEl.style.display = ''; }
       if (btn) btn.disabled = false;
     });

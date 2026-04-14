@@ -1,7 +1,6 @@
 -- ============================================================
 --  Navya — feedback table
---  Run once in Supabase SQL editor.
---  Requires is_admin_user() security-definer function from admin-schema.sql.
+--  Safe to re-run (drop if exists + create).
 -- ============================================================
 
 create table if not exists feedback (
@@ -15,13 +14,15 @@ create table if not exists feedback (
 
 alter table feedback enable row level security;
 
--- Any authenticated user can insert their own feedback
+-- Insert: allow both authenticated users AND anon (local-only / not signed in)
+drop policy if exists "users can insert feedback" on feedback;
 create policy "users can insert feedback"
   on feedback for insert
-  to authenticated
+  to authenticated, anon
   with check (true);
 
--- Only admin users can read (inline check — no dependency on is_admin_user())
+-- Read: admins only (inline — no dependency on is_admin_user())
+drop policy if exists "admins can read feedback" on feedback;
 create policy "admins can read feedback"
   on feedback for select
   using (
