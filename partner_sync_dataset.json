@@ -1,0 +1,442 @@
+{
+  "version": "1.0",
+  "description": "Navya Partner Sync — symptom + mood combination recommendations",
+  "moods": ["rough", "tired", "okay", "good", "great"],
+  "symptoms": [
+    "breast_engorgement",
+    "cracked_sore_nipples",
+    "baby_cluster_feeding",
+    "worried_milk_supply",
+    "tearful_emotionally_overwhelmed",
+    "hot_red_breast_fever",
+    "tender_lump_breast",
+    "baby_falling_asleep_feeding"
+  ],
+
+  "recommendations": [
+
+    {
+      "id": "rec_001",
+      "mood": "rough",
+      "symptoms": ["breast_engorgement"],
+      "severity": "high",
+      "partner_note": "She's in real physical pain today — her breasts are engorged and she's having a rough time.",
+      "partner_actions": [
+        "Bring her a warm compress or warm towel before each feed — warmth helps relieve engorgement",
+        "Make sure she has water next to her every time she sits to feed",
+        "Take the baby for 30 mins after a feed so she can rest without holding anyone",
+        "Don't ask her to do anything else today — just be present"
+      ],
+      "what_not_to_do": "Don't suggest she 'push through' or comment on her feeding frequency — it adds pressure she doesn't need.",
+      "affirmation_for_her": "Her body is doing something incredible. The pain is real and it won't last forever."
+    },
+
+    {
+      "id": "rec_002",
+      "mood": "rough",
+      "symptoms": ["tearful_emotionally_overwhelmed"],
+      "severity": "high",
+      "partner_note": "She's emotionally overwhelmed today and feeling really low. She needs your presence more than solutions.",
+      "partner_actions": [
+        "Sit with her — don't try to fix it, just be there",
+        "Say 'I see how hard you're working. You're doing an amazing job' — and mean it",
+        "Take night duty tonight so she gets one longer sleep stretch",
+        "Order her favourite food — no cooking today"
+      ],
+      "what_not_to_do": "Don't say 'you should be happy, the baby is healthy' — it dismisses what she's feeling.",
+      "affirmation_for_her": "Baby blues peak around Days 3–5. What she's feeling is real, valid, and temporary."
+    },
+
+    {
+      "id": "rec_003",
+      "mood": "rough",
+      "symptoms": ["breast_engorgement", "tearful_emotionally_overwhelmed"],
+      "severity": "high",
+      "partner_note": "She's having a really hard day — both physical pain and emotional overwhelm at the same time. She needs maximum support right now.",
+      "partner_actions": [
+        "Clear your schedule as much as possible today",
+        "Warm compress ready before every feed — don't wait for her to ask",
+        "Hold her hand or sit close — physical presence matters hugely right now",
+        "Handle all visitors, calls, and household decisions today — she shouldn't have to think",
+        "Tonight: you take the baby, she sleeps"
+      ],
+      "what_not_to_do": "Don't leave her alone for long stretches. Don't minimise either the physical pain or the emotional state.",
+      "affirmation_for_her": "Two hard things at once is genuinely exhausting. She is not weak — she is doing the hardest thing."
+    },
+
+    {
+      "id": "rec_004",
+      "mood": "rough",
+      "symptoms": ["worried_milk_supply"],
+      "severity": "high",
+      "partner_note": "She's anxious about whether she's producing enough milk — this is one of the most common postpartum fears and it's consuming her today.",
+      "partner_actions": [
+        "Reassure her: 'Supply follows demand — you're doing everything right'",
+        "Make sure she's eating enough — new moms need 500 extra calories while breastfeeding",
+        "Prepare a lactation-friendly snack: methi ladoo, warm milk with turmeric, or dal",
+        "Offer to research a lactation consultant together — not as a fix, as support",
+        "Keep her water bottle filled all day"
+      ],
+      "what_not_to_do": "Don't suggest formula as a solution unless she brings it up — it may feel like you've lost faith in her.",
+      "affirmation_for_her": "Worrying about supply is almost universal. Feed frequently and stay hydrated — her body is responding."
+    },
+
+    {
+      "id": "rec_005",
+      "mood": "rough",
+      "symptoms": ["hot_red_breast_fever"],
+      "severity": "urgent",
+      "partner_note": "⚠️ She may have mastitis — a breast infection. This needs medical attention today, not tomorrow.",
+      "partner_actions": [
+        "Call her doctor or gynaecologist right now — this is urgent",
+        "Don't wait to 'see if it gets better' — mastitis needs prompt treatment",
+        "Arrange the appointment and go with her if possible",
+        "In the meantime: keep her hydrated, help her rest, and take the baby",
+        "She can usually continue feeding — but her doctor will confirm"
+      ],
+      "what_not_to_do": "Don't delay. Don't suggest home remedies as a substitute for medical care today.",
+      "affirmation_for_her": "This is not her fault. Mastitis is common and very treatable — getting help quickly is the right move."
+    },
+
+    {
+      "id": "rec_006",
+      "mood": "tired",
+      "symptoms": ["baby_cluster_feeding"],
+      "severity": "medium",
+      "partner_note": "The baby is cluster feeding — feeding constantly for hours. She's exhausted and likely doubting herself. This is completely normal but brutal.",
+      "partner_actions": [
+        "Tell her: 'Cluster feeding means your supply is building — you're doing it right'",
+        "Set up a comfortable feeding station — pillow, water, snacks, phone charger",
+        "Take over everything else: food, dishes, door, other kids",
+        "When the baby finally sleeps — she sleeps first, chores can wait"
+      ],
+      "what_not_to_do": "Don't ask 'is the baby getting enough?' — it adds to her anxiety. Trust the process with her.",
+      "affirmation_for_her": "Cluster feeding is temporary and a sign her body is working. It usually peaks and passes within 24–48 hours."
+    },
+
+    {
+      "id": "rec_007",
+      "mood": "tired",
+      "symptoms": ["cracked_sore_nipples"],
+      "severity": "medium",
+      "partner_note": "She's feeding through real pain today — cracked nipples are genuinely agonising and she's tired on top of it.",
+      "partner_actions": [
+        "Get nipple cream if you don't have it — ask the pharmacist for lanolin cream",
+        "Help her check the baby's latch using a YouTube tutorial together — a better latch stops the pain",
+        "After each feed, let her rest for 10 mins before taking the baby",
+        "Warm compress before, cool compress after each feed"
+      ],
+      "what_not_to_do": "Don't suggest she 'take a break from feeding' without medical guidance — latch improvement is the real fix.",
+      "affirmation_for_her": "Feeding through this level of discomfort takes incredible dedication. If pain continues past Day 3, a latch check can fix it fast."
+    },
+
+    {
+      "id": "rec_008",
+      "mood": "tired",
+      "symptoms": ["tearful_emotionally_overwhelmed"],
+      "severity": "medium",
+      "partner_note": "She's tired and emotional today. She may not even know why she's crying — and that's okay. She just needs to feel not alone.",
+      "partner_actions": [
+        "Put your arm around her without saying anything first",
+        "Ask: 'What would feel good right now — do you want to talk or just sit together?'",
+        "Handle the night shift tonight — let her sleep 4 consecutive hours minimum",
+        "Send a voice note during the day just saying you're thinking of her"
+      ],
+      "what_not_to_do": "Don't problem-solve immediately. Don't say 'just sleep when the baby sleeps' — it's not that simple.",
+      "affirmation_for_her": "Being tired and emotional at the same time is not weakness — it's what happens when a person gives everything they have."
+    },
+
+    {
+      "id": "rec_009",
+      "mood": "tired",
+      "symptoms": ["tender_lump_breast"],
+      "severity": "medium",
+      "partner_note": "She has a tender lump in her breast — likely a blocked duct. It needs attention now before it becomes an infection.",
+      "partner_actions": [
+        "Help her apply a warm compress to the lump before feeding",
+        "Gently remind her to feed from that side first while it's most full",
+        "Look up gentle massage technique for blocked ducts and offer to help",
+        "Watch for fever — if she develops one, call the doctor immediately",
+        "Keep her hydrated and rested as much as possible"
+      ],
+      "what_not_to_do": "Don't ignore it hoping it resolves — blocked ducts can become mastitis within 24 hours.",
+      "affirmation_for_her": "Catching this early means it can usually be cleared without medication. She's doing the right thing by flagging it."
+    },
+
+    {
+      "id": "rec_010",
+      "mood": "tired",
+      "symptoms": ["baby_falling_asleep_feeding"],
+      "severity": "low",
+      "partner_note": "The baby keeps falling asleep mid-feed — she's spending hours trying to complete a feed and it's wearing her out.",
+      "partner_actions": [
+        "Sit with her during feeds so she's not alone in the frustration",
+        "Learn the 'tickle feet' trick together — gently tickle baby's feet to keep them awake",
+        "Try skin-to-skin — undress the baby down to nappy during feeds",
+        "After a feed attempt, take the baby so she can close her eyes even for 20 mins"
+      ],
+      "what_not_to_do": "Don't express frustration about feeding taking long — she's already frustrated enough for both of you.",
+      "affirmation_for_her": "Sleepy feeders are common in newborns, especially in the first 2 weeks. It gets better as the baby gets stronger."
+    },
+
+    {
+      "id": "rec_011",
+      "mood": "okay",
+      "symptoms": ["breast_engorgement"],
+      "severity": "medium",
+      "partner_note": "She's managing okay today but dealing with engorgement — she could use a little extra care without being fussed over.",
+      "partner_actions": [
+        "Quietly make sure there's a warm compress ready for her",
+        "Keep her water bottle topped up throughout the day",
+        "Offer to take the baby after feeds so she can decompress",
+        "Ask once: 'Is there anything that would make today easier?' — then actually do it"
+      ],
+      "what_not_to_do": "Don't hover — she's okay and just needs small practical support, not constant check-ins.",
+      "affirmation_for_her": "Engorgement usually peaks Day 3–5 and eases as feeding regulates. She's through the hardest part."
+    },
+
+    {
+      "id": "rec_012",
+      "mood": "okay",
+      "symptoms": ["worried_milk_supply"],
+      "severity": "medium",
+      "partner_note": "She's doing okay today but has an undercurrent of anxiety about milk supply. A little reassurance from you goes a long way.",
+      "partner_actions": [
+        "Make her a warm meal — dal, methi sabzi, or anything with fenugreek",
+        "Tell her you've noticed how hard she's working and you're proud of her",
+        "Ensure she drinks at least 2.5–3L of water today — offer it proactively",
+        "If she wants to talk about it, listen without jumping to solutions"
+      ],
+      "what_not_to_do": "Don't say 'you're probably overthinking it' — her anxiety is real even if the supply is fine.",
+      "affirmation_for_her": "Milk supply anxiety is almost universal in new moms. Frequent feeding and good hydration are the two most evidence-backed solutions."
+    },
+
+    {
+      "id": "rec_013",
+      "mood": "okay",
+      "symptoms": ["baby_cluster_feeding"],
+      "severity": "low",
+      "partner_note": "She's handling cluster feeding okay today — just make sure she doesn't run on empty.",
+      "partner_actions": [
+        "Keep snacks and water within arm's reach of her feeding spot",
+        "Handle dinner tonight — don't ask what she wants, just make something nourishing",
+        "Give her a genuine compliment on how she's handling it",
+        "Offer a 1-hour baby handover so she can shower and breathe"
+      ],
+      "what_not_to_do": "Don't make cluster feeding a bigger deal than she is — match her energy, don't escalate.",
+      "affirmation_for_her": "Getting through cluster feeding days with this kind of resilience is genuinely impressive."
+    },
+
+    {
+      "id": "rec_014",
+      "mood": "good",
+      "symptoms": ["cracked_sore_nipples"],
+      "severity": "low",
+      "partner_note": "She's in good spirits today despite some physical discomfort — support her without making it a big deal.",
+      "partner_actions": [
+        "Pick up nipple cream on your way home if she doesn't have it",
+        "Tell her she looks like she's finding her rhythm — because she is",
+        "Offer a short walk outside together — fresh air on a good day is powerful",
+        "Let her choose how to spend one hour today, completely her way"
+      ],
+      "what_not_to_do": "Don't focus on the physical symptom today — she's doing well emotionally, protect that energy.",
+      "affirmation_for_her": "A good day is a good day. The physical healing is happening even when it doesn't feel like it."
+    },
+
+    {
+      "id": "rec_015",
+      "mood": "good",
+      "symptoms": ["baby_falling_asleep_feeding"],
+      "severity": "low",
+      "partner_note": "She's doing well today — just dealing with a sleepy feeder. Keep the good energy going.",
+      "partner_actions": [
+        "Celebrate her good day — say it out loud",
+        "Learn the tickle-feet trick together and make it a team thing",
+        "Suggest a short outing or something she enjoys — she's earned it",
+        "Take a photo of her with the baby today — she'll want this memory"
+      ],
+      "what_not_to_do": "Nothing major — just don't let a good day go unacknowledged.",
+      "affirmation_for_her": "Good days are momentum. She's building something real."
+    },
+
+    {
+      "id": "rec_016",
+      "mood": "good",
+      "symptoms": [],
+      "severity": "none",
+      "partner_note": "She's having a genuinely good day with no symptoms flagged. This is the moment to connect, not just support.",
+      "partner_actions": [
+        "Tell her you've noticed she's doing well and you're proud of her",
+        "Plan something small she'd enjoy — even just her favourite dessert",
+        "Ask about something non-baby: her interests, her friends, her feelings about the future",
+        "Take a proper family photo today — document the good days"
+      ],
+      "what_not_to_do": "Don't treat a good day as an opportunity to catch up on your own to-do list and disappear.",
+      "affirmation_for_her": "She deserves to enjoy the good days fully. Help her do that."
+    },
+
+    {
+      "id": "rec_017",
+      "mood": "great",
+      "symptoms": [],
+      "severity": "none",
+      "partner_note": "She's feeling great today — celebrate this together. These moments matter.",
+      "partner_actions": [
+        "Make a big deal of it — she worked hard to get to a great day",
+        "Do something together as a family, even just a short walk",
+        "Ask her what made today feel good — and remember it for harder days",
+        "Give her uninterrupted time to call a friend or do something just for herself"
+      ],
+      "what_not_to_do": "Don't use her great day to bring up logistics, finances, or chores — protect the energy.",
+      "affirmation_for_her": "She's getting there. Great days become more frequent. This is what recovery looks like."
+    },
+
+    {
+      "id": "rec_018",
+      "mood": "great",
+      "symptoms": ["baby_cluster_feeding"],
+      "severity": "low",
+      "partner_note": "She's in great spirits even through a tough cluster feeding stretch — she's found her footing. Celebrate that.",
+      "partner_actions": [
+        "Tell her you're in awe of how she's handling everything",
+        "Set up her feeding spot extra nicely today — her favourite show, snacks, comfort",
+        "Take a video of her with the baby — she's in a good place and won't always remember it",
+        "Plan something for her to look forward to this week"
+      ],
+      "what_not_to_do": "Nothing to fix today — just amplify the good.",
+      "affirmation_for_her": "Handling hard things with a smile is a superpower. She has it."
+    },
+
+    {
+      "id": "rec_019",
+      "mood": "rough",
+      "symptoms": ["cracked_sore_nipples", "tearful_emotionally_overwhelmed"],
+      "severity": "high",
+      "partner_note": "She's in pain and she's emotional — a really hard combination. She needs you to step up fully today.",
+      "partner_actions": [
+        "Drop everything non-essential today",
+        "Get lanolin nipple cream immediately if you don't have it",
+        "Sit with her during feeds — don't leave her alone with the pain",
+        "Cook or order her absolute favourite food",
+        "Tonight: full night duty, no exceptions"
+      ],
+      "what_not_to_do": "Don't try to silver-line it. Don't say 'it'll get better' without first saying 'I see how hard this is right now.'",
+      "affirmation_for_her": "Two hard things at once takes twice the strength. She has it — and she doesn't have to do it alone today."
+    },
+
+    {
+      "id": "rec_020",
+      "mood": "tired",
+      "symptoms": ["breast_engorgement", "worried_milk_supply"],
+      "severity": "high",
+      "partner_note": "She's exhausted, engorged, and worried about supply — a physically and mentally draining combination. Maximum practical support today.",
+      "partner_actions": [
+        "Warm compress before every single feed — make it your job today",
+        "Prepare lactation-supporting meals: methi dal, warm milk, oats",
+        "Reassure her with facts: 'Engorgement actually means your supply is strong'",
+        "Handle every non-feeding responsibility so she can focus on rest and feeding",
+        "Don't mention formula unless she does — it will feel like giving up to her"
+      ],
+      "what_not_to_do": "Don't let her go more than 2 hours without water or food today.",
+      "affirmation_for_her": "Engorgement and supply anxiety often peak at the same time — and then resolve together. She's at the hardest point."
+    },
+
+    {
+      "id": "rec_021",
+      "mood": "okay",
+      "symptoms": ["tender_lump_breast"],
+      "severity": "medium",
+      "partner_note": "She's okay but has a blocked duct that needs attention before it gets worse. Help her stay on top of it today.",
+      "partner_actions": [
+        "Warm compress on the lump before each feed — set a reminder if needed",
+        "Look up the gentle massage technique for blocked ducts together",
+        "Monitor for fever — if she develops one, call the doctor same day",
+        "Keep her hydrated and make sure she's not skipping meals"
+      ],
+      "what_not_to_do": "Don't wait and see with a blocked duct — early action prevents mastitis.",
+      "affirmation_for_her": "She caught it early. With warm compress and frequent feeding, most blocked ducts clear within 24–48 hours."
+    },
+
+    {
+      "id": "rec_022",
+      "mood": "rough",
+      "symptoms": ["hot_red_breast_fever", "tearful_emotionally_overwhelmed"],
+      "severity": "urgent",
+      "partner_note": "⚠️ URGENT — possible mastitis AND emotional crisis. She needs medical help and emotional support simultaneously. This is a critical day.",
+      "partner_actions": [
+        "Call the doctor RIGHT NOW — don't delay",
+        "Stay with her — don't leave her alone today",
+        "Hold her hand, be physically present, say 'we're handling this together'",
+        "Take full charge of the baby so she can focus on getting well",
+        "After the doctor: favourite food, rest, no responsibilities"
+      ],
+      "what_not_to_do": "Do not minimise either issue. Do not leave her to manage the doctor's appointment alone.",
+      "affirmation_for_her": "Getting help today is the strongest thing she can do. She is not failing — she is fighting for herself and her baby."
+    },
+
+    {
+      "id": "rec_023",
+      "mood": "tired",
+      "symptoms": [],
+      "severity": "low",
+      "partner_note": "No specific symptoms today — just tired. The invisible exhaustion of new motherhood is real even without a flagged symptom.",
+      "partner_actions": [
+        "Let her sleep in tomorrow — take the first morning feed",
+        "Don't wait for her to ask for help — anticipate and act",
+        "Make dinner, tidy up, and let her sit down without a task list",
+        "A simple 'you're doing an amazing job' before bed goes a long way"
+      ],
+      "what_not_to_do": "Don't compare her tiredness to yours. Postpartum exhaustion is physiologically different.",
+      "affirmation_for_her": "Rest is recovery. She's allowed to be tired — and she deserves support even on the ordinary days."
+    },
+
+    {
+      "id": "rec_024",
+      "mood": "rough",
+      "symptoms": [],
+      "severity": "medium",
+      "partner_note": "She's having a rough day with no specific physical symptom — this is often harder to explain, which makes it lonelier. Just be there.",
+      "partner_actions": [
+        "Ask 'How are YOU — not the baby, you' and actually wait for the answer",
+        "Don't try to diagnose or fix it — just listen",
+        "Take the baby for at least 2 hours today so she has space",
+        "If she wants to talk, listen. If she wants silence, sit with her in it",
+        "Check in again in the evening — one check-in isn't enough on a rough day"
+      ],
+      "what_not_to_do": "Don't say 'but everything is fine' — that's not what she needs to hear right now.",
+      "affirmation_for_her": "Some days are just hard without a reason. That is allowed. She doesn't have to explain or justify it."
+    }
+
+  ],
+
+  "fallback_recommendation": {
+    "partner_note": "She checked in today — that means she's taking care of herself, which takes courage.",
+    "partner_actions": [
+      "Ask her how she's really doing today",
+      "Make sure she's eaten a proper meal",
+      "Take the baby for at least 30 minutes so she can breathe",
+      "Tell her you see how hard she's working"
+    ],
+    "what_not_to_do": "Don't assume she's fine just because she hasn't said otherwise.",
+    "affirmation_for_her": "Showing up every day is enough. She is enough."
+  },
+
+  "symptom_labels": {
+    "breast_engorgement": "Breast engorgement",
+    "cracked_sore_nipples": "Cracked / sore nipples",
+    "baby_cluster_feeding": "Baby cluster feeding",
+    "worried_milk_supply": "Worried about milk supply",
+    "tearful_emotionally_overwhelmed": "Tearful / emotionally overwhelmed",
+    "hot_red_breast_fever": "Hot, red breast with fever",
+    "tender_lump_breast": "Tender lump in breast",
+    "baby_falling_asleep_feeding": "Baby falling asleep while feeding"
+  },
+
+  "mood_labels": {
+    "rough": "Rough 😣",
+    "tired": "Tired 😴",
+    "okay": "Okay 🙂",
+    "good": "Good 😊",
+    "great": "Great 🌟"
+  }
+}

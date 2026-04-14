@@ -97,6 +97,75 @@ var pCurrentScreen = 'pin';
 // Populated when partner opens shareable ?token= link via Supabase
 var pRemoteProfile  = null;   // { id, mom_name, birth_date, delivery_type, partner_name }
 var pRemoteCheckins = [];     // array of checkin rows from Supabase
+var pSyncData       = null;   // partner_sync_dataset.json
+
+/* ─── PARTNER SYNC DATASET ──────────────────────────────────── */
+
+// Maps app check-in slugs → dataset symptom keys
+var SLUG_TO_DS = {
+  'engorgement':                       'breast_engorgement',
+  'cracked-nipples':                   'cracked_sore_nipples',
+  'cluster-feeding':                   'baby_cluster_feeding',
+  'low-milk-supply-concern':           'worried_milk_supply',
+  'emotional-overwhelm-breastfeeding': 'tearful_emotionally_overwhelmed',
+  'mastitis-symptoms':                 'hot_red_breast_fever',
+  'blocked-duct':                      'tender_lump_breast',
+  'sleepy-baby-at-breast':             'baby_falling_asleep_feeding',
+};
+
+function pLoadSyncData(cb) {
+  if (pSyncData) { cb(); return; }
+  fetch('./partner_sync_dataset.json')
+    .then(function(r) { return r.json(); })
+    .then(function(d) { pSyncData = d; cb(); })
+    .catch(function()  { cb(); });
+}
+
+function pMatchRec(mood, slugs) {
+  if (!pSyncData) return null;
+  var dsSyms = slugs.map(function(s) { return SLUG_TO_DS[s] || null; }).filter(Boolean);
+  var pool   = pSyncData.recommendations.filter(function(r) { return r.mood === mood; });
+
+  // Urgent match — any overlap with today's symptoms wins immediately
+  var urgent = pool.find(function(r) {
+    return r.severity === 'urgent' && r.symptoms.some(function(s) { return dsSyms.indexOf(s) > -1; });
+  });
+  if (urgent) return urgent;
+
+  // Best subset match — all of rec.symptoms must be present in today's, pick most specific
+  var best = null, bestScore = -1;
+  pool.forEach(function(r) {
+    var reqd = r.symptoms || [];
+    if (reqd.length === 0 && dsSyms.length === 0) {
+      if (bestScore < 0) { best = r; bestScore = 0; }
+    } else if (reqd.length > 0) {
+      var allPresent = reqd.every(function(s) { return dsSyms.indexOf(s) > -1; });
+      if (allPresent && reqd.length > bestScore) { best = r; bestScore = reqd.length; }
+    }
+  });
+
+  if (!best) best = pool.find(function(r) { return (r.symptoms || []).length === 0; }) || null;
+  return best || (pSyncData.fallback_recommendation || null);
+}
+
+function pBuildRecCard(rec) {
+  var urgent  = rec.severity === 'urgent';
+  var actions = (rec.partner_actions || []).map(function(a) {
+    return '<li class="prec-action"><span class="material-symbols-outlined">check_circle</span>' + pEsc(a) + '</li>';
+  }).join('');
+  return '<div class="prec-card' + (urgent ? ' prec-urgent' : '') + '">' +
+    (urgent ? '<div class="prec-urgent-banner"><span class="material-symbols-outlined">warning</span>Medical attention needed today</div>' : '') +
+    '<p class="prec-label">How to support her today</p>' +
+    '<p class="prec-note">' + pEsc(rec.partner_note) + '</p>' +
+    '<ul class="prec-actions">' + actions + '</ul>' +
+    (rec.what_not_to_do
+      ? '<div class="prec-avoid"><span class="material-symbols-outlined">do_not_disturb_on</span><p>' + pEsc(rec.what_not_to_do) + '</p></div>'
+      : '') +
+    (rec.affirmation_for_her
+      ? '<div class="prec-affirm"><span class="material-symbols-outlined">favorite</span><p>' + pEsc(rec.affirmation_for_her) + '</p></div>'
+      : '') +
+  '</div>';
+}
 
 var MOODS = [
   { key: 'rough', emoji: '😔', label: 'Rough' },
@@ -260,6 +329,10 @@ function pVerifyPIN() {
 /* ─── SCREEN: TODAY'S SUMMARY ───────────────────────────────── */
 
 function pShowToday() {
+  pLoadSyncData(function() { pRenderToday(); });
+}
+
+function pRenderToday() {
   var profile  = PDB.getProfile();
   var today    = pGetTodayISO();
   var day      = pGetCurrentDay(profile.birthDate);
@@ -299,6 +372,22 @@ function pShowToday() {
     ? '<div style="background:rgba(253,121,90,.07);border-left:3px solid var(--error);border-radius:.75rem;padding:.875rem;margin-bottom:1.125rem;display:flex;gap:.5rem;"><span class="material-symbols-outlined" style="color:var(--error);flex-shrink:0;">warning</span><p style="font-size:.875rem;color:var(--on-surface);line-height:1.5;">She\'s noted a symptom that may need medical attention. Check in with her today.</p></div>'
     : '';
 
+  // Recommendation card — only when check-in exists
+  var rec    = checkin ? pMatchRec(checkin.mood, checkin.symptoms || []) : null;
+  var recHtml = rec ? pBuildRecCard(rec) : '';
+
+  // Last check-in anchor when mom hasn't checked in today
+  var allCheckins   = PDB.getAllCheckins();
+  var lastCheckin   = allCheckins.find(function(c) { return c.date !== today; });
+  var noCheckinHtml = !checkin
+    ? '<p class="psc-no-data">No check-in logged yet today.' +
+        (lastCheckin
+          ? ' Last: Day ' + lastCheckin.day + ' (' + lastCheckin.date + ')' +
+            (lastCheckin.mood ? ' · ' + (MOODS.find(function(m) { return m.key === lastCheckin.mood; }) || {emoji:''}).emoji : '')
+          : '') +
+      '</p>'
+    : '';
+
   var partnerNoteHtml = pNote && pNote.note
     ? '<div class="partner-summary-card" style="border:1.5px solid var(--secondary-container);">' +
         '<p class="psc-label">Your note today</p>' +
@@ -315,14 +404,15 @@ function pShowToday() {
     alertBanner +
 
     '<div class="partner-summary-card">' +
-      '<p class="psc-label">Today</p>' +
-      '<div class="psc-day">' + day + '<span style="font-size:.875rem;font-weight:400;color:var(--on-surface-var);"> / 40</span></div>' +
+      '<p class="psc-label">Today — Day ' + day + ' of 40</p>' +
       '<div class="psc-name">' + pEsc(profile.momName) + '</div>' +
       (checkin
         ? (mood ? '<div class="psc-mood">' + mood.emoji + ' Mood: ' + pEsc(mood.label) + '</div>' : '') +
           sympHtml + noteHtml + voiceHtml
-        : '<p class="psc-no-data">No check-in logged yet today.</p>') +
+        : noCheckinHtml) +
     '</div>' +
+
+    recHtml +
 
     partnerNoteHtml +
 
