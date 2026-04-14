@@ -1954,8 +1954,16 @@ function authLogout() {
   if (window.SB && SB.isReady()) SB.signOut();
   if (window.PH) PH.reset();
   _currentUserId = null;
-  localStorage.removeItem('navya_user_id');
-  localStorage.removeItem('navya_skip_login');
+
+  // Clear ALL navya_* keys — profile, checkins, tracks, prefs, onboarded flag.
+  // Without this a second user on the same device sees the previous user's data.
+  var toRemove = [];
+  for (var i = 0; i < localStorage.length; i++) {
+    var k = localStorage.key(i);
+    if (k && k.startsWith('navya_')) toRemove.push(k);
+  }
+  toRemove.forEach(function (k) { localStorage.removeItem(k); });
+
   var nav = document.querySelector('.nav-bottom');
   if (nav) nav.style.display = 'none';
   showLogin();
