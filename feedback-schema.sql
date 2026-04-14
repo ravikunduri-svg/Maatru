@@ -21,7 +21,12 @@ create policy "users can insert feedback"
   to authenticated
   with check (true);
 
--- Only admin users can read
+-- Only admin users can read (inline check — no dependency on is_admin_user())
 create policy "admins can read feedback"
   on feedback for select
-  using (is_admin_user());
+  using (
+    coalesce(
+      (select is_admin from public.profiles where id = auth.uid()),
+      false
+    )
+  );
