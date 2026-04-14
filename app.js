@@ -1486,7 +1486,7 @@ function sendFeedback() {
   }
   if (btn) btn.disabled = true;
   if (errEl) errEl.style.display = 'none';
-  var profile = getProfile();
+  var profile = DB.getProfile();
   SB.submitFeedback(_currentUserId || null, profile.name, _fbType, msg)
     .then(function (result) {
       if (result && result.error) throw result.error;
