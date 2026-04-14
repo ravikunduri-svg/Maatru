@@ -419,6 +419,17 @@ function obNext() {
     if (el) el.focus();
     return;
   }
+  if (obStep === 4) {
+    var hasName = obData.partnerName && obData.partnerName.trim();
+    var hasPin  = obData.pin && obData.pin.join('').length === 4;
+    if (hasName && !hasPin) {
+      var el = document.getElementById('pin-0');
+      if (el) el.focus();
+      var hint = document.querySelector('.ob-pin-row');
+      if (hint) hint.insertAdjacentHTML('afterend', '<p style="color:var(--error);font-size:.8125rem;font-weight:600;margin-top:.25rem;" id="ob-pin-hint">Enter a 4-digit PIN for ' + esc((obData.partnerName||'').trim()) + ', or clear the name to skip.</p>');
+      return;
+    }
+  }
   if (obStep < 5) showOnboarding(obStep + 1);
 }
 function obPrev() {
