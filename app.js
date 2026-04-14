@@ -1843,6 +1843,8 @@ function setAuthMode(mode) {
   showLogin();
 }
 
+var _pendingConfirmEmail = null;
+
 function authSubmit() {
   var emailEl = document.getElementById('auth-email');
   var pwEl    = document.getElementById('auth-pw');
@@ -1862,7 +1864,20 @@ function authSubmit() {
   var promise = _authMode === 'signup' ? SB.signUp(email, pw) : SB.signIn(email, pw);
   promise.then(function (result) {
     if (result && result.error) {
-      if (errEl) { errEl.textContent = result.error.message; errEl.style.display = ''; }
+      var msg = result.error.message || '';
+      var isUnconfirmed = msg.toLowerCase().indexOf('not confirmed') > -1 ||
+                          (result.error.code && result.error.code === 'email_not_confirmed');
+      if (isUnconfirmed) {
+        _pendingConfirmEmail = email;
+        if (errEl) {
+          errEl.innerHTML =
+            'Your email isn\'t confirmed yet. Check your inbox (and spam folder).' +
+            '<br><button onclick="authResend()" style="margin-top:.5rem;font-size:.8125rem;font-weight:700;color:var(--primary);background:none;border:none;cursor:pointer;padding:0;">Resend confirmation email</button>';
+          errEl.style.display = '';
+        }
+      } else {
+        if (errEl) { errEl.textContent = msg || 'Sign-in failed. Please try again.'; errEl.style.display = ''; }
+      }
       if (btn) btn.disabled = false;
       return;
     }
@@ -1871,13 +1886,36 @@ function authSubmit() {
       if (window.PH) PH.capture(_authMode === 'signup' ? 'signed_up' : 'signed_in', { method: 'email' });
       onLoggedIn(user);
     } else if (_authMode === 'signup') {
-      if (errEl) { errEl.textContent = 'Account created — check your email to confirm, then sign in.'; errEl.style.display = ''; }
+      _pendingConfirmEmail = email;
+      if (errEl) {
+        errEl.innerHTML =
+          'Account created — check your inbox to confirm your email, then sign in.' +
+          '<br><button onclick="authResend()" style="margin-top:.5rem;font-size:.8125rem;font-weight:700;color:var(--primary);background:none;border:none;cursor:pointer;padding:0;">Resend confirmation email</button>';
+        errEl.style.display = '';
+      }
       if (btn) btn.disabled = false;
     }
   }).catch(function (e) {
     if (errEl) { errEl.textContent = e.message || 'An error occurred. Please try again.'; errEl.style.display = ''; }
     if (btn) btn.disabled = false;
   });
+}
+
+function authResend() {
+  var email = _pendingConfirmEmail;
+  var errEl = document.getElementById('auth-error');
+  if (!email) return;
+  SB.resendConfirmation(email)
+    .then(function (result) {
+      if (result && result.error) {
+        if (errEl) { errEl.textContent = 'Could not resend: ' + result.error.message; errEl.style.display = ''; }
+      } else {
+        if (errEl) { errEl.textContent = 'Confirmation email resent — check your inbox.'; errEl.style.display = ''; }
+      }
+    })
+    .catch(function () {
+      if (errEl) { errEl.textContent = 'Could not resend. Check your connection and try again.'; errEl.style.display = ''; }
+    });
 }
 
 function skipLogin() {

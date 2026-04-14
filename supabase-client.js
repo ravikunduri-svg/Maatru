@@ -33,6 +33,10 @@
       if (!ok) return noop();
       return _cli.auth.signInAnonymously();
     },
+    resendConfirmation: function (email) {
+      if (!ok) return noop();
+      return _cli.auth.resend({ type: 'signup', email: email });
+    },
     signOut: function () {
       if (!ok) return noop();
       return _cli.auth.signOut();
