@@ -2123,6 +2123,65 @@ a, button {
   font-variation-settings: 'FILL' 1;
 }
 
+/* ─── DAILY READ CARD ────────────────────────────────────────── */
+.daily-read-card {
+  background: linear-gradient(135deg, rgba(224,214,255,.22), rgba(224,214,255,.07));
+  border: 1px solid rgba(179,157,219,.35);
+  border-radius: 1.25rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+.dr-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: 1rem 1.125rem;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.dr-left { display: flex; flex-direction: column; gap: .2rem; min-width: 0; }
+.dr-label {
+  font-size: .6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: #7c5cbf;
+  opacity: .85;
+}
+.dr-title {
+  font-family: var(--font-head);
+  font-size: .9375rem;
+  color: var(--on-surface);
+  line-height: 1.35;
+}
+.dr-chevron {
+  color: #7c5cbf;
+  font-size: 1.375rem;
+  flex-shrink: 0;
+  transition: transform .2s ease;
+}
+.dr-body {
+  padding: 0 1.125rem 1rem;
+  border-top: 1px solid rgba(179,157,219,.2);
+}
+.dr-body p {
+  font-size: .875rem;
+  color: var(--on-surface);
+  line-height: 1.7;
+  margin: .75rem 0 .5rem;
+}
+.dr-day-tag {
+  font-size: .625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #7c5cbf;
+  opacity: .7;
+  margin-top: .25rem;
+}
+
 /* ─── CHECKIN SCREEN ─────────────────────────────────────────── */
 .ci-header { background: var(--surface-white); border-radius: 1.5rem; padding: 1.25rem; box-shadow: 0 4px 16px rgba(48,51,47,.07); margin-bottom: 1.125rem; text-align: center; }
 .ci-day-big   { font-family: var(--font-head); font-size: 3.5rem; font-weight: 700; color: var(--primary); line-height: 1; }

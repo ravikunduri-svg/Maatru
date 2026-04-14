@@ -9,7 +9,7 @@
    • Background sync is not implemented — out of scope.
    ============================================================ */
 
-const CACHE_NAME = 'navya-v11';
+const CACHE_NAME = 'navya-v12';
 
 const APP_SHELL = [
   './',
@@ -21,7 +21,8 @@ const APP_SHELL = [
   './posthog-client.js',
   './bf_symptom_cards.json',
   './meal_plan.json',
-  './partner_sync_dataset.json'
+  './partner_sync_dataset.json',
+  './daily_reads.json'
 ];
 
 /* ── INSTALL ─────────────────────────────────────────────── */

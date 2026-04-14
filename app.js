@@ -101,6 +101,7 @@ const PHASES = [
 
 let allCards        = [];
 let mealPlan        = [];
+let dailyReads      = [];
 let currentDay      = 1;
 let voiceRec        = null;
 let notifMgr        = null;
@@ -497,6 +498,48 @@ function obFinish() {
    7. SCREEN — HOME
    ──────────────────────────────────────────────────────────── */
 
+var _drOpen = false;
+
+function buildDailyReadCard(day) {
+  var article = null;
+  for (var i = 0; i < dailyReads.length; i++) {
+    if (dailyReads[i].day === day) { article = dailyReads[i]; break; }
+  }
+  // Fallback: cycle through available articles if beyond day 40
+  if (!article && dailyReads.length) {
+    article = dailyReads[(day - 1) % dailyReads.length];
+  }
+  if (!article) return '';
+
+  return (
+    '<div class="daily-read-card" id="dr-card">' +
+      '<div class="dr-header" onclick="toggleDailyRead()">' +
+        '<div class="dr-left">' +
+          '<span class="dr-label">' + esc(article.category) + '</span>' +
+          '<div class="dr-title">' + esc(article.title) + '</div>' +
+        '</div>' +
+        '<span class="material-symbols-outlined dr-chevron" id="dr-chevron">expand_more</span>' +
+      '</div>' +
+      '<div class="dr-body" id="dr-body" style="display:none;">' +
+        '<p>' + esc(article.body) + '</p>' +
+        '<div class="dr-day-tag">Day ' + day + ' read</div>' +
+      '</div>' +
+    '</div>'
+  );
+}
+
+function toggleDailyRead() {
+  _drOpen = !_drOpen;
+  var body    = document.getElementById('dr-body');
+  var chevron = document.getElementById('dr-chevron');
+  if (!body) return;
+  body.style.display    = _drOpen ? 'block' : 'none';
+  if (chevron) chevron.textContent = _drOpen ? 'expand_less' : 'expand_more';
+  if (_drOpen) {
+    try { if (window.PH) PH.track('daily_read_opened', { day: currentDay }); } catch(e) {}
+  }
+}
+
 function showHome() {
   var day     = getCurrentDay();
   currentDay  = day;
@@ -588,6 +631,8 @@ function showHome() {
       '<p class="quote-text">' + esc(quote) + '</p>' +
       '<p class="quote-day">Day ' + day + ' · for you</p>' +
     '</div>' +
+
+    buildDailyReadCard(day) +
 
     '<div class="encouragement-card">' +
       '<h4>' + esc(e.h) + '</h4>' +
@@ -2217,6 +2262,9 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   if (!mealPlan.length) {
     fetch('./meal_plan.json').then(function(r){return r.json();}).then(function(d){mealPlan=d;}).catch(function(){});
+  }
+  if (!dailyReads.length) {
+    fetch('./daily_reads.json').then(function(r){return r.json();}).then(function(d){dailyReads=d;}).catch(function(){});
   }
 
   // Auth check
